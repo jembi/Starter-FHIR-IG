@@ -26,14 +26,14 @@ After about 3 - 5 minutes (maybe even longer depending on the size of your FHIR�
 Ensure that you have all prerequisites installed as documented here: __https://github.com/hapifhir/hapi-fhir-jpaserver-starter/tree/master#prerequisites__.
 <br> </br>
 <strong>Step 1</strong>: Run the following two commands from a terminal window to build a Docker image for HAPI FHIR®:
-```dockerfile
+```docker
     docker pull hapiproject/hapi:latest
     docker run -p 8080:8080 hapiproject/hapi:latest
 ```
 <strong>Step 2</strong>: Create a folder on your machine and copy the following two files to that location:
 
 ##### File 1: docker-compose.yml
-```dockerfile
+```yaml
 services:
   fhir:
     container_name: fhir
@@ -62,7 +62,7 @@ configs:
 
 ```
 ##### File 2: hapi.application.yaml
-```dockerfile
+```yaml
 spring:
   datasource:
     url: "jdbc:postgresql://db:5432/hapi"
@@ -86,11 +86,11 @@ hapi:
         version: 1.1.0
         packageUrl: https://hl7.org/fhir/uv/ips/package.r4.tgz #an example package
 ```
-### Start HAPI FHIR and Deploy a FHIR® IG:
+### Start HAPI FHIR and Deploying a FHIR® IG:
 <strong>Step 1</strong>: Launch a terminal window and point its context to the directory where you copied the two above files.
 <br> </br>
 <strong>Step 2</strong>: Execute the following command to run your HAPI FHIR® image using the configuration applied in the two files above:
-```dockerfile
+```docker
     docker compose up
 ```
 
