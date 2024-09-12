@@ -80,11 +80,11 @@ hapi:
     #ig_runtime_upload_enabled: true #Enable when using a HTTP POST Request to submit Base64 encoded data for an Implementation Guide (IG).
     enable_repository_validating_interceptor: true #Enable if you want HAPI to validate messages against the installed IG. Recommended!
     implementationguides: #Install all dependencies referenced in your IG.
-      eth_hiv_1_0_0: #A unique name that you will identify for the IG object. Recommend IgName_IGVersion
+      some_ig_1_0_0: #A unique name that you will identify for the IG object. Recommend IgName_IGVersion
         installMode: STORE_AND_INSTALL #Need this to ensure that the IG is installed
-        name: hl7.fhir.uv.ips.r4
-        version: 1.1.0
-        packageUrl: https://hl7.org/fhir/uv/ips/package.r4.tgz #an example package
+        name: some.ig.package.r4
+        version: 1.0.0
+        packageUrl: https://build.fhir.org/ig/usernameOrOrganization/gitHubRepoName/branches/master/package.r4.tgz #an example package
 ```
 ### Start HAPI FHIR and Deploying a FHIR® IG:
 <strong>Step 1</strong>: Launch a terminal window and point its context to the directory where you copied the two above files.
