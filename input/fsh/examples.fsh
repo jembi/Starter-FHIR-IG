@@ -11,7 +11,7 @@ Description: "Patient documented as married."
 Instance: PatientExample2
 InstanceOf: TestPatient
 Usage: #example
-Title: "Patient - Marital Status Not Captured"
+Title: "Patient - Marital Status Not Captured (Example 1)"
 Description: "Patient marital status not documented."
 * name[+].given[+] = "John"
 * name[=].given[+] = "Doe"
@@ -19,7 +19,7 @@ Description: "Patient marital status not documented."
 Instance: PatientExample3
 InstanceOf: TestPatient
 Usage: #example
-Title: "Patient - Marital Status Not Captured"
+Title: "Patient - Marital Status Not Captured (Example 2)"
 Description: "
     Patient marital status not documented but includes a Mother relationship.
     
