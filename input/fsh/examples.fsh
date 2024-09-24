@@ -33,7 +33,7 @@ Description: "
 Instance: MotherRelatedPersonExample1
 InstanceOf: TestPatientRelation
 Usage: #example
-Title: "Related Person - Mother"
+Title: "Related Person - Mother Relationship (Example1)"
 Description: "Marital status documented using a HL7 code."
 
 * name[+].given[+] = "Jane"
@@ -46,7 +46,7 @@ Description: "Marital status documented using a HL7 code."
 Instance: MotherRelatedPerson2
 InstanceOf: TestPatientRelation
 Usage: #example
-Title: "Related Person - Mother"
+Title: "Related Person - Mother Relationship (Example2)"
 Description: "Marital status documented using a proprietary code."
 
 * name[+].given[+] = "Jane"
