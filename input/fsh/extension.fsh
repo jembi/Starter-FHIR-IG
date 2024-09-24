@@ -27,6 +27,8 @@ Description: "
 * ^status = #draft
 * . SU // to ensure that both extensions are included in GET requests.
 * extension contains MaritalStatusExtension named MaritalStatus 1..1
+* extension[MaritalStatus] obeys Extension-MaritalStatusAndEffectiveDateExtension-1
+
 * extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson"
@@ -42,7 +44,16 @@ Description: "
 * ^experimental = true
 * ^status = #draft
 * value[x] only CodeableConcept
+
 * valueCodeableConcept from http://hl7.org/fhir/ValueSet/marital-status (extensible)
 * valueCodeableConcept 1..1
+* valueCodeableConcept ^binding.extension[+].extension[+].url = "purpose"
+* valueCodeableConcept ^binding.extension[=].extension[=].valueCode = #required
+* valueCodeableConcept ^binding.extension[=].extension[+].url = "valueSet"
+* valueCodeableConcept ^binding.extension[=].extension[=].valueCanonical = "http://example.com/fhir/ValueSet/vs-marital-status"
+* valueCodeableConcept ^binding.extension[=].extension[+].url = "documentation"
+* valueCodeableConcept ^binding.extension[=].extension[=].valueMarkdown = "A demonstrable list of codes for marital status."
+* valueCodeableConcept ^binding.extension[=].url = "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
+
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
