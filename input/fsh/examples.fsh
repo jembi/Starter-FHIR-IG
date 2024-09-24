@@ -34,10 +34,7 @@ Instance: MotherRelatedPersonExample1
 InstanceOf: TestPatientRelation
 Usage: #example
 Title: "Related Person - Mother"
-Description: "
-    Patient marital status not documented but includes a Mother relationship.
-    
-    Note: Marital status uses a HL7 code."
+Description: "Marital status documented using a HL7 code."
 
 * name[+].given[+] = "Jane"
 * name[=].given[+] = "Smith"
@@ -50,10 +47,7 @@ Instance: MotherRelatedPerson2
 InstanceOf: TestPatientRelation
 Usage: #example
 Title: "Related Person - Mother"
-Description: "
-    Patient marital status not documented but includes a Mother relationship.
-    
-    Note: Marital status uses a proprietary code."
+Description: "Marital status documented using a proprietary code."
 
 * name[+].given[+] = "Jane"
 * name[=].given[+] = "Smith"
