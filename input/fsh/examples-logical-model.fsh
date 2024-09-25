@@ -2,8 +2,7 @@ Instance: LogicalModelPatientExample1
 InstanceOf: ExampleLogicalModel
 Usage: #example
 Title: "Patient - Marital Status Captured"
-Description: "
-    Patient documented as married.
+Description: "Patient documented as married.
     
     Note: Implements the logical model \"ExampleLogicalModel\"."
 
@@ -17,8 +16,7 @@ Description: "
 Instance: LogicalModelPatientExample2
 InstanceOf: ExampleLogicalModel
 Usage: #example
-Title: "
-    Patient - Marital Status Not Captured (Example 1)
+Title: "Patient - Marital Status Not Captured (Example 1)
     
     Note: Implements the logical model \"ExampleLogicalModel\"."
 
