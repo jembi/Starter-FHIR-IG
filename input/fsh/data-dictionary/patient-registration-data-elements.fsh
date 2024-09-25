@@ -28,6 +28,7 @@ Description: "
   * relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
   * relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
   * maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
+    * ^isSummary = true
     * ^mustSupport = true
     * status 1..1 CodeableConcept "Status" "A marital status"
     * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
