@@ -11,6 +11,8 @@ Description: "
 * value[x] only date
 * valueDate 1..1
 * ^context[+].type = #element
+* ^context[=].expression = "ExampleLogicalModel.maritalStatus.effectiveDate"
+* ^context[+].type = #element
 * ^context[=].expression = "Patient.maritalStatus"
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
