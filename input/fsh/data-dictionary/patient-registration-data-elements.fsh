@@ -13,7 +13,7 @@ Description: "
 * name 1..* BackboneElement "Name" "Patient name"
   * ^isSummary = true
   * firstName 1..1 string "First name" "Patient first name"
-  * middleName 1..1 string "Middle name" "Patient middle name"
+  * middleName 0..1 string "Middle name" "Patient middle name"
 * maritalStatus 0..1 BackboneElement "Marital status" "Patient marital status"
   * ^isSummary = true
   * ^mustSupport = true
