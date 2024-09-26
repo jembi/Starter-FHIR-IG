@@ -7,7 +7,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * ^caseSensitive = true
 * #Other "Other"
 
@@ -19,5 +19,5 @@ Description: "
     
     Note: This is for demonstrable purposes only!"
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * include codes from system CSMaritalStatus
