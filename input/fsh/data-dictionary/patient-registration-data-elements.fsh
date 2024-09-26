@@ -7,7 +7,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * ^name = "ExampleLogicalModel"
 
 * name 1..* BackboneElement "Name" "Patient name"

@@ -5,7 +5,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * ^name = "ExamplePatientRelationLogicalModel"
 
 * firstName 1..1 string "First name" "Person first name"

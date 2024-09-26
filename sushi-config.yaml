@@ -13,7 +13,7 @@ url: http://example.com/fhir/ImplementationGuide/my-ig
 name: ExampleIG
 title: "HL7 FHIR Implementation Guide: Example IG Release 1 - US Realm | STU1"
 description: Example IG exercises many of the fields in a SUSHI configuration.
-status: draft
+status: active
 license: CC0-1.0
 date: 2020-02-26
 version: 0.1.0
