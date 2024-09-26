@@ -1,78 +1,67 @@
-/*Instance: ExampleLogicalModel
+/*Instance: ExamplePatientProfileForLogicalModel
 InstanceOf: StructureDefinition
 Usage: #definition
-Title: "Data Dictionary"
+Title: "Data Dictionary Resource"
 Description: "
-    Data dictionary represented as a logical Model.
+    A resource describing the data elements in the data dictionary.
 
     Note: This is for demonstrable purposes only!"
 
 * experimental = true
 * status = #draft
-* name = "ExampleLogicalModel"
-* url = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
+* name = "ExamplePatientProfileForLogicalModel"
+* url = "http://example.com/fhir/StructureDefinition/ExamplePatientProfileForLogicalModel"
 * version = "0.1.0"
-* kind = #logical
+* kind = #resource
 * abstract = false
-* type = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
-* baseDefinition = "http://hl7.org/fhir/StructureDefinition/Base"
+* type = "ExampleLogicalModel"
+* baseDefinition = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
 * derivation = #specialization
 * fhirVersion = #5.0.0
 
 * mapping[+].identity = "FHIR-R5"
 * mapping[=].name = "FHIR Release 5"
+* mapping[+].identity = "ExampleLogicalModel"
+* mapping[=].name = "ExampleLogicalModel-DataDictionary"
 
-* differential.element[+].id = "sampleDataDictionary"
-* differential.element[=].path = "ExampleLogicalModel"
-* differential.element[=].definition = "A sample data dictionary describing an example use case"
-* differential.element[=].min = 0
-* differential.element[=].max = "*"
-* differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "."
-
-
-* differential.element[+].id = "patient"
-* differential.element[=].path = "ExampleLogicalModel.patient"
-* differential.element[=].short = "Patient Registration Data Elements"
-* differential.element[=].definition = "Data elements used during patient registration"
-* differential.element[=].type.code = #Resource
-* differential.element[=].min = 1
-* differential.element[=].max = "1"
-* differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient"
-
-* differential.element[+].id = "patientName"
-* differential.element[=].path = "ExampleLogicalModel.patient.name"
+* differential.element[+].id = "ExampleLogicalModel.name"
+* differential.element[=].path = "ExampleLogicalModel.name"
 * differential.element[=].short = "Patient name"
 * differential.element[=].definition = "Patient name"
 * differential.element[=].type.code = #BackboneElement
 * differential.element[=].min = 1
 * differential.element[=].max = "*"
 * differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient.name"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name"
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name"
 
-* differential.element[+].id = "patientFirstName"
-* differential.element[=].path = "ExampleLogicalModel.patient.name.firstName"
+* differential.element[+].id = "ExampleLogicalModel.name.firstName"
+* differential.element[=].path = "ExampleLogicalModel.name.firstName"
 * differential.element[=].short = "Patient first name"
 * differential.element[=].definition = "Patient first name"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient.name.given"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name.given"
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name.firstName"
 
-* differential.element[+].id = "patientMiddleName"
-* differential.element[=].path = "ExampleLogicalModel.patient.name.middleName"
+* differential.element[+].id = "ExampleLogicalModel.name.middleName"
+* differential.element[=].path = "ExampleLogicalModel.name.middleName"
 * differential.element[=].short = "Patient middle name"
 * differential.element[=].definition = "Patient middle name"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient.name.given"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name.given"
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name.middleName"
 
-* differential.element[+].id = "patientMaritalStatusGroup"
-* differential.element[=].path = "ExampleLogicalModel.patient.maritalStatus"
+* differential.element[+].id = "ExampleLogicalModel.maritalStatus"
+* differential.element[=].path = "ExampleLogicalModel.maritalStatus"
 * differential.element[=].short = "Patient marital status"
 * differential.element[=].definition = "Patient marital status"
 * differential.element[=].type.code = #BackboneElement
@@ -82,23 +71,30 @@ Description: "
 * differential.element[=].isSummary = true
 * differential.element[=].mapping[+].identity = "FHIR-R5"
 * differential.element[=].mapping[=].map = "."
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.name.maritalStatus"
 
-* differential.element[+].id = "patientMaritalStatus"
-* differential.element[=].path = "ExampleLogicalModel.patient.maritalStatus.status"
+* differential.element[+].id = "ExampleLogicalModel.maritalStatus.status"
+* differential.element[=].path = "ExampleLogicalModel.maritalStatus.status"
 * differential.element[=].short = "Status"
 * differential.element[=].definition = "A marital status"
 * differential.element[=].type.code = #CodeableConcept
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient.maritalStatus"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.maritalStatus"
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.maritalStatus.status"
 
-* differential.element[+].id = "patientMaritalStatusEffectiveDate"
-* differential.element[=].path = "ExampleLogicalModel.patient.maritalStatus.effectiveDate"
+* differential.element[+].id = "ExampleLogicalModel.maritalStatus.effectiveDate"
+* differential.element[=].path = "ExampleLogicalModel.maritalStatus.effectiveDate"
 * differential.element[=].short = "Patient marital status - Effective Date"
-* differential.element[=].definition = "Date when status came into effecte"
-* differential.element[=].type.code = #Extension
+* differential.element[=].definition = "Date when status came into effect"
+* differential.element[=].type.code = #date
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R5"
-* differential.element[=].mapping[=].map = "Patient.maritalStatus.extension"*/
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.maritalStatus.extension"
+* differential.element[=].mapping[+].identity = "ExampleLogicalModel"
+* differential.element[=].mapping[=].map = "ExampleLogicalModel.maritalStatus.effectiveDate"
+*/

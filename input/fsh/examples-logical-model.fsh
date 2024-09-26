@@ -16,11 +16,11 @@ Description: "Patient documented as married.
 Instance: LogicalModelPatientExample2
 InstanceOf: ExampleLogicalModel
 Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 1)
-    
-    Note: Implements the logical model \"ExampleLogicalModel\"."
+Title: "Patient - Marital Status Not Captured (Example 1)"
+Description: "
+    Patient marital status not documented.
 
-Description: "Patient marital status not documented."
+    Note: Implements the logical model \"ExampleLogicalModel\"."
 
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"
