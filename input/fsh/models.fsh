@@ -11,7 +11,7 @@ Description: "
 * status = #active
 * name = "ExamplePatientProfileForLogicalModel"
 * url = "http://example.com/fhir/StructureDefinition/ExamplePatientProfileForLogicalModel"
-* version = "0.1.0"
+* version = "1.0.1"
 * kind = #resource
 * abstract = false
 * type = "Patient"

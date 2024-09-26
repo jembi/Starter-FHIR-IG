@@ -16,7 +16,7 @@ description: Example IG exercises many of the fields in a SUSHI configuration.
 status: active
 license: CC0-1.0
 date: 2020-02-26
-version: 0.1.0
+version: 1.0.1
 
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here, but the current tooling 
