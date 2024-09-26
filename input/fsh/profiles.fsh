@@ -9,7 +9,7 @@ Description: "
 
 * ^experimental = true
 * ^status = #active
-* name 1..*
+* name 1..* MS
 * name.given 1..2
 * maritalStatus 0..1 MS
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
@@ -30,6 +30,6 @@ Description: "
 * ^experimental = true
 * ^status = #active
 * name 1..*
-* name.given 1..*
+* name.given 1..2
 * relationship 1..1
-* extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatusAndEffectiveDate 0..* MS
+* extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatusAndEffectiveDate 0..1 MS
