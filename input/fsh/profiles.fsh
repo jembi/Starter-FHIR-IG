@@ -8,7 +8,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * name 1..*
 * name.given 1..2
 * maritalStatus 0..1 MS
@@ -28,7 +28,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * name 1..*
 * name.given 1..*
 * relationship 1..1

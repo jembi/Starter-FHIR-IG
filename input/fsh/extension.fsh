@@ -7,9 +7,11 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * value[x] only date
 * valueDate 1..1
+* ^context[+].type = #element
+* ^context[=].expression = "ExampleLogicalModel.maritalStatus.effectiveDate"
 * ^context[+].type = #element
 * ^context[=].expression = "Patient.maritalStatus"
 * ^context[+].type = #element
@@ -24,7 +26,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * . SU // to ensure that both extensions are included in GET requests.
 * extension contains MaritalStatusExtension named MaritalStatus 1..1
 * extension[MaritalStatus] obeys Extension-MaritalStatusAndEffectiveDateExtension-1
@@ -42,7 +44,7 @@ Description: "
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * value[x] only CodeableConcept
 
 * valueCodeableConcept from http://hl7.org/fhir/ValueSet/marital-status (extensible)
