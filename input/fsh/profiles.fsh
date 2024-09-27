@@ -2,28 +2,55 @@ Profile: TestPatient
 Parent: Patient
 Id: test-patient
 Title: "Patient"
-Description: "A patient profile representing the patient exchange requirements in the Logical Model \"ExampleLogicalModel\".
+Description: "A patient profile representing the patient exchange requirements in the Logical Model \"Patient Logical Model\".
 
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
 * ^status = #active
 
-* insert SliceForResolve(meta.profile, reasons why this should be supported, open, Slicing meta based on the profile value, false)
-* meta.profile contains
-    LogicalModel 0..1 MS
-
-* meta.profile[LogicalModel] ^definition =
-    "reason(s) why this should be supported."
-* meta.profile[LogicalModel].value = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
+* extension contains LogicalModelCanonicalExtension named LogicalModelCanonical 0..1 MS
+* extension[LogicalModelCanonical] 1..1
+* extension[LogicalModelCanonical].valueCanonical = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
 
 * name 1..* MS
-  * ^definition = "Patient name. Maps to ExampleLogicalModel.patient.name"
-  * ^short = "Name"
+  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension[Mapping] 1..1
+  * extension[Mapping].valueString = "PatientLogicalModel.name"
+ 
 * name.given 1..2
+
+* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
+
+* name.given contains
+  firstName 1..1 MS and
+  middleName 0..1 MS
+
+* name.given[firstName]
+  * id 1..1
+  * id = "patientFirstName"
+  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension[Mapping] 1..1
+  * extension[Mapping].valueString 1..1
+  * extension[Mapping].valueString = "PatientLogicalModel.name.firstName"
+
+* name.given[middleName] ^definition =
+    "Represents a data element described as a requirement in the logical model"
+  * id 1..1
+  * id = "patientMiddleName"
+  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension[Mapping] 1..1
+  * extension[Mapping].valueString 1..1
+  * extension[Mapping].valueString = "PatientLogicalModel.name.middleName"
+  
 * maritalStatus 0..1 MS
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
-  * extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
+  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension[Mapping] 1..1
+  * extension[Mapping].valueString 1..1
+  * extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.status"
+
+  * extension contains MaritalStatusEffectiveDateWithMappingExtension named MaritalStatus 1..1
 
 * link 0..* MS
 * link.other only Reference(TestPatientRelation)

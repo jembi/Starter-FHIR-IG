@@ -3,20 +3,19 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Captured"
 Description: "Patient documented as married."
-* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
+
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
-* maritalStatus.extension[MaritalStatusDate].valueDate = "1999-01-01"
+* maritalStatus.extension[MaritalStatus].extension[MaritalStatusDate].valueDate = "1999-01-01"
 
 Instance: PatientExample2
 InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Not Captured (Example 1)"
 Description: "Patient marital status not documented."
-* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
 
 Instance: PatientExample3
 InstanceOf: TestPatient
@@ -26,9 +25,9 @@ Description: "Patient marital status not documented but includes a Mother relati
     
     Note: Includes patient relation."
 
-* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
+
 * link[+].type = #seealso
 * link[=].other = Reference(MotherRelatedPersonExample1)
 
