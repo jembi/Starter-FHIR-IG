@@ -3,7 +3,7 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Captured"
 Description: "Patient documented as married."
-* meta.profile[LogicalModel] = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
+* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
 * name[+].given[+] = "John"
 * name[=].given[+] = "Doe"
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
@@ -14,7 +14,7 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Not Captured (Example 1)"
 Description: "Patient marital status not documented."
-* meta.profile[LogicalModel] = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
+* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
 * name[+].given[+] = "John"
 * name[=].given[+] = "Doe"
 
@@ -26,7 +26,7 @@ Description: "Patient marital status not documented but includes a Mother relati
     
     Note: Includes patient relation."
 
-* meta.profile[LogicalModel] = "http://example.com/fhir/StructureDefinition/ExampleLogicalModel"
+* meta.profile[+][LogicalModel] = "http://example.com/fhir/StructureDefinition/ExamplePatientLogicalModel"
 * name[+].given[+] = "John"
 * name[=].given[+] = "Doe"
 * link[+].type = #seealso

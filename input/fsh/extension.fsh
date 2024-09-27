@@ -10,7 +10,7 @@ Description: "An extension to capture the date for when the marital status came 
 * value[x] only date
 * valueDate 1..1
 * ^context[+].type = #element
-* ^context[=].expression = "ExampleLogicalModel.patient.maritalStatus.effectiveDate"
+* ^context[=].expression = "ExamplePatientLogicalModel.patientMaritalStatus.effectiveDate"
 * ^context[+].type = #element
 * ^context[=].expression = "Patient.maritalStatus"
 * ^context[+].type = #element

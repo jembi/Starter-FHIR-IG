@@ -1,7 +1,7 @@
-Logical: ExampleLogicalModel
-Id: ExampleLogicalModel
+Logical: ExamplePatientLogicalModel
+Id: ExamplePatientLogicalModel
 Parent: Element
-Description: "Exchange requirements example.
+Description: "Exchange requirements example for the Patient Resource.
 
     Note: This is for demonstrable purposes only!"
 
@@ -9,51 +9,57 @@ Description: "Exchange requirements example.
 * ^status = #active
 * ^name = "ExampleLogicalModel"
 
-* patient 1..1 BackboneElement "Patient" "Person who is the target for receiving health-related services"
+* patientName 1..* BackboneElement "Name" "Patient name"
+  * firstName 1..1 string "First name" "Patient first name"
+  * middleName 0..1 string "Middle name" "Patient middle name"
+* patientMaritalStatus 0..1 BackboneElement "Marital status" "Patient marital status"
   * ^isSummary = true
   * ^mustSupport = true
-  * name 1..* BackboneElement "Name" "Patient name"
-    * firstName 1..1 string "First name" "Patient first name"
-    * middleName 0..1 string "Middle name" "Patient middle name"
-  * maritalStatus 0..1 BackboneElement "Marital status" "Patient marital status"
-    * ^isSummary = true
-    * ^mustSupport = true
-    * status 1..1 CodeableConcept "Status" "A marital status"
-    * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-    * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
-* relatedPerson 0..* BackboneElement "Person related to patient" "Person who is related to the patient"
-  * ^isSummary = true
-  * ^mustSupport = true
-  * name 1..* BackboneElement "Name" "Patient name"
-    * firstName 1..1 string "First name" "Person first name"
-    * middleName 1..1 string "Middle name" "Person middle name"
-  * relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
-  * relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
-  * maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
-    * ^isSummary = true
-    * ^mustSupport = true
-    * status 1..1 CodeableConcept "Status" "A marital status"
-    * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-    * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
+  * status 1..1 CodeableConcept "Status" "A marital status"
+  * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
+  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
 
 Mapping: ExampleLogicalModel-to-Patient
-Source: ExampleLogicalModel
+Source: ExamplePatientLogicalModel
 Target: "Patient"
 * -> "Patient"
-* patient.name -> "Patient.name"
-* patient.name.firstName -> "Patient.name.given"
-* patient.name.middleName -> "Patient.name.given"
-* patient.maritalStatus.status -> "Patient.maritalStatus"
-* patient.maritalStatus.effectiveDate -> "Patient.maritalStatus.extension"
+* patientName -> "Patient.name"
+* patientName.firstName -> "Patient.name.given"
+* patientName.middleName -> "Patient.name.given"
+* patientMaritalStatus.status -> "Patient.maritalStatus"
+* patientMaritalStatus.effectiveDate -> "Patient.maritalStatus.extension"
+
+Logical: ExampleRelatedPersonLogicalModel
+Id: ExampleRelatedPersonLogicalModel
+Parent: Element
+Description: "Exchange requirements example for the RelatedPerson Resource.
+
+    Note: This is for demonstrable purposes only!"
+
+* ^experimental = true
+* ^status = #active
+* ^name = "ExampleLogicalModel"
+
+* name 1..* BackboneElement "Name" "Patient name"
+  * firstName 1..1 string "First name" "Person first name"
+  * middleName 1..1 string "Middle name" "Person middle name"
+* relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
+* relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
+* maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
+  * ^isSummary = true
+  * ^mustSupport = true
+  * status 1..1 CodeableConcept "Status" "A marital status"
+  * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
+  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
 
 Mapping: ExampleLogicalModel-to-RelatedPerson
-Source: ExampleLogicalModel
+Source: ExampleRelatedPersonLogicalModel
 Target: "RelatedPerson"
 * -> "RelatedPerson"
-* relatedPerson.name -> "RelatedPerson.name"
-* relatedPerson.name.firstName -> "RelatedPerson.name.given"
-* relatedPerson.name.middleName -> "RelatedPerson.name.given"
-* relatedPerson.relationshipType -> "RelatedPerson.relationship"
-* relatedPerson.maritalStatus -> "RelatedPerson.extension"
-* relatedPerson.maritalStatus.status -> "RelatedPerson.extension.extension"
-* relatedPerson.maritalStatus.effectiveDate -> "RelatedPerson.extension.extension"
+* name -> "RelatedPerson.name"
+* name.firstName -> "RelatedPerson.name.given"
+* name.middleName -> "RelatedPerson.name.given"
+* relationshipType -> "RelatedPerson.relationship"
+* maritalStatus -> "RelatedPerson.extension"
+* maritalStatus.status -> "RelatedPerson.extension.extension"
+* maritalStatus.effectiveDate -> "RelatedPerson.extension.extension"
