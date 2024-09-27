@@ -31,7 +31,6 @@ Description: "A patient profile representing the patient exchange requirements i
   * id = "patientFirstName"
   * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.name.firstName"
 
 * name.given[middleName] ^definition =
@@ -40,14 +39,12 @@ Description: "A patient profile representing the patient exchange requirements i
   * id = "patientMiddleName"
   * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.name.middleName"
   
 * maritalStatus 0..1 MS
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
   * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.status"
 
   * extension contains MaritalStatusEffectiveDateWithMappingExtension named MaritalStatus 1..1

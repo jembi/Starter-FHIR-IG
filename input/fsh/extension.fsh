@@ -99,7 +99,6 @@ Description: "An extension to capture the the effective date for the marital sta
 * . SU // to ensure that both extensions are included in GET requests.
 * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
 * extension[Mapping] 1..1
-* extension[Mapping].valueString 1..1
 * extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.effectiveDate"
 
 * extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
