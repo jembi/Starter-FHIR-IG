@@ -3,30 +3,31 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Captured"
 Description: "Patient documented as married."
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
+
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
-* maritalStatus.extension[MaritalStatusDate].valueDate = "1999-01-01"
+* maritalStatus.extension[MaritalStatus].extension[MaritalStatusDate].valueDate = "1999-01-01"
 
 Instance: PatientExample2
 InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Not Captured (Example 1)"
 Description: "Patient marital status not documented."
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
 
 Instance: PatientExample3
 InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Marital Status Not Captured (Example 2)"
-Description: "
-    Patient marital status not documented but includes a Mother relationship.
+Description: "Patient marital status not documented but includes a Mother relationship.
     
     Note: Includes patient relation."
 
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
+* name[+].given[firstName] = "John"
+* name[=].given[middleName] = "Doe"
+
 * link[+].type = #seealso
 * link[=].other = Reference(MotherRelatedPersonExample1)
 

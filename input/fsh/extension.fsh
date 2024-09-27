@@ -1,8 +1,7 @@
 Extension: MaritalStatusDateExtension
 Id: marital-status-date
 Title: "Patient Marital Status Date"
-Description: "
-    An extension to capture the date for when the marital status came into effect.
+Description: "An extension to capture the date for when the marital status came into effect.
     
     Note: This is for demonstrable purposes only!"
 
@@ -11,17 +10,18 @@ Description: "
 * value[x] only date
 * valueDate 1..1
 * ^context[+].type = #element
-* ^context[=].expression = "ExampleLogicalModel.maritalStatus.effectiveDate"
+* ^context[=].expression = "PatientLogicalModel.maritalStatus.effectiveDate"
 * ^context[+].type = #element
 * ^context[=].expression = "Patient.maritalStatus"
+* ^context[+].type = #element
+* ^context[=].expression = "Patient.maritalStatus.extension"
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
 
 Extension: MaritalStatusAndEffectiveDateExtension
 Id: marital-status-and-effective-date
 Title: "Patient Marital Status and Effective Date"
-Description: "
-    An extension to capture the marital status and the effective date for when the marital status came into effect.
+Description: "An extension to capture the marital status and the effective date for when the marital status came into effect.
 
     Note: This is for demonstrable purposes only!"
 
@@ -38,8 +38,7 @@ Description: "
 Extension: MaritalStatusExtension
 Id: marital-status
 Title: "Patient Marital Status"
-Description: "
-    An extension to capture the marital status.
+Description: "An extension to capture the marital status.
 
     Note: This is for demonstrable purposes only!"
 
@@ -50,7 +49,7 @@ Description: "
 * valueCodeableConcept from http://hl7.org/fhir/ValueSet/marital-status (extensible)
 * valueCodeableConcept 1..1
 * valueCodeableConcept ^binding.extension[+].extension[+].url = "purpose"
-* valueCodeableConcept ^binding.extension[=].extension[=].valueCode = #required
+* valueCodeableConcept ^binding.extension[=].extension[=].valueCode = #extensible
 * valueCodeableConcept ^binding.extension[=].extension[+].url = "valueSet"
 * valueCodeableConcept ^binding.extension[=].extension[=].valueCanonical = "http://example.com/fhir/ValueSet/vs-marital-status"
 * valueCodeableConcept ^binding.extension[=].extension[+].url = "documentation"
@@ -59,3 +58,50 @@ Description: "
 
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
+
+Extension: LogicalModelCanonicalExtension
+Id: logical-model-canonical
+Title: "Logical Model Canonical URL"
+Description: "An extension to capture the canonical URL to a logical model.
+    
+    Note: This is for demonstrable purposes only!"
+Context: Patient, RelatedPerson
+
+* ^experimental = true
+* ^status = #active
+* . SU // to ensure that all data elements are included in GET requests.
+* value[x] only canonical
+* valueCanonical 1..1
+
+Extension: MapProfileToLogicalModelExtension
+Id: logical-model-mapping
+Title: "Map Profile Data Element to Logical Model Data Element"
+Description: "An extension to capture the logical model data element equivalent to the profile data element.
+    
+    Note: This is for demonstrable purposes only!"
+Context: Element
+
+* ^experimental = true
+* ^status = #active
+* . SU // to ensure that all data elements are included in GET requests.
+* value[x] only string
+* valueString 1..1
+
+Extension: MaritalStatusEffectiveDateWithMappingExtension
+Id: marital-status-effective-date-with-mapping
+Title: "Patient Marital Status Effective Date (inlc. logical model mapping)"
+Description: "An extension to capture the the effective date for the marital status together with the logical model data mapping.
+
+    Note: This is for demonstrable purposes only!"
+
+* ^experimental = true
+* ^status = #active
+* . SU // to ensure that both extensions are included in GET requests.
+* extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+* extension[Mapping] 1..1
+* extension[Mapping].valueString 1..1
+* extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.effectiveDate"
+
+* extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
+* ^context[+].type = #element
+* ^context[=].expression = "Patient.maritalStatus"

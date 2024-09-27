@@ -1,11 +1,10 @@
 Instance: LogicalModelPatientExample1
-InstanceOf: ExampleLogicalModel
+InstanceOf: PatientLogicalModel
 Usage: #example
 Title: "Patient - Marital Status Captured"
-Description: "
-    Patient documented as married.
+Description: "Patient documented as married.
     
-    Note: Implements the logical model \"ExampleLogicalModel\"."
+    Note: Implements the logical model \"Patient Logical Model\"."
 
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"
@@ -15,13 +14,12 @@ Description: "
   * effectiveDate.extension[=].url = "http://example.com/fhir/StructureDefinition/marital-status-date"
 
 Instance: LogicalModelPatientExample2
-InstanceOf: ExampleLogicalModel
+InstanceOf: PatientLogicalModel
 Usage: #example
 Title: "Patient - Marital Status Not Captured (Example 1)"
-Description: "
-    Patient marital status not documented.
+Description: "Patient marital status not documented.
 
-    Note: Implements the logical model \"ExampleLogicalModel\"."
+    Note: Implements the logical model \"Patient Logical Model\"."
 
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"

@@ -1,14 +1,14 @@
-Logical: ExampleLogicalModel
-Id: ExampleLogicalModel
+Logical: PatientLogicalModel
+Id: PatientLogicalModel
 Parent: Element
-Description: "
-    Exchange requirements example.
+Title: "Patient Logical Model"
+Description: "Exchange requirements example for the Patient Resource.
 
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
 * ^status = #active
-* ^name = "ExampleLogicalModel"
+* ^name = "PatientLogicalModel"
 
 * name 1..* BackboneElement "Name" "Patient name"
   * ^isSummary = true
@@ -21,23 +21,9 @@ Description: "
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
   * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
-* personRelation 0..* BackboneElement "Person related to patient" "Person who is related to the patient"
-  * ^isSummary = true
-  * ^mustSupport = true
-  * name 1..* BackboneElement "Name" "Patient name"
-    * firstName 1..1 string "First name" "Person first name"
-    * middleName 1..1 string "Middle name" "Person middle name"
-  * relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
-  * relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
-  * maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
-    * ^isSummary = true
-    * ^mustSupport = true
-    * status 1..1 CodeableConcept "Status" "A marital status"
-    * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-    * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
 
-Mapping: ExampleLogicalModel-to-Patient
-Source: ExampleLogicalModel
+Mapping: PatientLogicalModel-to-Patient
+Source: PatientLogicalModel
 Target: "Patient"
 * -> "Patient"
 * name -> "Patient.name"
@@ -46,14 +32,42 @@ Target: "Patient"
 * maritalStatus.status -> "Patient.maritalStatus"
 * maritalStatus.effectiveDate -> "Patient.maritalStatus.extension"
 
-Mapping: ExampleLogicalModel-to-RelatedPerson
-Source: ExampleLogicalModel
+Logical: RelatedPersonLogicalModel
+Id: RelatedPersonLogicalModel
+Parent: Element
+Title: "Related Person Logical Model"
+Description: "Exchange requirements example for the RelatedPerson Resource.
+
+    Note: This is for demonstrable purposes only!"
+
+* ^experimental = true
+* ^status = #active
+* ^name = "RelatedPersonLogicalModel"
+
+* name 1..* BackboneElement "Name" "Patient name"
+  * ^isSummary = true
+  * ^mustSupport = true
+  * firstName 1..1 string "First name" "Person first name"
+  * middleName 1..1 string "Middle name" "Person middle name"
+* relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
+  * ^isSummary = true
+  * ^mustSupport = true
+* relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
+* maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
+  * ^isSummary = true
+  * ^mustSupport = true
+  * status 1..1 CodeableConcept "Status" "A marital status"
+  * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
+  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
+
+Mapping: RelatedPersonLogicalModel-to-RelatedPerson
+Source: RelatedPersonLogicalModel
 Target: "RelatedPerson"
 * -> "RelatedPerson"
-* personRelation.name -> "RelatedPerson.name"
-* personRelation.name.firstName -> "RelatedPerson.name.given"
-* personRelation.name.middleName -> "RelatedPerson.name.given"
-* personRelation.relationshipType -> "RelatedPerson.relationship"
-* personRelation.maritalStatus -> "RelatedPerson.extension"
-* personRelation.maritalStatus.status -> "RelatedPerson.extension.extension"
-* personRelation.maritalStatus.effectiveDate -> "RelatedPerson.extension.extension"
+* name -> "RelatedPerson.name"
+* name.firstName -> "RelatedPerson.name.given"
+* name.middleName -> "RelatedPerson.name.given"
+* relationshipType -> "RelatedPerson.relationship"
+* maritalStatus -> "RelatedPerson.extension"
+* maritalStatus.status -> "RelatedPerson.extension.extension"
+* maritalStatus.effectiveDate -> "RelatedPerson.extension.extension"
