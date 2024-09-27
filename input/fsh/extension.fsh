@@ -1,8 +1,7 @@
 Extension: MaritalStatusDateExtension
 Id: marital-status-date
 Title: "Patient Marital Status Date"
-Description: "
-    An extension to capture the date for when the marital status came into effect.
+Description: "An extension to capture the date for when the marital status came into effect.
     
     Note: This is for demonstrable purposes only!"
 
@@ -11,7 +10,7 @@ Description: "
 * value[x] only date
 * valueDate 1..1
 * ^context[+].type = #element
-* ^context[=].expression = "ExampleLogicalModel.maritalStatus.effectiveDate"
+* ^context[=].expression = "ExampleLogicalModel.patient.maritalStatus.effectiveDate"
 * ^context[+].type = #element
 * ^context[=].expression = "Patient.maritalStatus"
 * ^context[+].type = #element
@@ -20,8 +19,7 @@ Description: "
 Extension: MaritalStatusAndEffectiveDateExtension
 Id: marital-status-and-effective-date
 Title: "Patient Marital Status and Effective Date"
-Description: "
-    An extension to capture the marital status and the effective date for when the marital status came into effect.
+Description: "An extension to capture the marital status and the effective date for when the marital status came into effect.
 
     Note: This is for demonstrable purposes only!"
 
@@ -38,8 +36,7 @@ Description: "
 Extension: MaritalStatusExtension
 Id: marital-status
 Title: "Patient Marital Status"
-Description: "
-    An extension to capture the marital status.
+Description: "An extension to capture the marital status.
 
     Note: This is for demonstrable purposes only!"
 
@@ -59,3 +56,21 @@ Description: "
 
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
+
+/*Extension: LogicalModelProfileExtension
+Id: logical-model-identity
+Title: "Logical Model Identity"
+Description: "An extension to capture the date for when the marital status came into effect.
+    
+    Note: This is for demonstrable purposes only!"
+
+* ^experimental = true
+* ^status = #active
+* value[x] only date
+* valueDate 1..1
+* ^context[+].type = #element
+* ^context[=].expression = "ExampleLogicalModel.patient.maritalStatus.effectiveDate"
+* ^context[+].type = #element
+* ^context[=].expression = "Patient.maritalStatus"
+* ^context[+].type = #element
+* ^context[=].expression = "RelatedPerson.extension"*/
