@@ -15,3 +15,7 @@ RuleSet: SliceForResolve(item, definition, rule, description, ordered)
   * ^slicing.rules = #{rule}
   * ^slicing.description = "{description}"
   * ^slicing.ordered = {ordered}
+
+RuleSet: Mappings(identity, map)
+* ^mapping[+].identity = "{identity}"
+* ^mapping[=].map = "{identity}.{map}"
