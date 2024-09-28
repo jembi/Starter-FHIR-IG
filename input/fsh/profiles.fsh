@@ -13,6 +13,7 @@ Refer to the Mappings tab to see the data element associations between this prof
 
 * ^mapping[+].identity = "PatientLogicalModel"
 * ^mapping[=].name = "Patient Logical Model"
+* ^mapping[=].uri = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
 
 * extension contains LogicalModelReferenceExtension named LogicalModel 1..1
 * extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
