@@ -47,7 +47,9 @@ Description: "A patient profile representing the patient exchange requirements i
   * extension[Mapping] 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.status"
 
-  * extension contains MaritalStatusEffectiveDateWithMappingExtension named MaritalStatus 1..1
+  * extension contains ValueWithMappingExtension named Data 1..1
+  * extension[Data].extension[Mapping] 1..1
+  * extension[Data].extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.effectiveDate"
 
 * link 0..* MS
 * link.other only Reference(TestPatientRelation)
