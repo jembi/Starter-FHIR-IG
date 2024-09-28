@@ -2,9 +2,7 @@ Logical: PatientLogicalModel
 Id: PatientLogicalModel
 Parent: Element
 Title: "Patient Logical Model"
-Description: "Exchange requirements example for the Patient Resource.
-
-    Note: This is for demonstrable purposes only!"
+Description: "Exchange requirements example for the Patient Resource."
 
 * ^experimental = true
 * ^status = #active
@@ -41,9 +39,7 @@ Logical: RelatedPersonLogicalModel
 Id: RelatedPersonLogicalModel
 Parent: Element
 Title: "Related Person Logical Model"
-Description: "Exchange requirements example for the RelatedPerson Resource.
-
-    Note: This is for demonstrable purposes only!"
+Description: "Exchange requirements example for the RelatedPerson Resource."
 
 * ^experimental = true
 * ^status = #active

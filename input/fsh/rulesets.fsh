@@ -19,3 +19,11 @@ RuleSet: SliceForResolve(item, definition, rule, description, ordered)
 RuleSet: Mappings(identity, map)
 * ^mapping[+].identity = "{identity}"
 * ^mapping[=].map = "{identity}.{map}"
+
+RuleSet: EmptyMapping(identity)
+* ^mapping[+].identity = "{identity}"
+* ^mapping[=].map = "N/A"
+
+RuleSet: DescriptionForProfilesInstantiatingLogicalModels(logicalModelName, resourceType)
+* ^description = "A profile representing the {resourceType} exchange requirements in the Logical Model \"{logicalModelName}\".
+Refer to the Mappings tab to see the data element associations between this profile and the Logical Model."
