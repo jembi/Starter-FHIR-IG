@@ -95,10 +95,5 @@ Title: "Related Person"
   * insert Mappings(RelatedPersonLogicalModel, relationship.patientRelatedTo)
 
 * extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatus 0..1 MS
-
-* extension[MaritalStatus]
-  * extension[Status]
-    * insert Mappings(RelatedPersonLogicalModel, maritalStatus)
-
-  * extension[EffectiveDate]
-    * insert Mappings(RelatedPersonLogicalModel, maritalStatus.effectiveDate)
+  * insert EmptyMapping(RelatedPersonLogicalModel)
+  * ^mapping[=].comment = "See extension \"Patient Marital Status and Effective Date\""

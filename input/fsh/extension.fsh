@@ -25,12 +25,21 @@ Description: "An extension to capture the marital status and the effective date 
 
 * ^experimental = true
 * ^status = #active
+
+* ^mapping[+].identity = "RelatedPersonLogicalModel"
+* ^mapping[=].name = "Related Person Logical Model"
+* ^mapping[=].uri = "http://example.com/fhir/StructureDefinition/RelatedPersonLogicalModel"
+
 * . SU // to ensure that both extensions are included in GET requests.
 * extension contains MaritalStatusExtension named Status 1..1
 * extension[Status] 
+  * insert Mappings(RelatedPersonLogicalModel, maritalStatus)
   * obeys Extension-MaritalStatusAndEffectiveDateExtension-1
 
 * extension contains MaritalStatusDateExtension named EffectiveDate 1..1
+* extension[EffectiveDate]
+  * insert Mappings(RelatedPersonLogicalModel, maritalStatus.effectiveDate)
+
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson"
 
