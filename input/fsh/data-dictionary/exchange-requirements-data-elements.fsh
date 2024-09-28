@@ -21,6 +21,10 @@ Description: "Exchange requirements example for the Patient Resource.
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
   * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
+* relatedPerson 0..1 Reference "Related person" "Someone related to the patient"
+  * ^isSummary = true
+  * ^mustSupport = true
+* relatedPerson = Reference(http://example.com/fhir/StructureDefinition/RelatedPersonLogicalModel)
 
 Mapping: PatientLogicalModel-to-Patient
 Source: PatientLogicalModel
@@ -31,6 +35,7 @@ Target: "Patient"
 * name.middleName -> "Patient.name.given"
 * maritalStatus.status -> "Patient.maritalStatus"
 * maritalStatus.effectiveDate -> "Patient.maritalStatus.extension"
+* relatedPerson -> "Patient.link.other"
 
 Logical: RelatedPersonLogicalModel
 Id: RelatedPersonLogicalModel
@@ -48,11 +53,14 @@ Description: "Exchange requirements example for the RelatedPerson Resource.
   * ^isSummary = true
   * ^mustSupport = true
   * firstName 1..1 string "First name" "Person first name"
-  * middleName 1..1 string "Middle name" "Person middle name"
-* relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
+  * middleName 0..1 string "Middle name" "Person middle name"
+* relationship 0..1 BackboneElement "Relationship" "Person relationship with the patient"
   * ^isSummary = true
   * ^mustSupport = true
-* relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
+  * relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
+  * relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
+  * patientRelatedTo 1..1 Reference "Patient related to" "The patient who is the target of the relationship"
+  * patientRelatedTo = Reference(http://example.com/fhir/StructureDefinition/PatientLogicalModel)
 * maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
   * ^isSummary = true
   * ^mustSupport = true
@@ -67,7 +75,8 @@ Target: "RelatedPerson"
 * name -> "RelatedPerson.name"
 * name.firstName -> "RelatedPerson.name.given"
 * name.middleName -> "RelatedPerson.name.given"
-* relationshipType -> "RelatedPerson.relationship"
+* relationship.relationshipType -> "RelatedPerson.relationship"
+* relationship.patientRelatedTo -> "RelatedPerson.patient"
 * maritalStatus -> "RelatedPerson.extension"
 * maritalStatus.status -> "RelatedPerson.extension.extension"
 * maritalStatus.effectiveDate -> "RelatedPerson.extension.extension"
