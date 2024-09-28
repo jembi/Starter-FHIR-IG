@@ -37,8 +37,8 @@ Usage: #example
 Title: "Related Person - Mother Relationship (Example 1)"
 Description: "Marital status documented using a HL7 code."
 
-* name[+].given[+] = "Jane"
-* name[=].given[+] = "Smith"
+* name[+].given[firstName] = "Jane"
+* name[=].given[middleName] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
@@ -50,8 +50,8 @@ Usage: #example
 Title: "Related Person - Mother Relationship (Example 2)"
 Description: "Marital status documented using a proprietary code."
 
-* name[+].given[+] = "Jane"
-* name[=].given[+] = "Smith"
+* name[+].given[firstName] = "Jane"
+* name[=].given[middleName] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://example.com/fhir/CodeSystem/cs-marital-status#Other

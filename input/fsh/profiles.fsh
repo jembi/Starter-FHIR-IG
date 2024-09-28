@@ -30,12 +30,12 @@ Refer to the Mappings tab to see the data element associations between this prof
 
 * name.given[firstName]
   * id 1..1
-  * id = "patientFirstName"
+  * id = "firstName"
   * insert Mappings(PatientLogicalModel, name.firstName)
 
 * name.given[middleName]
   * id 1..1
-  * id = "patientMiddleName"
+  * id = "middleName"
   * insert Mappings(PatientLogicalModel, name.middleName)
   
 * maritalStatus 0..1 MS
@@ -48,6 +48,7 @@ Refer to the Mappings tab to see the data element associations between this prof
 
 * link 0..* MS
 * link.other only Reference(TestPatientRelation)
+  * insert Mappings(PatientLogicalModel, relatedPerson)
 
 Profile: TestPatientRelation
 Parent: RelatedPerson
@@ -59,7 +60,44 @@ Description: "Patient Relation.
 
 * ^experimental = true
 * ^status = #active
+
+* ^mapping[+].identity = "RelatedPersonLogicalModel"
+* ^mapping[=].name = "Related Person Logical Model"
+* ^mapping[=].uri = "http://example.com/fhir/StructureDefinition/RelatedPersonLogicalModel"
+
+* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
+* extension[LogicalModel].valueReference = Reference(RelatedPersonLogicalModel)
+
 * name 1..*
+  * insert Mappings(RelatedPersonLogicalModel, name)
 * name.given 1..2
+
+* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
+
+* name.given contains
+  firstName 1..1 MS and
+  middleName 0..1 MS
+
+* name.given[firstName]
+  * id 1..1
+  * id = "firstName"
+  * insert Mappings(RelatedPersonLogicalModel, name.firstName)
+
+* name.given[middleName]
+  * id 1..1
+  * id = "middleName"
+  * insert Mappings(RelatedPersonLogicalModel, name.middleName)
+
 * relationship 1..1
+  * insert Mappings(RelatedPersonLogicalModel, relationship.relationshipType)
+
+* patient
+  * insert Mappings(RelatedPersonLogicalModel, relationship.patientRelatedTo)
+
 * extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatusAndEffectiveDate 0..1 MS
+
+* extension[MaritalStatusAndEffectiveDate].extension[MaritalStatus]
+  * insert Mappings(RelatedPersonLogicalModel, maritalStatus)
+
+* extension[MaritalStatusAndEffectiveDate].extension[MaritalStatusDate]
+  * insert Mappings(RelatedPersonLogicalModel, maritalStatus.effectiveDate)
