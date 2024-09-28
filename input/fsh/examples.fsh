@@ -1,7 +1,7 @@
 Instance: PatientExample1
 InstanceOf: TestPatient
 Usage: #example
-Title: "Patient - Marital Status Captured"
+Title: "Patient - Example 1 (Marital Status Captured)"
 Description: "Patient documented as married."
 * name[+].given[firstName] = "John"
 * name[=].given[middleName] = "Doe"
@@ -12,7 +12,7 @@ Description: "Patient documented as married."
 Instance: PatientExample2
 InstanceOf: TestPatient
 Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 1)"
+Title: "Patient - Example 2 (Marital Status Not Captured)"
 Description: "Patient marital status not documented."
 * name[+].given[firstName] = "John"
 * name[=].given[middleName] = "Doe"
@@ -20,7 +20,7 @@ Description: "Patient marital status not documented."
 Instance: PatientExample3
 InstanceOf: TestPatient
 Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 2)"
+Title: "Patient - Example 3 (Marital Status Not Captured)"
 Description: "Patient marital status not documented but includes a Mother relationship.
     
     Note: Includes patient relation."

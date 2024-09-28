@@ -1,7 +1,7 @@
 Instance: LogicalModelPatientExample1
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Marital Status Captured"
+Title: "Patient - Example 1 (Marital Status Captured)"
 Description: "Patient documented as married."
 
 * name[+].firstName = "John"
@@ -14,7 +14,7 @@ Description: "Patient documented as married."
 Instance: LogicalModelPatientExample2
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 1)"
+Title: "Patient - Example 2 (Marital Status Not Captured)"
 Description: "Patient marital status not documented."
 
 * name[+].firstName = "John"
@@ -23,7 +23,7 @@ Description: "Patient marital status not documented."
 Instance: LogicalModelPatientExample3
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 2)"
+Title: "Patient - Example 3 (Marital Status Not Captured)"
 Description: "Patient marital status not documented but includes a Mother relationship.
     
     Note: Includes patient relation."
