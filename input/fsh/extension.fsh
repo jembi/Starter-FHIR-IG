@@ -1,9 +1,7 @@
 Extension: MaritalStatusDateExtension
 Id: marital-status-date
 Title: "Patient Marital Status Date"
-Description: "An extension to capture the date for when the marital status came into effect.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "An extension to capture the date for when the marital status came into effect."
 
 * ^experimental = true
 * ^status = #active
@@ -23,26 +21,23 @@ Description: "An extension to capture the date for when the marital status came 
 Extension: MaritalStatusAndEffectiveDateExtension
 Id: marital-status-and-effective-date
 Title: "Patient Marital Status and Effective Date"
-Description: "An extension to capture the marital status and the effective date for when the marital status came into effect.
-
-    Note: This is for demonstrable purposes only!"
+Description: "An extension to capture the marital status and the effective date for when the marital status came into effect."
 
 * ^experimental = true
 * ^status = #active
 * . SU // to ensure that both extensions are included in GET requests.
-* extension contains MaritalStatusExtension named MaritalStatus 1..1
-* extension[MaritalStatus] obeys Extension-MaritalStatusAndEffectiveDateExtension-1
+* extension contains MaritalStatusExtension named Status 1..1
+* extension[Status] 
+  * obeys Extension-MaritalStatusAndEffectiveDateExtension-1
 
-* extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
+* extension contains MaritalStatusDateExtension named EffectiveDate 1..1
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson"
 
 Extension: MaritalStatusExtension
 Id: marital-status
 Title: "Patient Marital Status"
-Description: "An extension to capture the marital status.
-
-    Note: This is for demonstrable purposes only!"
+Description: "An extension to capture the marital status."
 
 * ^experimental = true
 * ^status = #active
@@ -61,16 +56,14 @@ Description: "An extension to capture the marital status.
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
 
-Extension: LogicalModelReferenceExtension
+/*Extension: LogicalModelReferenceExtension
 Id: logical-model
 Title: "Logical Model Reference"
-Description: "An extension to capture a reference to a logical model.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "An extension to capture a reference to a logical model."
 Context: Patient, RelatedPerson
 
 * ^experimental = true
 * ^status = #active
 * . SU // to ensure that all data elements are included in GET requests.
 * value[x] only Reference
-* valueReference 1..1
+* valueReference 1..1*/

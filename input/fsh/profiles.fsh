@@ -2,11 +2,10 @@ Profile: TestPatient
 Parent: Patient
 Id: test-patient
 Title: "Patient"
-Description: "A patient profile representing the patient exchange requirements in the Logical Model \"Patient Logical Model\".
-This profile aims to instantiate the logical model identified in Patient.extension:LogicalModel.
-Refer to the Mappings tab to see the data element associations between this profile and the Logical Model.
 
-    Note: This is for demonstrable purposes only!"
+* insert DescriptionForProfilesInstantiatingLogicalModels(Patient Logical Model, Patient)
+
+   // Note: This is for demonstrable purposes only!
 
 * ^experimental = true
 * ^status = #active
@@ -15,8 +14,8 @@ Refer to the Mappings tab to see the data element associations between this prof
 * ^mapping[=].name = "Patient Logical Model"
 * ^mapping[=].uri = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
 
-* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
-* extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
+//* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
+//* extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
 
 * name 1..*
   * insert Mappings(PatientLogicalModel, name)
@@ -47,16 +46,17 @@ Refer to the Mappings tab to see the data element associations between this prof
     * insert Mappings(PatientLogicalModel, maritalStatus.effectiveDate)
 
 * link 0..* MS
-* link.other only Reference(TestPatientRelation)
+* link.other only Reference(TestRelatedPerson)
   * insert Mappings(PatientLogicalModel, relatedPerson)
 
-Profile: TestPatientRelation
+Profile: TestRelatedPerson
 Parent: RelatedPerson
 Id: test-patient-relationship
 Title: "Related Person"
-Description: "Patient Relation.
 
-    Note: This is for demonstrable purposes only!"
+* insert DescriptionForProfilesInstantiatingLogicalModels(Related Person Logical Model, RelatedPerson)
+
+    //Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
 * ^status = #active
@@ -65,8 +65,8 @@ Description: "Patient Relation.
 * ^mapping[=].name = "Related Person Logical Model"
 * ^mapping[=].uri = "http://example.com/fhir/StructureDefinition/RelatedPersonLogicalModel"
 
-* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
-* extension[LogicalModel].valueReference = Reference(RelatedPersonLogicalModel)
+//* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
+//* extension[LogicalModel].valueReference = Reference(RelatedPersonLogicalModel)
 
 * name 1..*
   * insert Mappings(RelatedPersonLogicalModel, name)
@@ -94,10 +94,11 @@ Description: "Patient Relation.
 * patient
   * insert Mappings(RelatedPersonLogicalModel, relationship.patientRelatedTo)
 
-* extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatusAndEffectiveDate 0..1 MS
+* extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatus 0..1 MS
 
-* extension[MaritalStatusAndEffectiveDate].extension[MaritalStatus]
-  * insert Mappings(RelatedPersonLogicalModel, maritalStatus)
+* extension[MaritalStatus]
+  * extension[Status]
+    * insert Mappings(RelatedPersonLogicalModel, maritalStatus)
 
-* extension[MaritalStatusAndEffectiveDate].extension[MaritalStatusDate]
-  * insert Mappings(RelatedPersonLogicalModel, maritalStatus.effectiveDate)
+  * extension[EffectiveDate]
+    * insert Mappings(RelatedPersonLogicalModel, maritalStatus.effectiveDate)

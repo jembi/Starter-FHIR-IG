@@ -32,7 +32,7 @@ Description: "Patient marital status not documented but includes a Mother relati
 * link[=].other = Reference(MotherRelatedPersonExample1)
 
 Instance: MotherRelatedPersonExample1
-InstanceOf: TestPatientRelation
+InstanceOf: TestRelatedPerson
 Usage: #example
 Title: "Related Person - Mother Relationship (Example 1)"
 Description: "Marital status documented using a HL7 code."
@@ -41,11 +41,11 @@ Description: "Marital status documented using a HL7 code."
 * name[=].given[middleName] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
-* extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatusDate].valueDate = "1999-01-01"
+* extension[MaritalStatus][+].extension[Status].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
+* extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"
 
 Instance: MotherRelatedPerson2
-InstanceOf: TestPatientRelation
+InstanceOf: TestRelatedPerson
 Usage: #example
 Title: "Related Person - Mother Relationship (Example 2)"
 Description: "Marital status documented using a proprietary code."
@@ -54,6 +54,6 @@ Description: "Marital status documented using a proprietary code."
 * name[=].given[middleName] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
-* extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://example.com/fhir/CodeSystem/cs-marital-status#Other
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatus].valueCodeableConcept.text = "Some other code/reason"
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatusDate].valueDate = "1999-01-01"
+* extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = http://example.com/fhir/CodeSystem/cs-marital-status#Other
+* extension[MaritalStatus][=].extension[Status][=].valueCodeableConcept.text = "Some other code/reason"
+* extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"

@@ -1,9 +1,7 @@
 CodeSystem: CSMaritalStatus
 Id: cs-marital-status
 Title: "Marital Status"
-Description: "A list of codes for marital status.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "A list of codes for marital status."
 
 * ^experimental = true
 * ^status = #active
@@ -13,9 +11,7 @@ Description: "A list of codes for marital status.
 ValueSet: VSMaritalStatus
 Id: vs-marital-status
 Title: "Marital Status"
-Description: "A list of codes for marital status.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "A list of codes for marital status."
 * ^experimental = true
 * ^status = #active
 * include codes from system CSMaritalStatus
@@ -23,9 +19,7 @@ Description: "A list of codes for marital status.
 /*CodeSystem: CSLogicalModel
 Id: cs-logical-model
 Title: "Logical Model"
-Description: "A list of codes for identifying logical models.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "A list of codes for identifying logical models."
 
 * ^experimental = true
 * ^status = #active
@@ -35,9 +29,7 @@ Description: "A list of codes for identifying logical models.
 ValueSet: VSLogicalModel
 Id: vs-logical-model
 Title: "Logical Model"
-Description: "A list of codes for identifying logical models.
-    
-    Note: This is for demonstrable purposes only!"
+Description: "A list of codes for identifying logical models."
 
 * ^experimental = true
 * ^status = #active
