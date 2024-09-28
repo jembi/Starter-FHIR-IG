@@ -9,12 +9,12 @@ Description: "A patient profile representing the patient exchange requirements i
 * ^experimental = true
 * ^status = #active
 
-* extension contains LogicalModelCanonicalExtension named LogicalModelCanonical 0..1 MS
-* extension[LogicalModelCanonical] 1..1
-* extension[LogicalModelCanonical].valueCanonical = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
+* extension contains LogicalModelCanonicalExtension named LogicalModel 1..1
+* extension[LogicalModel] 1..1
+* extension[LogicalModel].valueCanonical = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
 
 * name 1..* MS
-  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension contains MapProfileToLogicalModelExtension named Mapping 1..1
   * extension[Mapping] 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.name"
  
@@ -29,28 +29,27 @@ Description: "A patient profile representing the patient exchange requirements i
 * name.given[firstName]
   * id 1..1
   * id = "patientFirstName"
-  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension contains MapProfileToLogicalModelExtension named Mapping 1..1
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.name.firstName"
 
 * name.given[middleName] ^definition =
     "Represents a data element described as a requirement in the logical model"
   * id 1..1
   * id = "patientMiddleName"
-  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension contains MapProfileToLogicalModelExtension named Mapping 1..1
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.name.middleName"
   
 * maritalStatus 0..1 MS
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
-  * extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
+  * extension contains MapProfileToLogicalModelExtension named Mapping 1..1
   * extension[Mapping] 1..1
-  * extension[Mapping].valueString 1..1
   * extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.status"
 
-  * extension contains MaritalStatusEffectiveDateWithMappingExtension named MaritalStatus 1..1
+  * extension contains ValueWithMappingExtension named Data 1..1
+  * extension[Data].extension[Mapping] 1..1
+  * extension[Data].extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.effectiveDate"
 
 * link 0..* MS
 * link.other only Reference(TestPatientRelation)

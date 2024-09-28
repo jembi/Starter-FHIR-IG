@@ -79,7 +79,6 @@ Title: "Map Profile Data Element to Logical Model Data Element"
 Description: "An extension to capture the logical model data element equivalent to the profile data element.
     
     Note: This is for demonstrable purposes only!"
-Context: Element
 
 * ^experimental = true
 * ^status = #active
@@ -87,21 +86,37 @@ Context: Element
 * value[x] only string
 * valueString 1..1
 
-Extension: MaritalStatusEffectiveDateWithMappingExtension
-Id: marital-status-effective-date-with-mapping
-Title: "Patient Marital Status Effective Date (inlc. logical model mapping)"
-Description: "An extension to capture the the effective date for the marital status together with the logical model data mapping.
+* ^context[+].type = #element
+* ^context[=].expression = "Element"
+
+Extension: ValueWithMappingExtension
+Id: value-with-mapping
+Title: "Data Element Value - Including Logical Model Mapping"
+Description: "An extension to capture a data element value together with the logical model data mapping.
 
     Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
 * ^status = #active
 * . SU // to ensure that both extensions are included in GET requests.
-* extension contains MapProfileToLogicalModelExtension named Mapping 0..1 MS
-* extension[Mapping] 1..1
-* extension[Mapping].valueString 1..1
-* extension[Mapping].valueString = "PatientLogicalModel.maritalStatus.effectiveDate"
+* extension contains MapProfileToLogicalModelExtension named Mapping 1..1
+* extension contains ValueExtension named Value 1..1
 
-* extension contains MaritalStatusDateExtension named MaritalStatusDate 1..1
 * ^context[+].type = #element
-* ^context[=].expression = "Patient.maritalStatus"
+* ^context[=].expression = "Element"
+
+Extension: ValueExtension
+Id: element-value
+Title: "Data Element Value"
+Description: "An extension to capture the data element value.
+    
+    Note: This is for demonstrable purposes only!"
+
+* ^experimental = true
+* ^status = #active
+* . SU // to ensure that all data elements are included in GET requests.
+
+* value[x] 1..1
+
+* ^context[+].type = #element
+* ^context[=].expression = "Element"
