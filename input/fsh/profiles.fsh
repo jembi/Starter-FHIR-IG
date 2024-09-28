@@ -9,9 +9,8 @@ Description: "A patient profile representing the patient exchange requirements i
 * ^experimental = true
 * ^status = #active
 
-* extension contains LogicalModelCanonicalExtension named LogicalModel 1..1
-* extension[LogicalModel] 1..1
-* extension[LogicalModel].valueCanonical = "http://example.com/fhir/StructureDefinition/PatientLogicalModel"
+* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
+* extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
 
 * name 1..*
 * name.given 1..2

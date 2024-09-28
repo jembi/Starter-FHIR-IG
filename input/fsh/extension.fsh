@@ -59,10 +59,10 @@ Description: "An extension to capture the marital status.
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
 
-Extension: LogicalModelCanonicalExtension
-Id: logical-model-canonical
-Title: "Logical Model Canonical URL"
-Description: "An extension to capture the canonical URL to a logical model.
+Extension: LogicalModelReferenceExtension
+Id: logical-model
+Title: "Logical Model Reference"
+Description: "An extension to capture a reference to a logical model.
     
     Note: This is for demonstrable purposes only!"
 Context: Patient, RelatedPerson
@@ -70,5 +70,5 @@ Context: Patient, RelatedPerson
 * ^experimental = true
 * ^status = #active
 * . SU // to ensure that all data elements are included in GET requests.
-* value[x] only canonical
-* valueCanonical 1..1
+* value[x] only Reference
+* valueReference 1..1
