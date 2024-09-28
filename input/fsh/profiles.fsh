@@ -19,8 +19,7 @@ Refer to the Mappings tab to see the data element associations between this prof
 * extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
 
 * name 1..*
-  * ^mapping[+].identity = "PatientLogicalModel"
-  * ^mapping[=].map = "PatientLogicalModel.name"
+  * insert Mappings(PatientLogicalModel, name)
 * name.given 1..2
 
 * insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
@@ -32,24 +31,20 @@ Refer to the Mappings tab to see the data element associations between this prof
 * name.given[firstName]
   * id 1..1
   * id = "patientFirstName"
-  * ^mapping[+].identity = "PatientLogicalModel"
-  * ^mapping[=].map = "PatientLogicalModel.name.firstName"
+  * insert Mappings(PatientLogicalModel, name.firstName)
 
 * name.given[middleName]
   * id 1..1
   * id = "patientMiddleName"
-  * ^mapping[+].identity = "PatientLogicalModel"
-  * ^mapping[=].map = "PatientLogicalModel.name.middleName"
+  * insert Mappings(PatientLogicalModel, name.middleName)
   
 * maritalStatus 0..1 MS
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
-  * ^mapping[+].identity = "PatientLogicalModel"
-  * ^mapping[=].map = "PatientLogicalModel.maritalStatus"
+  * insert Mappings(PatientLogicalModel, maritalStatus)
 
   * extension contains MaritalStatusDateExtension named EffectiveDate 1..1
   * extension[EffectiveDate]
-    * ^mapping[+].identity = "PatientLogicalModel"
-    * ^mapping[=].map = "PatientLogicalModel.maritalStatus.effectiveDate"
+    * insert Mappings(PatientLogicalModel, maritalStatus.effectiveDate)
 
 * link 0..* MS
 * link.other only Reference(TestPatientRelation)
