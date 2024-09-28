@@ -7,7 +7,7 @@ Description: "Patient documented as married."
 * name[=].given[middleName] = "Doe"
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
-* maritalStatus.extension[Data].extension[Value].valueDate = "1999-01-01"
+* maritalStatus.extension[EffectiveDate].valueDate = "1999-01-01"
 
 Instance: PatientExample2
 InstanceOf: TestPatient
