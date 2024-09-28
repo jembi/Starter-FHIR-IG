@@ -1,7 +1,7 @@
 Instance: LogicalModelPatientExample1
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Example 1 (Marital Status Captured)"
+Title: "Logical Model: Patient - Example 1 (Marital Status Captured)"
 Description: "Patient documented as married."
 
 * name[+].firstName = "John"
@@ -14,7 +14,7 @@ Description: "Patient documented as married."
 Instance: LogicalModelPatientExample2
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Example 2 (Marital Status Not Captured)"
+Title: "Logical Model: Patient - Example 2 (Marital Status Not Captured)"
 Description: "Patient marital status not documented."
 
 * name[+].firstName = "John"
@@ -23,7 +23,7 @@ Description: "Patient marital status not documented."
 Instance: LogicalModelPatientExample3
 InstanceOf: PatientLogicalModel
 Usage: #example
-Title: "Patient - Example 3 (Marital Status Not Captured)"
+Title: "Logical Model: Patient - Example 3 (Marital Status Not Captured)"
 Description: "Patient marital status not documented but includes a Mother relationship.
     
     Note: Includes patient relation."
@@ -36,7 +36,7 @@ Description: "Patient marital status not documented but includes a Mother relati
 Instance: RelatedPersonLogicalModelExample1
 InstanceOf: RelatedPersonLogicalModel
 Usage: #example
-Title: "Related Person - Mother Relationship (Example 1)"
+Title: "Logical Model: Related Person - Mother Relationship (Example 1)"
 Description: "Marital status documented using a HL7 code."
 
 * name[+].firstName = "Jane"
@@ -51,7 +51,7 @@ Description: "Marital status documented using a HL7 code."
 Instance: RelatedPersonLogicalModelExample2
 InstanceOf: RelatedPersonLogicalModel
 Usage: #example
-Title: "Related Person - Mother Relationship (Example 2)"
+Title: "Logical Model: Related Person - Mother Relationship (Example 2)"
 Description: "Marital status documented using a proprietary code."
 
 * name[+].firstName = "Jane"
