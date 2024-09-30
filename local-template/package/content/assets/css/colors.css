@@ -9,7 +9,7 @@
 
   --btn-hover-color: #33804a;  /* 6. Menu button hover color */
   --btn-active-color: #f0652e; /* 7. Menu button active color */
-  --btn-text-color: #18cf68; /* 8. Menu button text color */
+  --btn-text-color: #f5f5f5; /* 8. Menu button text color */
   --btn-gradient-start-color: #33aa77; /* 9. Menu item gradient start color */
   --btn-gradient-end-color: #209966; /* 10. Menu item gradient end  color */
   --btn-gradient-start-color-alpha: #ff33aa77; /* 11. Menu item gradient start color (with alpha) */
