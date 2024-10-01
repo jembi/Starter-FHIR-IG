@@ -1,7 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd" lang="en">
   <a name="scope">  </a>
 	<p>
-    This is our FHIR Implementation Guide. It contains the specifications developed by our community. 
+    This is a "Starter" FHIR® Implementation Guide (IG) with the purpose of providing guidance to the community with regard 
+    to getting started with FHIR® and how to create use case specific FHIR® profiles to meet exchange requirements.
+    A FHIR® profile allows you to author and publish a customized, more specific resource definition, by specifying 
+    a set of constraints and/or extensions on the base resource. Profiling is an essential part of FHIR® adoption and development because FHIR® resources are not a one-size-fits-all.
    </p>
 	<blockquote class="stu-note">
 	<strong>This documentation and set of artefacts are still undergoing development.</strong>
