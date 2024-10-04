@@ -21,7 +21,7 @@ version: 1.0.1
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here, but the current tooling 
 # only supports one FHIR version per Implementation Guide
-fhirVersion: 5.0.0
+fhirVersion: 4.0.1
 
 # The following two lines correspond to items that used to be in
 # ig.ini but were moved to IG.definition.parameter. For
@@ -60,10 +60,7 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
 dependencies:
-  fhir.cqf.common:
-    id: CQFCommon
-    uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
-    version: 4.0.1
+  hl7.fhir.us.cqfmeasures: current
 #  hl7.fhir.us.core: 3.1.0
 #  hl7.fhir.us.mcode:
 #    id: mcode

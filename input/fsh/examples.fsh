@@ -97,11 +97,11 @@ InstanceOf: TargetFacilityEncounter
 Usage: #example
 Title: "Encounter - Referencing a General Patient"
 Description: "Represents the current facility at which the patient is receiving health services."
-* class = $EncounterClassCodeSystem#OBSENC
-* status = #completed
+* class = $EncounterClassCodeSystem#AMB
+* status = #finished
 * subject = Reference(PatientExample1)
-* actualPeriod.start = "2012-12-09"
-* actualPeriod.end = "2012-12-09"
+* period.start = "2012-12-09"
+* period.end = "2012-12-09"
 * serviceProvider = Reference(CurrentServiceProviderExample)
 
 Instance: CurrentServiceProviderExample
@@ -111,7 +111,7 @@ Title: "Organization - Current Facility"
 Description: "Current organization providing health related services."
 * active = true
 * name = "Meshwalkiya Health Center"
-* contact.address[+].line[+] = "Meshulekia"
-* contact.address[=].city = "Kirkos"
-* contact.address[=].state = "Addis Ababa"
-* contact.address[=].district = "Kirkos woreda 9"
+* address[+].line[+] = "Meshulekia"
+* address[=].city = "Kirkos"
+* address[=].state = "Addis Ababa"
+* address[=].district = "Kirkos woreda 9"

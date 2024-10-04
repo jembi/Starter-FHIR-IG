@@ -155,12 +155,12 @@ Parent: Encounter
 Id: target-facility-encounter
 Title: "Encounter - Initiated By The Facility Providing the Service" 
 Description: "Represents the current facility at which the patient is receiving health services."
-* subject 1..1 
+* subject 1..1
+* class 1..
 * subject only Reference(TestPatient)
-* actualPeriod 1..1
-* actualPeriod.start 1..1
-* actualPeriod.end 0..1 MS
-* actualPeriod.end ^definition = "reason(s) why this should be supported."
+* period 1..1
+* period.start 1..1
+* period.end 1..1
 * serviceProvider 1..1
 * serviceProvider only Reference(ServiceProvider)
 
@@ -172,12 +172,12 @@ Description: "Organization providing health related services."
 * active 1..1
 * name 1..1
 
-* contact.address 1..1
-* contact.address.state 1..1
-* contact.address.city 1..1
-* contact.address.district 0..1
-* contact.address.line 0..* MS
-* contact.address.line ^definition =
+* address 1..1
+* address.state 1..1
+* address.city 1..1
+* address.district 0..1
+* address.line 0..* MS
+* address.line ^definition =
     "reason(s) why this should be supported."
 
 Profile: GeneralPractitioner
