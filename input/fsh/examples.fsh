@@ -57,3 +57,61 @@ Description: "Marital status documented using a proprietary code."
 * extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
 * extension[MaritalStatus][=].extension[Status][=].valueCodeableConcept.text = "Some other code/reason"
 * extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"
+
+Instance: SuppressedViralLoadResultExample
+InstanceOf: ViralLoadResultObservation
+Usage: #example
+Title: "Observation - Suppressed Viral Load Result"
+Description: "Represents the patient's viral load result as suppressed."
+* status = #final
+* category = $OBSERVATION_CATEGORY#laboratory
+* code = $SCT#315124004
+* code.text = "Human immunodeficiency virus viral load"
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* effectiveDateTime = "2023-12-11"
+* performer = Reference(CurrentServiceProviderExample)
+* valueQuantity = $UCUM_UNIT#1/mL
+* valueQuantity.value = 900
+* valueQuantity.unit = "copies/mL"
+
+Instance: UnsuppressedViralLoadResultExample
+InstanceOf: ViralLoadResultObservation
+Usage: #example
+Title: "Observation - Unsuppressed Viral Load Result"
+Description: "Represents the patient's viral load result as unsuppressed followed by enhanced adherence counselling."
+* status = #final
+* category = $OBSERVATION_CATEGORY#laboratory
+* code = $SCT#315124004
+* code.text = "Human immunodeficiency virus viral load"
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* effectiveDateTime = "2023-12-11"
+* performer = Reference(CurrentServiceProviderExample)
+* valueQuantity = $UCUM_UNIT#1/mL
+* valueQuantity.value = 1001
+* valueQuantity.unit = "copies/mL"
+
+Instance: GeneralEncounterExample
+InstanceOf: TargetFacilityEncounter
+Usage: #example
+Title: "Encounter - Referencing a General Patient"
+Description: "Represents the current facility at which the patient is receiving health services."
+* class = $EncounterClassCodeSystem#OBSENC
+* status = #completed
+* subject = Reference(PatientExample1)
+* actualPeriod.start = "2012-12-09"
+* actualPeriod.end = "2012-12-09"
+* serviceProvider = Reference(CurrentServiceProviderExample)
+
+Instance: CurrentServiceProviderExample
+InstanceOf: ServiceProvider
+Usage: #example
+Title: "Organization - Current Facility"
+Description: "Current organization providing health related services."
+* active = true
+* name = "Meshwalkiya Health Center"
+* contact.address[+].line[+] = "Meshulekia"
+* contact.address[=].city = "Kirkos"
+* contact.address[=].state = "Addis Ababa"
+* contact.address[=].district = "Kirkos woreda 9"
