@@ -4,7 +4,8 @@ library Outpatient-Viral-Load version '1.0.0'
 
 using FHIR version '4.0.1'
 
-include fhir.cqf.common.FHIRHelpers version '4.0.1'
+include FHIRHelpers version '4.0.1'
+//include FHIRCommon called FC
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
@@ -33,10 +34,10 @@ define "Denominator":
   true
 
 define "HIV Viral Load":
-  [Observation] Result
-    where exists (Result.category ObsCategory where ObsCategory ~ "Laboratory Observation Category" and Result.code ObsCode where ObsCode ~ "Laboratory Observation Code")
+  exists([Observation: code = "Laboratory Observation Code"] Result
+    where Result.category ObsCategory in "Laboratory Observation Category"
       and Result.status in { 'final' }
-      and Result.effective during "Measurement Period"
+      and Result.effective during "Measurement Period")
 
 define "Numerator":
   exists ("HIV Viral Load")
