@@ -14,15 +14,13 @@ code "Laboratory Observation Category": 'laboratory' from "Observation Category 
 code "Laboratory Observation Code": '315124004' from "SNOMED CT Codes"
 code "Encounter Class Outpatient": 'AMB' from "Encounter Class Codes"
 
-parameter "Measurement Period" Interval<DateTime>
-
 context Patient
 
-define "Outpatient:
-  ["target-facility-encounter"] E
+define "Outpatient":
+  [Encounter] E
     where E.status = 'finished'
-      and E.period during "Measurement Period" 
-      and E.class in "Encounter Class Outpatient"
+      and E.period 30 days or less before Today() 
+      and E.class ~ "Encounter Class Outpatient"
 
 define "Initial Population":
   exists ("Outpatient")
@@ -30,11 +28,11 @@ define "Initial Population":
 define "Denominator":
   true
 
-define "HIV Viral Load":
-  exists(["viral-load-count-observation"] Result
-    where Result.category in "Laboratory Observation Category"
-      and Result.status in { 'final' }
-      and Result.effective during "Measurement Period")
+define "HivViralLoad":
+  [Observation: "Laboratory Observation Code"] O
+    where O.category ~ "Laboratory Observation Category"
+      and O.status = 'final'
+      and O.effective 30 days or less before Today()
 
 define "Numerator":
-  exists ("HIV Viral Load")
+  exists ("HivViralLoad")
