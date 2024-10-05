@@ -22,7 +22,7 @@ define "Outpatient":
   [Encounter] E
     where E.status = 'finished'
       and E.period during "Measurement Period" 
-      and exists (E.class ~ "Outpatient Encounter Class")
+      and exists (E.class C where C ~ "Outpatient Encounter Class")
 
 define "Initial Population":
   exists ("Outpatient")
@@ -32,7 +32,7 @@ define "Denominator":
 
 define "HivViralLoad":
   [Observation: "HIV Viral Load Observation Code"] O
-    where exists (O.category ~ "Laboratory Observation Category")
+    where exists (O.category C where C ~ "Laboratory Observation Category")
       and O.status = 'final'
       and (
         (O.effective as dateTime).value during "Measurement Period" 
