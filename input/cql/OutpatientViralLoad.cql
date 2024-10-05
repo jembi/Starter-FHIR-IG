@@ -19,7 +19,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Outpatient:
-  Encounter E
+  [Encounter: "Outpatient"] E
     where E.status = 'finished'
       and E.period during "Measurement Period"
       and E.class in "Encounter Class Outpatient"
