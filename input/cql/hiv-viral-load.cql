@@ -1,16 +1,15 @@
 //A CQL example to fetch all HIV viral load results that fall within a reporting period.
 
-library Outpatient-Viral-Load version '1.0.0'
+library Outpatient_Viral_Load version '1.0.0'
 
-using FHIR version '4.0.1'
+include fhir.cqf.common.FHIRCommon
 
 include FHIRHelpers version '4.0.1'
-//include FHIRCommon called FC
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
 
-valueset "Encounter Ambulatory": 'http://terminology.hl7.org/ValueSet/encounter-class'
+valueset "Encounter Class": 'http://terminology.hl7.org/ValueSet/encounter-class'
 
 code "Laboratory Observation Category": 'laboratory' from "Observation Category Codes"
 code "Laboratory Observation Code": '315124004' from "SNOMED CT Codes"
@@ -21,7 +20,7 @@ context Patient
 
 define "Outpatient:
   (
-    [Encounter: "Encounter Ambulatory"]
+    [Encounter: "Encounter Class"]
   ) Encounter
     where Encounter.status = 'finished'
       and Encounter.Period during "Measurement Period"
