@@ -19,12 +19,10 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Outpatient:
-  (
-    [Encounter: "Encounter Class"]
-  ) Encounter
-    where Encounter.status = 'finished'
-      and Encounter.Period during "Measurement Period"
-      and Encounter.class = 'AMB'
+  [Encounter: "Encounter Class"] E
+    where E.status = 'finished'
+      and E.period during "Measurement Period"
+      and E.class = 'AMB'
 
 define "Initial Population":
   exists ("Outpatient")
