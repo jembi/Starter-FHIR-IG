@@ -1,10 +1,11 @@
 //A CQL example to fetch all HIV viral load results that fall within a reporting period.
+using FHIR version '4.0.1'
 
-library OutpatientViralLoad version '1.0.0'
-
-include fhir.cqf.common.FHIRCommon
+library OutpatientViralLoad version '0.1.0'
 
 include FHIRHelpers version '4.0.1'
+
+include fhir.cqf.common.FHIRCommon
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
@@ -19,9 +20,9 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Outpatient:
-  [Encounter: "Outpatient"] E
+  ["target-facility-encounter"] E
     where E.status = 'finished'
-      and E.period during "Measurement Period"
+      and E.period during "Measurement Period" 
       and E.class in "Encounter Class Outpatient"
 
 define "Initial Population":
@@ -31,7 +32,7 @@ define "Denominator":
   true
 
 define "HIV Viral Load":
-  exists([Observation: "Laboratory Observation Code"] Result
+  exists(["viral-load-count-observation"] Result
     where Result.category in "Laboratory Observation Category"
       and Result.status in { 'final' }
       and Result.effective during "Measurement Period")
