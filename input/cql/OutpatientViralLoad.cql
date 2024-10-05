@@ -20,9 +20,9 @@ context Patient
 
 define "Outpatient":
   [Encounter] E
-    where E.status = 'finished'
+    where (E.class C return C.value as FHIR.Coding) contains "Outpatient Encounter Class"
       and E.period during "Measurement Period" 
-      and exists (E.class C where C ~ "Outpatient Encounter Class")
+      and E.status = 'finished'
 
 define "Initial Population":
   exists ("Outpatient")
