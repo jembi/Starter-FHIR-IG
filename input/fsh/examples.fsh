@@ -115,3 +115,9 @@ Description: "Current organization providing health related services."
 * address[=].city = "Kirkos"
 * address[=].state = "Addis Ababa"
 * address[=].district = "Kirkos woreda 9"
+
+Instance: OutpatientViralLoadLibrary
+InstanceOf: Library
+Title: "CQL - Outpatient Viral Load"
+Description: "CQL Measure that reports on all patients whose HIV viral load has been completed within the reporting period."
+* content.id = "ig-loader-OutpatientViralLoad.cql"
