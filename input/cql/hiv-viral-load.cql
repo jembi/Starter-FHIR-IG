@@ -1,6 +1,6 @@
 //A CQL example to fetch all HIV viral load results that fall within a reporting period.
 
-library Outpatient_Viral_Load version '1.0.0'
+library OutpatientViralLoad version '1.0.0'
 
 include fhir.cqf.common.FHIRCommon
 
