@@ -11,7 +11,7 @@ codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
 codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
 
 code "Laboratory Observation Category": 'laboratory' from "Observation Category Codes"
-code "Observation HIV Viral Load Code": '315124004' from "SNOMED CT Codes"
+code "HIV Viral Load Observation Code": '315124004' from "SNOMED CT Codes"
 code "Outpatient Encounter Class": 'AMB' from "Encounter Class Codes"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -31,7 +31,7 @@ define "Denominator":
   true
 
 define "HivViralLoad":
-  [Observation: "Observation HIV Viral Load Code"] O
+  [Observation: "HIV Viral Load Observation Code"] O
     where exists (O.category ~ "Laboratory Observation Category")
       and O.status = 'final'
       and (
