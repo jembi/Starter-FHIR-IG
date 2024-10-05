@@ -20,7 +20,7 @@ context Patient
 
 define "Outpatient":
   [Encounter] E
-    where E.status in { 'finished' }
+    where E.status = 'finished'
       and E.period during "Measurement Period" 
       and exists (E.class C where C ~ "Outpatient Encounter Class")
 
@@ -33,7 +33,7 @@ define "Denominator":
 define "HivViralLoad":
   [Observation: "HIV Viral Load Observation Code"] O
     where exists (O.category C where C ~ "Laboratory Observation Category")
-      and O.status on { 'final' }
+      and O.status = 'final'
       and (
         (O.effective as dateTime).value during "Measurement Period" 
           or (O.effective as Period) starts during "Measurement Period"
