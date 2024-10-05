@@ -122,4 +122,4 @@ Title: "CQL - Outpatient Viral Load"
 Description: "CQL Measure that reports on all outpatient's (Numerator) whose HIV viral load has been completed within the reporting period (Denominator)."
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 * status = #active
-* type = $LibraryTypeCodeSystem#logic-Library
+* type = $LibraryTypeCodeSystem#logic-library
