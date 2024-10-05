@@ -2,27 +2,27 @@
 
 library OutpatientViralLoad version '1.0.0'
 
-include fhir.cqf.common.FHIRCommon
+//include fhir.cqf.common.FHIRCommon
 
 include FHIRHelpers version '4.0.1'
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
-
-valueset "Encounter Class": 'http://terminology.hl7.org/ValueSet/encounter-class'
+codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
 
 code "Laboratory Observation Category": 'laboratory' from "Observation Category Codes"
 code "Laboratory Observation Code": '315124004' from "SNOMED CT Codes"
+code "Encounter Class Outpatient": 'AMB' from "Encounter Class Codes"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Outpatient:
-  [Encounter: "Encounter Class"] E
+  Encounter E
     where E.status = 'finished'
       and E.period during "Measurement Period"
-      and E.class = 'AMB'
+      and E.class in "Encounter Class Outpatient"
 
 define "Initial Population":
   exists ("Outpatient")
