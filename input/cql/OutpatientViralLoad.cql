@@ -19,9 +19,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Outpatient":
-  [Encounter] E
-    where (E.class C return C.value as FHIR.Coding) contains "Outpatient Encounter Class"
-      and E.period during "Measurement Period" 
+  [Encounter: class ~ "Outpatient Encounter Class"] E
+    where E.period during "Measurement Period" 
       and E.status = 'finished'
 
 define "Initial Population":
@@ -31,7 +30,7 @@ define "Denominator":
   true
 
 define "HivViralLoad":
-  [Observation: "HIV Viral Load Observation Code"] O
+  [Observation: code ~ "HIV Viral Load Observation Code"] O
     where exists (O.category C where C ~ "Laboratory Observation Category")
       and O.status = 'final'
       and (
