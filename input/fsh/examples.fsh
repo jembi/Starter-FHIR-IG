@@ -119,8 +119,13 @@ Description: "Current organization providing health related services."
 Instance: OutpatientViralLoadLibrary
 InstanceOf: Library
 Title: "CQL - Outpatient Viral Load"
-Description: "CQL Measure that reports on all outpatient's (Numerator) whose HIV viral load has been completed within the reporting period (Denominator)."
-* description = "CQL Measure that reports on all outpatient's (Numerator) whose HIV viral load has been completed within the reporting period (Denominator)."
+Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
+* description = "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period.
+    
+    Numerator: Count all outpatients who have an HIV viral load result within the reporting period.
+
+    Denominator: Count all patients where the encounter class is for outpatient and the encounter date is within the reporting period."
+
 * name = "OutpatientViralLoadLibrary"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 * status = #active

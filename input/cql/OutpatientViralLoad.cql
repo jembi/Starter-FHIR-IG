@@ -29,7 +29,7 @@ define "Initial Population":
 define "Denominator":
   true
 
-define "HivViralLoad":
+define "HIV Viral Load":
   [Observation: code ~ "HIV Viral Load Observation Code"] O
     where exists (O.category C where C ~ "Laboratory Observation Category")
       and O.status = 'final'
@@ -39,4 +39,4 @@ define "HivViralLoad":
       )
 
 define "Numerator":
-  exists ("HivViralLoad")
+  exists ("HIV Viral Load")
