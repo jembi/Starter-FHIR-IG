@@ -12,15 +12,17 @@ codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-Ac
 
 code "Laboratory Observation Category": 'laboratory' from "Observation Category Codes"
 code "Observation HIV Viral Load Code": '315124004' from "SNOMED CT Codes"
-code "Encounter Class Outpatient": 'AMB' from "Encounter Class Codes"
+code "Outpatient Encounter Class": 'AMB' from "Encounter Class Codes"
+
+parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Outpatient":
   [Encounter] E
     where E.status = 'finished'
-      and E.period starts 30 days or less before Today() 
-      and E.class in "Encounter Class Outpatient"
+      and E.period during "Measurement Period" 
+      and exists (E.class ~ "Outpatient Encounter Class")
 
 define "Initial Population":
   exists ("Outpatient")
@@ -30,11 +32,11 @@ define "Denominator":
 
 define "HivViralLoad":
   [Observation: "Observation HIV Viral Load Code"] O
-    where O.category in "Laboratory Observation Category"
+    where exists (O.category ~ "Laboratory Observation Category")
       and O.status = 'final'
       and (
-        (O.effective as dateTime).value 30 days or less before Today()
-          or (O.effective as Period) starts 30 days or less before Today()
+        (O.effective as dateTime).value during "Measurement Period" 
+          or (O.effective as Period) starts during "Measurement Period"
       )
 
 define "Numerator":
