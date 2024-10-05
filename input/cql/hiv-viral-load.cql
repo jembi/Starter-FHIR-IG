@@ -33,8 +33,8 @@ define "Denominator":
   true
 
 define "HIV Viral Load":
-  exists([Observation: code = "Laboratory Observation Code"] Result
-    where Result.category ObsCategory in "Laboratory Observation Category"
+  exists([Observation: "Laboratory Observation Code"] Result
+    where Result.category in "Laboratory Observation Category"
       and Result.status in { 'final' }
       and Result.effective during "Measurement Period")
 
