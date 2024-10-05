@@ -2,7 +2,7 @@
 
 library OutpatientViralLoad version '1.0.0'
 
-//include fhir.cqf.common.FHIRCommon
+include fhir.cqf.common.FHIRCommon
 
 include FHIRHelpers version '4.0.1'
 
