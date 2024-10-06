@@ -151,11 +151,36 @@ Description: "CQL Measure that reports on all patients who have a HIV viral load
 Instance: HIVCommonLibrary
 InstanceOf: Library
 Title: "CQL - HIV Common"
-Description: "CQL HIV Common Library."
-* description = "CQL HIV Common Library."
+Description: "Common CQL for HIV calculations."
+* description = "Common CQL for HIV calculations."
 
 * name = "HIVCommonLibrary"
 * content.id = "ig-loader-HIVCommon.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
+
+
+Instance: LocalCommonLibrary
+InstanceOf: Library
+Title: "CQL - Local Common"
+Description: "Common functions for all CQL calculations."
+* description = "Common functions for all CQL calculations."
+
+* name = "LocalCommonLibrary"
+* content.id = "ig-loader-LocalCommon.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
+
+Instance: ViralLoadStatusLibrary
+InstanceOf: Library
+Title: "CQL - Viral Load Status"
+Description: "Checks whether the most recent viral load indicates supression."
+* description = "Checks whether the most recent viral load indicates supression."
+
+* name = "ViralLoadStatusLibrary"
+* content.id = "ig-loader-ViralLoadStatus.cql"
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
