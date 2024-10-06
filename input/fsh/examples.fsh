@@ -118,7 +118,7 @@ Description: "Current organization providing health related services."
 
 Instance: OutpatientViralLoadLibrary
 InstanceOf: Library
-Title: "CQL - Outpatient Viral Load"
+Title: "CQL - Viral Load (Outpatients only)"
 Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
 * description = "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period.
     
@@ -134,7 +134,7 @@ Description: "CQL Measure that reports on all outpatients who have a HIV viral l
 
 Instance: ViralLoadLibrary
 InstanceOf: Library
-Title: "CQL - Viral Load"
+Title: "CQL - Viral Load (All Patients)"
 Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
 * description = "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period.
     
@@ -144,6 +144,18 @@ Description: "CQL Measure that reports on all patients who have a HIV viral load
 
 * name = "ViralLoadLibrary"
 * content.id = "ig-loader-ViralLoad.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
+
+Instance: HIVCommonLibrary
+InstanceOf: Library
+Title: "CQL - HIV Common"
+Description: "CQL HIV Common Library."
+* description = "CQL HIV Common Library."
+
+* name = "HIVCommonLibrary"
+* content.id = "ig-loader-HIVCommon.cql"
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
