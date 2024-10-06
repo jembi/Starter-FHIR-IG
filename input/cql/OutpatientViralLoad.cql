@@ -6,12 +6,10 @@ include fhir.cqf.common.FHIRHelpers version '4.0.1'
 
 include fhir.cqf.common.FHIRCommon
 
-codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
-codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
+include ViralLoad called VL
+
 codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
 
-code "Laboratory Observation Category": 'laboratory' from "Observation Category Codes"
-code "HIV Viral Load Observation Code": '315124004' from "SNOMED CT Codes"
 code "Outpatient Encounter Class": 'AMB' from "Encounter Class Codes"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -29,14 +27,5 @@ define "Initial Population":
 define "Denominator":
   true
 
-define "HIV Viral Load":
-  [Observation: code ~ "HIV Viral Load Observation Code"] O
-    where exists (O.category C where C ~ "Laboratory Observation Category")
-      and O.status = 'final'
-      and (
-        (O.effective as dateTime).value during "Measurement Period" 
-          or (O.effective as Period) starts during "Measurement Period"
-      )
-
 define "Numerator":
-  exists ("HIV Viral Load")
+  exists (VL."HIV Viral Load")
