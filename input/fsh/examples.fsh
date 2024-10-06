@@ -131,3 +131,19 @@ Description: "CQL Measure that reports on all outpatients who have a HIV viral l
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
+
+Instance: ViralLoadLibrary
+InstanceOf: Library
+Title: "CQL - Viral Load"
+Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
+* description = "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period.
+    
+    Numerator: Count all patients who have an HIV viral load result within the reporting period.
+
+    Denominator: None."
+
+* name = "ViralLoadLibrary"
+* content.id = "ig-loader-ViralLoad.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
