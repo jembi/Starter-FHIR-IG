@@ -116,95 +116,88 @@ Description: "Current organization providing health related services."
 * address[=].state = "Addis Ababa"
 * address[=].district = "Kirkos woreda 9"
 
-Instance: OutpatientViralLoadLibrary
-InstanceOf: Library
-Title: "CQL - Viral Load (Outpatients only)"
-Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
-* description = "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period.
-    
-    Numerator: Count all outpatients who have an HIV viral load result within the reporting period.
+Instance:  ConfirmedHIVPositiveExample
+InstanceOf:  ConfirmedHIVPositive
+Usage: #example
+Title: "Observation - Confirmed HIV positive After PCR Testing"
+Description: "Represents the patient's PCR HIV test result."
+* status = #final
+* category = $OBSERVATION_CATEGORY#laboratory
+* code = $LNC#9836-8
+* code.text = "HIV PCR test"
+* valueCodeableConcept = $LNC#LA24955-9
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* performer = Reference(CurrentServiceProviderExample)
+* effectiveDateTime = "2024-01-25"
+//* basedOn = Reference(PCRHIVTestExample)
 
-    Denominator: Count all patients where the encounter class is for outpatient and the encounter date is within the reporting period."
+Instance: ARVMedicationAdministrationExample
+InstanceOf: ARVMedicationAdministration
+Usage: #example
+Title: "Medication Administration - For Prescribed ARV Medication"
+Description: "Used to record the medication administration period for prescribed ARV medication."
+* status = #completed
+* subject = Reference(PatientExample1)
+* context = Reference(GeneralEncounterExample)
+* request = Reference(ARVMedicationRequestInitiatedARTExample)
+* effectivePeriod.start = "2012-12-09"
+* effectivePeriod.end = "2013-04-08"
+* note.authorReference = Reference(GeneralPractitionerExample)
+* note.text = "Dose end date for a 90 day dispensation of 1j (TDF + 3TC + DTG)"
+* note.time = "2012-12-09T13:28:17-05:00"
+* medicationReference = Reference(ARVMedicationExample)
 
-* name = "OutpatientViralLoadLibrary"
-* content.id = "ig-loader-OutpatientViralLoad.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
+Instance: ARVMedicationRequestInitiatedARTExample
+InstanceOf: ARVMedicationRequest
+Usage: #example
+Title: "Medication Request - ARV Prescribed to a Patient Who Initiated ART"
+Description: "This is to record requests for medication that are prescribed to a patient (Initiated on ART)."
+* authoredOn = "2023-10-11T17:21:33-08:00"
+* status = #completed
+* intent = #order
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* medicationReference = Reference(ARVMedicationExample)
+* dispenseRequest.quantity = $OrderableDrugForm_UNIT#TAB 
+* dispenseRequest.quantity.unit = "TAB"
+* dispenseRequest.quantity.value = 90
 
-Instance: ViralLoadLibrary
-InstanceOf: Library
-Title: "CQL - Viral Load (All Patients)"
-Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
-* description = "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period.
-    
-    Numerator: Count all patients who have an HIV viral load result within the reporting period.
+Instance: ARVMedicationExample
+InstanceOf: ARVMedication
+Usage: #example
+Title: "Medication - Represents an ARV Regimen"
+Description: "Used to record the ARV regimen that will be prescribed to the patient."
+* code = $LNC#LP21306-3
+* code.text = "ABC"
 
-    Denominator: None."
+Instance: GeneralPractitionerExample
+InstanceOf: GeneralPractitioner
+Usage: #example
+Title: "Practitioner - General Practitioner"
+Description: 
+"Represents the practitioners who participated in the observation."
+* name[+].prefix[+] = "Dr"
+* name[=].given[+] = "Tom"
+* name[=].given[+] = "Junes"
+* name[=].family = "Smith"
+* telecom[+].system = #phone
+* telecom[=].value = "27537652509"
+* telecom[=].use = #work
+* telecom[+].system = #email
+* telecom[=].value = "someone@something.org"
+* telecom[=].use = #home
 
-* name = "ViralLoadLibrary"
-* content.id = "ig-loader-ViralLoad.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
-
-Instance: HIVCommonLibrary
-InstanceOf: Library
-Title: "CQL - HIV Common"
-Description: "Common CQL for HIV calculations."
-* description = "Common CQL for HIV calculations."
-
-* name = "HIVCommonLibrary"
-* content.id = "ig-loader-HIVCommon.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
-
-
-Instance: LocalCommonLibrary
-InstanceOf: Library
-Title: "CQL - Local Common"
-Description: "Common functions for all CQL calculations."
-* description = "Common functions for all CQL calculations."
-
-* name = "LocalCommonLibrary"
-* content.id = "ig-loader-LocalCommon.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
-
-Instance: ViralLoadStatusLibrary
-InstanceOf: Library
-Title: "CQL - Most Recent Viral Load Status"
-Description: "Checks for the most recent viral load and determines the suppression status."
-* description = "Checks for the most recent viral load and determines the suppression status."
-
-* name = "ViralLoadStatusLibrary"
-* content.id = "ig-loader-ViralLoadStatus.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
-
-Instance: FHIRCommonLibrary
-InstanceOf: Library
-Title: "CQL - FHIRCommon"
-Description: "Base FHIRCommon Include."
-* description = "Base FHIRCommon Include."
-
-* name = "FHIRCommonLibrary"
-* content.id = "ig-loader-FHIRCommon.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
-
-Instance: FHIRHelpersLibrary
-InstanceOf: Library
-Title: "CQL - FHIRHelpers"
-Description: "Base FHIRHelpers Include."
-* description = "Base FHIRHelpers Include."
-
-* name = "FHIRHelpersLibrary"
-* content.id = "ig-loader-FHIRHelpers.cql"
-* status = #active
-* experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
+Instance: InitiatedArtARTFollowupStatusExample
+InstanceOf: ARTFollowupStatusObservation
+Usage: #example
+Title: "Observation - Initiated On ART"
+Description: "Indicates that the patient is initiated on ART."
+* status = #final
+* category = $OBSERVATION_CATEGORY#therapy
+* code = $LNC#47248-0
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* valueCodeableConcept = $LNC#63936-9
+* effectiveDateTime = "2024-01-25"
+* performer = Reference(CurrentServiceProviderExample)

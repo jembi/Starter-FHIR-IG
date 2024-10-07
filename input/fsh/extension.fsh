@@ -65,14 +65,11 @@ Description: "An extension to capture the marital status."
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
 
-/*Extension: LogicalModelReferenceExtension
-Id: logical-model
-Title: "Logical Model Reference"
-Description: "An extension to capture a reference to a logical model."
-Context: Patient, RelatedPerson
-
-* ^experimental = true
-* ^status = #active
-* . SU // to ensure that all data elements are included in GET requests.
-* value[x] only Reference
-* valueReference 1..1*/
+Extension: ObservedDateExtension
+Id: observed-date
+Title: "Date and Time Associated with the Assertion"
+Description: "Represents the date and time to be documented together with the assertion. This is not necessarily the same date and time the Observation was created! For example, it can be used to record a date and time in the past to indicate when a patient reached a certin clinical status."
+* value[x] only dateTime
+* valueDateTime 1..1
+* ^context[+].type = #element
+* ^context[=].expression = "Observation.value.ofType(CodeableConcept)"
