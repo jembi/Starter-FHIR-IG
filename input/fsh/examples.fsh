@@ -175,9 +175,9 @@ Description: "Common functions for all CQL calculations."
 
 Instance: ViralLoadStatusLibrary
 InstanceOf: Library
-Title: "CQL - Viral Load Status"
-Description: "Checks whether the most recent viral load indicates supression."
-* description = "Checks whether the most recent viral load indicates supression."
+Title: "CQL - Most Recent Viral Load Status"
+Description: "Checks for the most recent viral load and determines the suppression status."
+* description = "Checks for the most recent viral load and determines the suppression status."
 
 * name = "ViralLoadStatusLibrary"
 * content.id = "ig-loader-ViralLoadStatus.cql"
