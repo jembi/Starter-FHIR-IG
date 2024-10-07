@@ -14,11 +14,11 @@
     "code" : "AMB"
   },
   "subject" : {
-    "reference" : "Patient/PatientExample1"
+    "reference" : "Patient/PatientExample2"
   },
   "period" : {
-    "start" : "2012-12-09",
-    "end" : "2012-12-09"
+   "start" : "2023-12-09",
+    "end" : "2023-12-09"
   },
   "serviceProvider" : {
     "reference" : "Organization/CurrentServiceProviderExample"

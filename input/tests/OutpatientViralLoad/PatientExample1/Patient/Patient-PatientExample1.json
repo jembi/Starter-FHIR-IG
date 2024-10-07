@@ -1,0 +1,31 @@
+{
+  "resourceType" : "Patient",
+  "id" : "PatientExample1",
+  "meta" : {
+    "profile" : ["http://jembi.org/fhir/StructureDefinition/test-patient"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Patient PatientExample1</b></p><a name=\"PatientExample1\"> </a><a name=\"hcPatientExample1\"> </a><a name=\"PatientExample1-en-US\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">John Doe  (no stated gender), DoB Unknown</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Known Marital status of Patient\">Marital Status:</td><td colspan=\"3\"><span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-MaritalStatus M}\">Married</span></td></tr></table></div>"
+  },
+  "name" : [{
+    "given" : ["John",
+    "Doe"],
+    "_given" : [{
+      "id" : "firstName"
+    },
+    {
+      "id" : "middleName"
+    }]
+  }],
+  "maritalStatus" : {
+    "extension" : [{
+      "url" : "http://jembi.org/fhir/StructureDefinition/marital-status-date",
+      "valueDate" : "1999-01-01"
+    }],
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+      "code" : "M"
+    }]
+  }
+}

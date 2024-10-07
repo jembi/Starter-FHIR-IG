@@ -1,0 +1,47 @@
+{
+  "resourceType": "Observation",
+  "id": "ViralLoadResultExample2",
+  "meta": {
+    "profile": [
+      "http://jembi.org/fhir/StructureDefinition/viral-load-count-observation"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "315124004"
+      }
+    ],
+    "text": "Human immunodeficiency virus viral load"
+  },
+  "subject": {
+    "reference": "Patient/PatientExample2"
+  },
+  "encounter": {
+    "reference": "Encounter/GeneralEncounterExample"
+  },
+  "effectiveDateTime": "2023-12-11",
+  "performer": [
+    {
+      "reference": "Organization/CurrentServiceProviderExample"
+    }
+  ],
+  "valueQuantity": {
+    "value": 1001,
+    "unit": "copies/mL",
+    "system": "http://unitsofmeasure.org",
+    "code": "1/mL"
+  }
+}
