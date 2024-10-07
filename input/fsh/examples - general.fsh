@@ -125,7 +125,7 @@ Description: "Represents the patient's PCR HIV test result."
 * category = $OBSERVATION_CATEGORY#laboratory
 * code = $LNC#9836-8
 * code.text = "HIV PCR test"
-* valueCodeableConcept = $LNC#LA24959-1
+* valueCodeableConcept = $LNC#LA24955-9
 * subject = Reference(PatientExample1)
 * encounter = Reference(GeneralEncounterExample)
 * performer = Reference(CurrentServiceProviderExample)

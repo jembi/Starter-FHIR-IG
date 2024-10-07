@@ -11,11 +11,11 @@ default Interval[@2023-12-01, @2023-12-31] //For testing only
 
 context Patient
 
-define "HIV+ Patients":
+define "HIV+ Patients Observation":
   HIVC.HIVPostivePatients ( "Measurement Period" )
 
 define "Initial Population":
-  exists ( "HIV+ Patients" )
+  exists ( "HIV+ Patients Observation" )
 
 define "Denominator":
   true
