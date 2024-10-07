@@ -21,4 +21,5 @@ define function ViralLoadResult(period Interval<DateTime>):
       and O.status = 'final'
       and ( O.value as Quantity ).value is not null
       and ( ( O.effective as dateTime ).value during period
-        or ( O.effective as Period ) starts during period )
+          or ( O.effective as Period ) starts during period
+      )
