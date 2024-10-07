@@ -15,7 +15,7 @@ context Patient
 define "Most Recent Viral Load Date":
   LOCALC.ObservationDate(LOCALC.MostRecent ( HIVC.ViralLoadResult ( "Measurement Period" ) ))
 
-define "Total Viral Load Observation":
+define "Total Viral Load Observations":
   Count ( HIVC.ViralLoadResult ( "Measurement Period" ) )
 
 define "Most Recent Viral Load Observation":
