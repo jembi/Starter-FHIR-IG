@@ -2,8 +2,8 @@ library HIVCommon version '0.1.0'
 
 using FHIR version '4.0.1'
 
-include fhir.cqf.common.FHIRHelpers version '4.0.1'
-include fhir.cqf.common.FHIRCommon
+include FHIRHelpers version '4.0.1'
+include FHIRCommon version '4.0.1'
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'
@@ -19,7 +19,6 @@ define function ViralLoadResult(period Interval<DateTime>):
         where C ~ "Laboratory Observation Category"
     )
       and O.status = 'final'
-      and ( O.value as integer ).value is not null
+      and ( O.value as Quantity ).value is not null
       and ( ( O.effective as dateTime ).value during period
-          or ( O.effective as Period ) starts during period
-      )
+        or ( O.effective as Period ) starts during period )

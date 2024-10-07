@@ -184,3 +184,27 @@ Description: "Checks for the most recent viral load and determines the suppressi
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
+
+Instance: FHIRCommonLibrary
+InstanceOf: Library
+Title: "CQL - FHIRCommon"
+Description: "Base FHIRCommon Include."
+* description = "Base FHIRCommon Include."
+
+* name = "FHIRCommonLibrary"
+* content.id = "ig-loader-FHIRCommon.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
+
+Instance: FHIRHelpersLibrary
+InstanceOf: Library
+Title: "CQL - FHIRHelpers"
+Description: "Base FHIRHelpers Include."
+* description = "Base FHIRHelpers Include."
+
+* name = "FHIRHelpersLibrary"
+* content.id = "ig-loader-FHIRHelpers.cql"
+* status = #active
+* experimental = true
+* type = $LibraryTypeCodeSystem#logic-library
