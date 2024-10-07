@@ -17,11 +17,11 @@ define "HIV+ Patients Observation":
 define "Initial Population":
   exists ( "HIV+ Patients Observation" )
 
-define "Denominator":
+define "InDenominator":
   true
 
 define "ART Patients Initiated on ART":
   HIVC.InitiatedART ( "Measurement Period" )
 
-define "Numerator":
+define "InNumerator":
   exists ( "ART Patients Initiated on ART" )

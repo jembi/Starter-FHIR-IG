@@ -23,12 +23,12 @@ define "Outpatient":
 define "Initial Population":
   exists ( "Outpatient" )
 
-define "Denominator":
+define "InDenominator":
   true
 
 define "Viral Load Results":
   HIVC.ViralLoadResult ( "Measurement Period")
 
-define "Numerator":
+define "InNumerator":
   exists ( "Viral Load Results" )
   
