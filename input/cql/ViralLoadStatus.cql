@@ -11,5 +11,9 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Most Recent Viral Load":
-  LOCALC.MostRecent ( HIVC.ViralLoadResult ( "Measurement Period" ) )
+define "Most Recent Viral Load Indication":
+  MostRecentSupressionStatus(LOCALC.MostRecent(HIVC.ViralLoadResult("Measurement Period")))
+
+define function MostRecentSupressionStatus(obs FHIR.Observation):
+  if ( obs.value as integer ) > 1000 then 'Unsuppressed'
+    else 'Suppressed'
