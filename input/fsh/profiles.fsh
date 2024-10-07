@@ -200,10 +200,101 @@ Id: confirmed-hiv-positive-observation
 Title: "Observation - Confirmed HIV positive"
 Description: "Represents the date the patient was confirmed HIV positive."
 * category 1..1
-* code from ConfirmedHIVPositiveValueSet (required)
+* code from HIVTestType (required)
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept from HIVTestResultsValueSet (required)
 //* basedOn 0..1 MS
 //* basedOn ^definition = "reason(s) why this should be supported."
 //* basedOn only Reference(PCRHIVTestServiceRequest)
+
+Profile: GenericDrugDispensation
+Parent: MedicationDispense
+Id: generic-medication-dispense
+Title: "Medication Dispense - Generic"
+Description: "Base Medication Request elements that are inherited by other Medication Request profiles."
+* status 1..1
+* medicationCodeableConcept.text 1..1
+* medicationCodeableConcept.coding only StrictCoding
+
+* subject 1..1 
+* subject only Reference(TestPatient)
+
+* context 1..1 
+* context only Reference(TargetFacilityEncounter)
+
+* quantity 1..1
+* quantity.value 1..1
+* quantity.unit 1..1
+* quantity.code 1..1
+* quantity.system 1..1
+
+* daysSupply 1..1
+* daysSupply.value 1..1
+* daysSupply.unit 1..1
+* daysSupply.code 1..1
+* daysSupply.system 1..1
+
+* whenHandedOver 0..1
+* whenHandedOver ^definition =
+    "reason(s) why this should be supported."
+
+Profile: ARVMedicationAdministration
+Parent: MedicationAdministration
+Id: arv-medication-administration
+Title: "Medication Administration - For Prescribed ARV Medication"
+Description: "Used to record the medication administration period for prescribed ARV medication."
+* status 1..1
+* request 1..1
+* medication[x] only Reference
+* medicationReference only Reference(ARVMedication)
+
+* request only Reference(ARVMedicationRequest)
+* subject 1..1
+* subject only Reference(TestPatient)
+* context 1..1
+* context only Reference(TargetFacilityEncounter)
+* effective[x] only Period
+* effectivePeriod 1..1
+  * start 0..1 MS
+  * start ^definition =
+    "reason(s) why this should be supported."
+  * end 1..1
+* note 0..* MS
+* note ^definition =
+    "reason(s) why this should be supported."
+
+Profile: ARVMedicationRequest
+Parent: MedicationRequest
+Id: arv-medication-request
+Title: "Medication Request - ARV"
+Description: "Used to record requests for ARV medication that are prescribed to a patient."
+* medication[x] only Reference
+* medicationReference only Reference(ARVMedication)
+* dispenseRequest.quantity = $OrderableDrugForm_UNIT#TAB
+* dispenseRequest.quantity.unit = "TAB"
+
+Profile: ARVMedication
+Parent: Medication
+Id: arv-regimen-medication
+Title: "Medication - Represents an ARV Regimen"
+Description: "Used to record the ARV regimen that will be prescribed to the patient."
+* code 1..1
+* code.coding only StrictCoding
+* code from ARVTreatmentValueSet (extensible)
+* code.text 1..1
+
+Profile: ARTFollowupStatusObservation
+Parent: GenericObservation
+Id: art-followup-status-observation
+Title: "Observation - ART Follow-up Status"
+Description: "Represents the patient's current ART follow-up status."
+* category 1..1
+* category = $OBSERVATION_CATEGORY#therapy
+* code = $LNC#47248-0
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept from ARTFollowUpStatusValueSet (required)
+* valueCodeableConcept.extension contains ObservedDateExtension named ObservedDate 0..1 MS
+* valueCodeableConcept.extension[ObservedDate] ^definition =
+    "reason(s) why this should be supported."

@@ -16,7 +16,7 @@ default Interval[@2023-12-01, @2023-12-31] //For testing only
 context Patient
 
 define "Outpatient":
-  [Encounter: class ~ "Outpatient Encounter Class"] E
+  [Encounter: class = "Outpatient Encounter Class"] E
     where E.period during "Measurement Period"
       and E.status = 'finished'
 

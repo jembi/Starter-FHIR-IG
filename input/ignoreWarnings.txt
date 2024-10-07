@@ -2,4 +2,4 @@
 
 # Not all generic profiles need an example
 WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-observation'): The Implementation Guide contains no examples for this profile
-WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/practitioner'): The Implementation Guide contains no examples for this profile
+WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-medication-dispense'): The Implementation Guide contains no examples for this profile
