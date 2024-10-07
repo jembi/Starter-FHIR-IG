@@ -193,3 +193,17 @@ Description:
 * name.prefix ^definition =
     "reason(s) why this should be supported."
 * telecom 1..*
+
+Profile: ConfirmedHIVPositive
+Parent: GenericObservation
+Id: confirmed-hiv-positive-observation
+Title: "Observation - Confirmed HIV positive"
+Description: "Represents the date the patient was confirmed HIV positive."
+* category 1..1
+* code from ConfirmedHIVPositiveValueSet (required)
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept from HIVTestResultsValueSet (required)
+//* basedOn 0..1 MS
+//* basedOn ^definition = "reason(s) why this should be supported."
+//* basedOn only Reference(PCRHIVTestServiceRequest)

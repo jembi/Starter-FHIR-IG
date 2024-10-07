@@ -208,3 +208,19 @@ Description: "Base FHIRHelpers Include."
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
+
+Instance:  ConfirmedHIVPositiveExample
+InstanceOf:  ConfirmedHIVPositive
+Usage: #example
+Title: "Observation - Confirmed HIV positive After PCR Testing"
+Description: "Represents the patient's PCR HIV test result."
+* status = #final
+* category = $OBSERVATION_CATEGORY#laboratory
+* code = $LNC#9836-8
+* code.text = "HIV PCR test"
+* valueCodeableConcept = $LNC#LA24959-1
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* performer = Reference(CurrentServiceProviderExample)
+* effectiveDateTime = "2024-01-25"
+//* basedOn = Reference(PCRHIVTestExample)

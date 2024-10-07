@@ -16,21 +16,21 @@ Description: "A list of codes for marital status."
 * ^status = #active
 * include codes from system CSMaritalStatus
 
-/*CodeSystem: CSLogicalModel
-Id: cs-logical-model
-Title: "Logical Model"
-Description: "A list of codes for identifying logical models."
-
-* ^experimental = true
+ValueSet: ConfirmedHIVPositiveValueSet
+Id: confrirmed-hiv-positive-value-set
+Title: "HIV Test Types"
+Description: "HIV Test Types"
+* ^experimental = false
 * ^status = #active
-* ^caseSensitive = true
-* #PatientLogicalModel "Patient Logical Model"
+* $LNC#9836-8 "HIV proviral DNA [Presence] in Blood by Probe with amplification"
+* $LNC#89365-1 "HIV 1 and 2 Ab panel - Serum, Plasma or Blood by Rapid immunoassay"
 
-ValueSet: VSLogicalModel
-Id: vs-logical-model
-Title: "Logical Model"
-Description: "A list of codes for identifying logical models."
-
-* ^experimental = true
+ValueSet: HIVTestResultsValueSet
+Id: hiv-test-results-value-set
+Title: "HIV Test Results"
+Description: "HIV Test Results"
+* ^experimental = false
 * ^status = #active
-* include codes from system CSLogicalModel*/
+* $LNC#LA24959-1 "HIV Negative"
+* $LNC#LA24955-9 "HIV-1 Positive"
+* $LNC#LA11884-6 "Indeterminate"
