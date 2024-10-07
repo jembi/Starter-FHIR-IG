@@ -12,6 +12,11 @@ define function MostRecent(observations List<Observation>):
       sort by effective.value
   )
 
+define function MostRecent(encounters List<Encounter>):
+  Last(encounters O
+      sort by period.start
+  )
+
 define function ObservationDate(observation FHIR.Observation):
   observation O
     return O.effective.value
