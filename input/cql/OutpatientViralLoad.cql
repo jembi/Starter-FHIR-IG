@@ -11,6 +11,7 @@ codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-Ac
 code "Outpatient Encounter Class": 'AMB' from "Encounter Class Codes"
 
 parameter "Measurement Period" Interval<DateTime>
+default Interval[@2023-12-01, @2023-12-31] //For testing only
 
 context Patient
 
@@ -25,5 +26,9 @@ define "Initial Population":
 define "Denominator":
   true
 
+define "Viral Load Results":
+  HIVC.ViralLoadResult ( "Measurement Period")
+
 define "Numerator":
-  exists ( HIVC.ViralLoadResult ( "Measurement Period" ) )
+  exists ( "Viral Load Results" )
+  
