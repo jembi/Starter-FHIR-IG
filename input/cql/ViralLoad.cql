@@ -12,11 +12,11 @@ default Interval[@2023-12-01, @2023-12-31] //For testing only
 
 context Patient
 
-define "Denominator":
+define "InDenominator":
   false
 
 define "Viral Load Results":
   HIVC.ViralLoadResult ( "Measurement Period" )
 
-define "Numerator":
+define "InNumerator":
   exists ( "Viral Load Results" )
