@@ -26,5 +26,9 @@ define "Initial Population":
 define "Denominator":
   true
 
+define "Viral Load Results":
+  HIVC.ViralLoadResult ( "Measurement Period")
+
 define "Numerator":
-  exists ( HIVC.ViralLoadResult ( "Measurement Period" ) )
+  exists ( "Viral Load Results" )
+  
