@@ -69,6 +69,17 @@ dependencies:
     id: cqf
     uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
     version: 4.0.1
+
+  hl7.fhir.uv.cql:
+    id: CQL
+    uri: http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql
+    version: 1.0.0
+  
+  hl7.fhir.uv.crmi:
+    id: CRMI
+    uri: http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi
+    version: 1.0.0
+
 #  hl7.fhir.us.core: 3.1.0
 #  hl7.fhir.us.mcode:
 #    id: mcode
