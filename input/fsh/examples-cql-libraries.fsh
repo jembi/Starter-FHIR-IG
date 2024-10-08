@@ -1,5 +1,5 @@
 Instance: ViralLoadLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - Viral Load (All Patients)"
 Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
 * description = "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period.
@@ -10,78 +10,77 @@ Description: "CQL Measure that reports on all patients who have a HIV viral load
 
 * name = "ViralLoadLibrary"
 * content.id = "ig-loader-ViralLoad.cql"
-* content.contentType = #text/cql
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: HIVCommonLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 * description = "Common CQL for HIV calculations."
 
 * name = "HIVCommonLibrary"
 * content.id = "ig-loader-HIVCommon.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: LocalCommonLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - Local Common"
 Description: "Common functions for all CQL calculations."
 * description = "Common functions for all CQL calculations."
 
 * name = "LocalCommonLibrary"
 * content.id = "ig-loader-LocalCommon.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: ViralLoadStatusLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - Most Recent Viral Load Status"
 Description: "Checks for the most recent viral load and determines the suppression status."
 * description = "Checks for the most recent viral load and determines the suppression status."
 
 * name = "ViralLoadStatusLibrary"
 * content.id = "ig-loader-ViralLoadStatus.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: FHIRCommonLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - FHIRCommon"
 Description: "Base FHIRCommon Include."
 * description = "Base FHIRCommon Include."
 
 * name = "FHIRCommonLibrary"
 * content.id = "ig-loader-FHIRCommon.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: FHIRHelpersLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - FHIRHelpers"
 Description: "Base FHIRHelpers Include."
 * description = "Base FHIRHelpers Include."
 
 * name = "FHIRHelpersLibrary"
 * content.id = "ig-loader-FHIRHelpers.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: InitiatedARTLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
 * description = "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period.
@@ -92,13 +91,13 @@ Description: "CQL Measure that reports on all HIV+ patients who have been initia
 
 * name = "InitiatedARTLibrary"
 * content.id = "ig-loader-InitiatedART.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: OutpatientViralLoadLibrary
-InstanceOf: CQLLibrary
+InstanceOf: Library
 Title: "CQL - Viral Load (Outpatients only)"
 Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
 * description = "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period.
@@ -109,7 +108,7 @@ Description: "CQL Measure that reports on all outpatients who have a HIV viral l
 
 * name = "OutpatientViralLoadLibrary"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
-* content.contentType = #text/cql
+
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
