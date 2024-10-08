@@ -3,14 +3,6 @@ InstanceOf: Library
 Title: "CQL - Viral Load (All Patients)"
 Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/ViralLoadLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - Viral Load (All Patients)"
 * description = "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period.
     
@@ -29,14 +21,6 @@ InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/HIVCommonLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - HIV Common"
 * description = "Common CQL for HIV calculations."
 
@@ -52,14 +36,6 @@ InstanceOf: Library
 Title: "CQL - Local Common"
 Description: "Common functions for all CQL calculations."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/LocalCommonLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - Local Common"
 * description = "Common functions for all CQL calculations."
 
@@ -75,14 +51,6 @@ InstanceOf: Library
 Title: "CQL - Most Recent Viral Load Status"
 Description: "Checks for the most recent viral load and determines the suppression status."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/ViralLoadStatusLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - Most Recent Viral Load Status"
 * description = "Checks for the most recent viral load and determines the suppression status."
 
@@ -98,14 +66,6 @@ InstanceOf: Library
 Title: "CQL - FHIRCommon"
 Description: "Base FHIRCommon Include."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/FHIRCommonLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title =  "CQL - FHIRCommon"
 * description = "Base FHIRCommon Include."
 
@@ -121,14 +81,6 @@ InstanceOf: Library
 Title: "CQL - FHIRHelpers"
 Description: "Base FHIRHelpers Include."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/FHIRHelpersLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - FHIRHelpers"
 * description = "Base FHIRHelpers Include."
 
@@ -144,14 +96,6 @@ InstanceOf: Library
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/InitiatedARTLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - HIV+ Patients Initiated on ART"
 * description = "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period.
     
@@ -171,14 +115,6 @@ InstanceOf: Library
 Title: "CQL - Viral Load (Outpatients only)"
 Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
 Usage: #definition
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
-* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
-* url = "http://jembi.org/fhir/Library/OutpatientViralLoadLibrary"
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"
-  * valueCode = #computable
 * title = "CQL - Viral Load (Outpatients only)"
 * description = "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period.
     
