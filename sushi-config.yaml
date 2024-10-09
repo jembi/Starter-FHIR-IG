@@ -37,16 +37,16 @@ releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | re
 # as IG.publisher.  The contact details and/or additional publishers
 # will be translated into IG.contact values.
 publisher:
-  name: My Organization 
-  url: http://example.com/committees
-  email: my-group@example.com
+  name: Jembi Health Systems 
+  url: https://www.jembi.org/
+  email: info@jembi.org
 
 # ContactDetail is required by the template.
 contact:
-  - name: Bob Smith
+  - name: Richard Langford
     telecom:
       - system: email
-        value: bobsmith@example.com
+        value: richard.langford@jembi.org
         use: work
 
 # The jurisdiction can be a single item or a list. The FHIR Shorthand
@@ -111,7 +111,11 @@ dependencies:
 #     better option (see below).
 # The following are simple examples to demonstrate what this might
 # look like:
-#resources:
+resources:
+  Library/ViralLoadStatusLibrary:
+    name: CQL - Most Recent Viral Load Status
+    description: Checks for the most recent viral load and determines the suppression status.
+    exampleBoolean: false
 #  Patient/my-example-patient:
 #    name: My Example Patient
 #    description: An example Patient
