@@ -111,11 +111,7 @@ dependencies:
 #     better option (see below).
 # The following are simple examples to demonstrate what this might
 # look like:
-resources:
-  Library/ViralLoadStatusLibrary:
-    name: CQL - Most Recent Viral Load Status
-    description: Checks for the most recent viral load and determines the suppression status.
-    exampleBoolean: false
+#resources:
 #  Patient/my-example-patient:
 #    name: My Example Patient
 #    description: An example Patient
