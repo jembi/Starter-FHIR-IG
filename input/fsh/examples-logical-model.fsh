@@ -9,7 +9,7 @@ Description: "Patient documented as married."
 * maritalStatus
   * status = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
   * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate.extension[=].url = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/marital-status-date"
 
 Instance: LogicalModelPatientExample2
 InstanceOf: PatientLogicalModel
@@ -31,7 +31,7 @@ Description: "Patient marital status not documented but includes a Mother relati
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"
 
-* relatedPerson = Reference(http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel)
+* relatedPerson = Reference(https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/RelatedPersonLogicalModel)
 
 Instance: RelatedPersonLogicalModelExample1
 InstanceOf: RelatedPersonLogicalModel
@@ -41,12 +41,12 @@ Description: "Marital status documented using a HL7 code."
 
 * name[+].firstName = "Jane"
 * name[=].middleName = "Smith"
-* relationship.patientRelatedTo = Reference(http://jembi.org/fhir/StructureDefinition/PatientLogicalModel)
+* relationship.patientRelatedTo = Reference(https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/PatientLogicalModel)
 * relationship.relationshipType = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * maritalStatus
   * status = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
   * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate.extension[=].url = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/marital-status-date"
 
 Instance: RelatedPersonLogicalModelExample2
 InstanceOf: RelatedPersonLogicalModel
@@ -56,10 +56,10 @@ Description: "Marital status documented using a proprietary code."
 
 * name[+].firstName = "Jane"
 * name[=].middleName = "Smith"
-* relationship.patientRelatedTo = Reference(http://jembi.org/fhir/StructureDefinition/PatientLogicalModel)
+* relationship.patientRelatedTo = Reference(https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/PatientLogicalModel)
 * relationship.relationshipType = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * maritalStatus
-  * status = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
+  * status = https://build.fhir.org/ig/jembi/Starter-FHIR-IG/CodeSystem/cs-marital-status#Other
   * status.text = "Some other code/reason"
   * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate.extension[=].url = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/marital-status-date"

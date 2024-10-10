@@ -2,7 +2,7 @@
   "resourceType" : "Patient",
   "id" : "PatientExample2",
   "meta" : {
-    "profile" : ["http://jembi.org/fhir/StructureDefinition/test-patient"]
+    "profile" : ["https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/test-patient"]
   },
   "text" : {
     "status" : "generated",
@@ -20,7 +20,7 @@
   }],
   "maritalStatus" : {
     "extension" : [{
-      "url" : "http://jembi.org/fhir/StructureDefinition/marital-status-date",
+      "url" : "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/marital-status-date",
       "valueDate" : "1999-01-01"
     }],
     "coding" : [{

@@ -3,7 +3,7 @@
     "id": "ConfirmedHIVPositiveExample",
     "meta": {
         "profile": [
-            "http://jembi.org/fhir/StructureDefinition/confirmed-hiv-positive-observation"
+            "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/confirmed-hiv-positive-observation"
         ]
     },
     "text": {
