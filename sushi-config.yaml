@@ -8,8 +8,8 @@
 
 
 id: jembi.starter.ig
-canonical: http://jembi.org/fhir
-url: http://jembi.org/fhir/ImplementationGuide/jembi.starter.ig
+canonical: https://build.fhir.org/ig/jembi/Starter-FHIR-IG
+url: https://build.fhir.org/ig/jembi/Starter-FHIR-IG/ImplementationGuide/jembi.starter.ig
 name: StarterIG
 title: "Starter FHIR Implementation Guide"
 description: A sample FHIR Implementation Guide to create capacity among the community.

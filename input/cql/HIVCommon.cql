@@ -2,12 +2,14 @@ library HIVCommon version '0.1.0'
 
 using FHIR version '4.0.1'
 
+//using StarterIG version '1.0.1'
+
 include FHIRHelpers version '4.0.1'
 include FHIRCommon version '4.0.1'
 
-valueset "HIV Test Types": 'http://jembi.org/fhir/ValueSet/hiv-test-type-value-set'
+valueset "HIV Test Types": 'https://build.fhir.org/ig/jembi/Starter-FHIR-IG/ValueSet/hiv-test-type-value-set'
 
-valueset "ARV Drugs": 'http://jembi.org/fhir/ValueSet/arv-treatment-value-set'
+valueset "ARV Drugs": 'https://build.fhir.org/ig/jembi/Starter-FHIR-IG/ValueSet/arv-treatment-value-set'
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "SNOMED CT Codes": 'http://snomed.info/sct'

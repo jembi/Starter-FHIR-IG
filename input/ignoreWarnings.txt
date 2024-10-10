@@ -1,5 +1,5 @@
 == Suppressed Messages ==
 
 # Not all generic profiles need an example
-WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-observation'): The Implementation Guide contains no examples for this profile
-WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-medication-dispense'): The Implementation Guide contains no examples for this profile
+WARNING: StructureDefinition.where(url = 'https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/generic-observation'): The Implementation Guide contains no examples for this profile
+WARNING: StructureDefinition.where(url = 'https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/generic-medication-dispense'): The Implementation Guide contains no examples for this profile

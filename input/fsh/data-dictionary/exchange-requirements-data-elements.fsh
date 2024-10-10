@@ -22,7 +22,7 @@ Description: "Exchange requirements example for the Patient Resource."
 * relatedPerson 0..1 Reference "Related person" "Someone related to the patient"
   * ^isSummary = true
   * ^mustSupport = true
-* relatedPerson = Reference(http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel)
+* relatedPerson = Reference(https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/RelatedPersonLogicalModel)
 
 Mapping: PatientLogicalModel-to-Patient
 Source: PatientLogicalModel
@@ -56,7 +56,7 @@ Description: "Exchange requirements example for the RelatedPerson Resource."
   * relationshipType 1..1 Coding "Relationship type" "How is the person related to the patient"
   * relationshipType from http://terminology.hl7.org/ValueSet/v3-RoleCode (preferred)
   * patientRelatedTo 1..1 Reference "Patient related to" "The patient who is the target of the relationship"
-  * patientRelatedTo = Reference(http://jembi.org/fhir/StructureDefinition/PatientLogicalModel)
+  * patientRelatedTo = Reference(https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/PatientLogicalModel)
 * maritalStatus 0..1 BackboneElement "Marital status" "Related person marital status"
   * ^isSummary = true
   * ^mustSupport = true

@@ -3,7 +3,7 @@
   "id": "ViralLoadResultExample1",
   "meta": {
     "profile": [
-      "http://jembi.org/fhir/StructureDefinition/viral-load-count-observation"
+      "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/viral-load-count-observation"
     ]
   },
   "status": "final",
