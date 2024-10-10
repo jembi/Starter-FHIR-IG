@@ -160,9 +160,7 @@ dependencies:
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and
 # should follow the format defined in ImplementationGuide:
-#meta:
-#  profile:
-#    - http://hl7.org/fhir/uv/cql/StructureDefinition/cql-implementationguide
+# *meta
 # * implicitRules
 # * language
 # * text

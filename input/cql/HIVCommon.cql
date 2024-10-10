@@ -6,7 +6,6 @@ include FHIRHelpers version '4.0.1'
 include FHIRCommon version '4.0.1'
 
 valueset "HIV Test Types": 'http://jembi.org/fhir/ValueSet/hiv-test-type-value-set'
-//valueset "HIV Test Result": 'http://jembi.org/fhir/ValueSet/hiv-test-results-value-set'
 
 valueset "ARV Drugs": 'http://jembi.org/fhir/ValueSet/arv-treatment-value-set'
 
