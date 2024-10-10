@@ -21,6 +21,10 @@ InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 Usage: #definition
+//* extension[+]
+//  * url = "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings"
+//  * valueReference = Reference(StarterIGModelInfoSettings)
+
 * title = "CQL - HIV Common"
 * description = "Common CQL for HIV calculations."
 
