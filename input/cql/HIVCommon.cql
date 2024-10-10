@@ -2,13 +2,10 @@ library HIVCommon version '0.1.0'
 
 using FHIR version '4.0.1'
 
-//using StarterIG version '1.0.1'
-
 include FHIRHelpers version '4.0.1'
 include FHIRCommon version '4.0.1'
 
 valueset "HIV Test Types": 'http://jembi.org/fhir/ValueSet/hiv-test-type-value-set'
-
 valueset "ARV Drugs": 'http://jembi.org/fhir/ValueSet/arv-treatment-value-set'
 
 codesystem "Observation Category Codes": 'http://terminology.hl7.org/CodeSystem/observation-category'
@@ -24,7 +21,7 @@ code "ART Status Code": '47248-0' from "LOINC Codes"
 context Patient
 
 define function ViralLoadResult(period Interval<DateTime>):
-  [Observation: code = "HIV Viral Load Observation Code"] O
+  [Observation: "HIV Viral Load Observation Code"] O
     where exists ( O.category C
         where C = "Laboratory Observation Category"
     )
@@ -42,7 +39,7 @@ define function HIVPostivePatients(period Interval<DateTime>):
       )
 
 define function InitiatedART(period Interval<DateTime>):
-  [Observation: code = "ART Status Code"] O
+  [Observation: "ART Status Code"] O
     where ( O.value as CodeableConcept ) = "Initiated ART Code"
       and ( ( O.effective as dateTime ).value during period
           or ( O.effective as Period ) starts during period
