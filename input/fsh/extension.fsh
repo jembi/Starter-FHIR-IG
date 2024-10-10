@@ -28,7 +28,7 @@ Description: "An extension to capture the marital status and the effective date 
 
 * ^mapping[+].identity = "RelatedPersonLogicalModel"
 * ^mapping[=].name = "Related Person Logical Model"
-* ^mapping[=].uri = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/RelatedPersonLogicalModel"
+* ^mapping[=].uri = "http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel"
 
 * . SU // to ensure that both extensions are included in GET requests.
 * extension contains MaritalStatusExtension named Status 1..1
@@ -57,7 +57,7 @@ Description: "An extension to capture the marital status."
 * valueCodeableConcept ^binding.extension[+].extension[+].url = "purpose"
 * valueCodeableConcept ^binding.extension[=].extension[=].valueCode = #extensible
 * valueCodeableConcept ^binding.extension[=].extension[+].url = "valueSet"
-* valueCodeableConcept ^binding.extension[=].extension[=].valueCanonical = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/ValueSet/vs-marital-status"
+* valueCodeableConcept ^binding.extension[=].extension[=].valueCanonical = "http://jembi.org/fhir/ValueSet/vs-marital-status"
 * valueCodeableConcept ^binding.extension[=].extension[+].url = "documentation"
 * valueCodeableConcept ^binding.extension[=].extension[=].valueMarkdown = "A demonstrable list of codes for marital status."
 * valueCodeableConcept ^binding.extension[=].url = "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"

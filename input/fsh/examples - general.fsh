@@ -54,7 +54,7 @@ Description: "Marital status documented using a proprietary code."
 * name[=].given[middleName] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
-* extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = https://build.fhir.org/ig/jembi/Starter-FHIR-IG/CodeSystem/cs-marital-status#Other
+* extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
 * extension[MaritalStatus][=].extension[Status][=].valueCodeableConcept.text = "Some other code/reason"
 * extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"
 

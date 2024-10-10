@@ -3,7 +3,7 @@
     "id": "InitiatedArtARTFollowupStatusExample",
     "meta": {
         "profile": [
-            "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/art-followup-status-observation"
+            "http://jembi.org/fhir/StructureDefinition/art-followup-status-observation"
         ]
     },
     "text": {
