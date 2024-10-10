@@ -2,7 +2,7 @@
   "resourceType" : "Encounter",
   "id" : "GeneralEncounterExample",
   "meta" : {
-    "profile" : ["https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/target-facility-encounter"]
+    "profile" : ["http://jembi.org/fhir/StructureDefinition/target-facility-encounter"]
   },
   "text" : {
     "status" : "generated",

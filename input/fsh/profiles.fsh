@@ -12,7 +12,7 @@ Title: "Patient"
 
 * ^mapping[+].identity = "PatientLogicalModel"
 * ^mapping[=].name = "Patient Logical Model"
-* ^mapping[=].uri = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/PatientLogicalModel"
+* ^mapping[=].uri = "http://jembi.org/fhir/StructureDefinition/PatientLogicalModel"
 
 //* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
 //* extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
@@ -63,7 +63,7 @@ Title: "Related Person"
 
 * ^mapping[+].identity = "RelatedPersonLogicalModel"
 * ^mapping[=].name = "Related Person Logical Model"
-* ^mapping[=].uri = "https://build.fhir.org/ig/jembi/Starter-FHIR-IG/StructureDefinition/RelatedPersonLogicalModel"
+* ^mapping[=].uri = "http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel"
 
 //* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
 //* extension[LogicalModel].valueReference = Reference(RelatedPersonLogicalModel)

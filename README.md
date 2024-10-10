@@ -14,7 +14,7 @@ This will allow you to see your automatically generated and published FHIR® IG 
 <br> </br>
 In order to enable this automatic generation of FHIR® IG artifacts, install the IG Auto-Builder: __https://github.com/apps/fhir-ig-builder__. 
 <br> </br>
-The continous build IG for this Starter Project can be seen here: __https://build.fhir.org/ig/jembi/Starter-FHIR-IG/index.html__
+The continous build IG for this Starter Project can be seen here: __http://jembi.org/fhir/index.html__
 <br></br>
 
 >**NOTE**
