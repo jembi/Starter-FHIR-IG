@@ -1,8 +1,8 @@
 Instance: InitiatedARTMeasure
-InstanceOf: http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm
+InstanceOf: CQFMProportionMeasure
 Title: "Measure - HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
-Usage: #example
+Usage: #definition
 * title = "Measure - HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 * url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
@@ -23,16 +23,16 @@ Usage: #example
     * id = "Initiated.ART.IP"
     * criteria.expression = "Initial Population"
     * criteria.language = #text/cql-identifier
-    * description = "Initial Population"
+    //* description = "Initial Population"
 
   * population[denominator]
     * id = "Initiated.ART.D"
     * criteria.expression = "Denominator"
     * criteria.language = #text/cql-identifier
-    * description = "Denominator"
+    //* description = "Denominator"
 
   * population[numerator]
     * id = "Initiated.ART.N"
     * criteria.expression = "Numerator"
     * criteria.language = #text/cql-identifier
-    * description = "Numerator"
+    //* description = "Numerator"
