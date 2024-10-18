@@ -75,10 +75,10 @@ dependencies:
     uri: http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql
     version: 1.0.0
   
-  #hl7.fhir.uv.crmi:
-  #  id: CRMI
-  #  uri: http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi
-  #  version: 1.0.0
+  hl7.fhir.uv.crmi:
+    id: CRMI
+    uri: http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi
+    version: 1.0.0
 
 #  hl7.fhir.us.core: 3.1.0
 #  hl7.fhir.us.mcode:
@@ -197,8 +197,8 @@ dependencies:
 parameters:
   path-binary: 
     - input/cql
-  path-liquid:
-    - templates/liquid
+  #path-liquid:
+  #  - templates/liquid
 #  excludettl: true
 #  validation: [allow-any-extensions, no-broken-links]
 
