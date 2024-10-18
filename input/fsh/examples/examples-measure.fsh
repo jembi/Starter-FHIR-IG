@@ -2,16 +2,25 @@ Instance: InitiatedARTMeasure
 InstanceOf: CQFMProportionMeasure
 Title: "Measure - HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
-Usage: #example
+Usage: #definition
 * meta
+  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
   * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
+  //* profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
 
-* extension[effectiveDataRequirements].valueCanonical = Canonical(InitiatedARTDataRequirementsLibrary)
-* extension[populationBasis].valueCode = #boolean
+* contained = InitiatedARTDataRequirementsLibrary
+* extension[+]
+  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
+  * valueReference = Reference(InitiatedARTDataRequirementsLibrary)
+  * id = "InitiatedARTDataRequirementsLibrary"
+
+* extension[+]
+  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+  * valueCode = #boolean
   
 * title = "Measure - HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
-* url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
+//* url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
 * status = #draft
 * experimental = true
 * name = "InitiatedARTMeasure"
@@ -25,7 +34,6 @@ Usage: #example
   * end = "2023-12-31"
 * type = $MeasureType#process
 * improvementNotation = $MeasureImprovementNotation#increase
-* contained = InitiatedARTDataRequirementsLibrary
 
 * group[+]
   * population[initialPopulation]
