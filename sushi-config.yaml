@@ -63,12 +63,12 @@ dependencies:
   hl7.fhir.us.cqfmeasures:
     id: CQFMeasures
     uri: http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures
-    version: 4.0.0
+    version: 5.0.0
 
-  fhir.cqf.common:
-    id: cqf
-    uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
-    version: 4.0.1
+  #fhir.cqf.common:
+  #  id: cqf
+  #  uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
+  #  version: 4.0.1
 
   hl7.fhir.uv.cql:
     id: CQL
@@ -197,8 +197,8 @@ dependencies:
 parameters:
   path-binary: 
     - input/cql
-  #path-liquid:
-  #  - templates/liquid
+  path-liquid:
+    - templates/liquid
 #  excludettl: true
 #  validation: [allow-any-extensions, no-broken-links]
 

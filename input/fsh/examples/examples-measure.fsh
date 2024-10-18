@@ -3,13 +3,11 @@ InstanceOf: CQFMProportionMeasure
 Title: "Measure - HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #example
-//* meta
-//  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
-//  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
+* meta
+  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
 
-* extension[+]
-  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
-  * valueReference = Reference(InitiatedARTDataRequirementsLibrary)
+* extension[effectiveDataRequirements].valueCanonical = Canonical(InitiatedARTDataRequirementsLibrary)
+* extension[populationBasis].valueCode = #boolean
   
 * title = "Measure - HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
