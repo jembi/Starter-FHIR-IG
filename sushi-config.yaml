@@ -197,7 +197,7 @@ dependencies:
 parameters:
   path-binary: 
     - input/cql
-  #path-liquid:
+  path-liquid:
     - templates/liquid
 #  excludettl: true
 #  validation: [allow-any-extensions, no-broken-links]
