@@ -1,42 +1,32 @@
 Instance: InitiatedARTDataRequirementsLibrary
-InstanceOf: Library
+InstanceOf: CQFMModuleDefinitionLibrary
 Usage: #inline
-* extension[+]
-  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition"
-  * extension[+]
-    * url = "libraryName"
-    * valueString = "InitiatedARTLibrary"
-  * extension[+]
-    * url = "name"
-    * valueString = "HIV+ Patients Observation"
-  * extension[+]
-    * url = "statement"
-    * valueString = "define \"HIV+ Patients Observation\": HIVC.HIVPostivePatients ( \"Measurement Period\" )"
-  * extension[+]
-    * url = "displaySequence"
-    * valueInteger = 0
+* extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
+* extension[logicDefinition][=].extension[name].valueString = "HIV+ Patients Observation"
+* extension[logicDefinition][=].extension[statement].valueString = "define \"HIV+ Patients Observation\": HIVC.HIVPostivePatients ( \"Measurement Period\" )"
+* extension[logicDefinition][=].extension[displaySequence].valueInteger = 0
 
-/**extension[+].extension[libraryName].valueString = "InitiatedARTLibrary"
-* extension[=].extension[name].valueString = "Initial Population"
-* extension[=].extension[statement].valueString = "define \"Initial Population\": exists ( \"HIV+ Patients Observation\" )"
-* extension[=].extension[displaySequence].valueInteger = 1
+* extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
+* extension[logicDefinition][=].extension[name].valueString = "Initial Population"
+* extension[logicDefinition][=].extension[statement].valueString = "define \"Initial Population\": exists ( \"HIV+ Patients Observation\" )"
+* extension[logicDefinition][=].extension[displaySequence].valueInteger = 1
 
-* extension[+].extension[libraryName].valueString = "InitiatedARTLibrary"
-* extension[=].extension[name].valueString = "Denominator"
-* extension[=].extension[statement].valueString = "define \"Denominator\": \"Initial Population\""
-* extension[=].extension[displaySequence].valueInteger = 2
+* extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
+* extension[logicDefinition][=].extension[name].valueString = "Denominator"
+* extension[logicDefinition][=].extension[statement].valueString = "define \"Denominator\": \"Initial Population\""
+* extension[logicDefinition][=].extension[displaySequence].valueInteger = 2
 
-* extension[+].extension[libraryName].valueString = "InitiatedARTLibrary"
-* extension[=].extension[name].valueString = "ART Patients Initiated on ART"
-* extension[=].extension[statement].valueString = "define \"ART Patients Initiated on ART\": HIVC.InitiatedART ( \"Measurement Period\" )"
-* extension[=].extension[displaySequence].valueInteger = 3
+* extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
+* extension[logicDefinition][=].extension[name].valueString = "ART Patients Initiated on ART"
+* extension[logicDefinition][=].extension[statement].valueString = "define \"ART Patients Initiated on ART\": HIVC.InitiatedART ( \"Measurement Period\" )"
+* extension[logicDefinition][=].extension[displaySequence].valueInteger = 3
 
-* extension[+].extension[libraryName].valueString = "InitiatedARTLibrary"
-* extension[=].extension[name].valueString = "Numerator"
-* extension[=].extension[statement].valueString = "define \"Numerator\": exists ( \"ART Patients Initiated on ART\" )"
-* extension[=].extension[displaySequence].valueInteger = 4*/
+* extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
+* extension[logicDefinition][=].extension[name].valueString = "Numerator"
+* extension[logicDefinition][=].extension[statement].valueString = "define \"Numerator\": exists ( \"ART Patients Initiated on ART\" )"
+* extension[logicDefinition][=].extension[displaySequence].valueInteger = 4
 
-* name = "InitiatedARTDataRequirements"
+* name = "InitiatedARTDataRequirementsLibrary"
 * status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#module-definition

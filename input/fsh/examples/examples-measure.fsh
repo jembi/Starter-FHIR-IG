@@ -1,24 +1,22 @@
 Instance: InitiatedARTMeasure
 InstanceOf: CQFMProportionMeasure
-Title: "Measure - HIV+ Patients Initiated on ART"
+Title: "HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #definition
 * meta
-  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
   * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
-  //* profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cql-measure-cqfm"
 
 * contained = InitiatedARTDataRequirementsLibrary
+
 * extension[+]
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
   * valueReference = Reference(InitiatedARTDataRequirementsLibrary)
-  * id = "InitiatedARTDataRequirementsLibrary"
 
 * extension[+]
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
   * valueCode = #boolean
   
-* title = "Measure - HIV+ Patients Initiated on ART"
+* title = "HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 //* url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
 * status = #draft
@@ -38,18 +36,21 @@ Usage: #definition
 * group[+]
   * population[initialPopulation]
     * id = "Initiated.ART.IP"
-    * criteria.expression = "Initial Population"
-    * criteria.language = #text/cql-identifier
+    * criteria
+      * expression = "Initial Population"
+      * language = #text/cql-identifier
     * description = "Initial Population"
 
   * population[denominator]
     * id = "Initiated.ART.D"
-    * criteria.expression = "Denominator"
-    * criteria.language = #text/cql-identifier
+    * criteria
+      * expression = "Denominator"
+      * language = #text/cql-identifier
     * description = "Count all patients who tested positive for HIV within the reporting period."
 
   * population[numerator]
     * id = "Initiated.ART.N"
-    * criteria.expression = "Numerator"
-    * criteria.language = #text/cql-identifier
+    * criteria
+      * expression = "Numerator"
+      * language = #text/cql-identifier
     * description = "Count all HIV+ patients who have been initiated on ART within the reporting period."
