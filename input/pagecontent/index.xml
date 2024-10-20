@@ -29,7 +29,7 @@
     <li><a href="full-ig.zip">this entire guide</a>,</li>
     <li>the definition resources in <a href="definitions.json.zip">json</a>, <a href="definitions.xml.zip">xml</a>, <a href="definitions.ttl.zip">ttl</a>, or <a href="csvs.zip">csv</a> format, or</li>
     <li>the example resources in <a href="examples.json.zip">json</a>, <a href="examples.xml.zip">xml</a> or <a href="examples.ttl.zip">ttl</a> format.</li>
-    <li><a href="package.tgz">R5 NPM Package</a></li>
+    <li><a href="package.r4.tgz">R4 NPM Package</a></li>
   </ul>
 
   <p>The source code for this Implementation Guide can be found on <a href="https://github.com/jembi/Starter-FHIR-IG">GitHub</a>.</p>
