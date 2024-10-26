@@ -29,7 +29,7 @@ group QRBreastfeedingStatusToObservation(source src : QuestionnaireResponse, tar
 
     src.item as item where(linkId = '1.1') then {
         item.answer first as ans then { 
-            ans.value as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
+            ans.value : Coding as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
                 breastfeeding -> obsValue.coding = create('Coding') as coding then {
                     breastfeeding -> coding.system = translate(breastfeeding, 'http://jembi.org/fhir/ConceptMap/LOINCCodesToProprietary', 'system') "SetObservationValueCodingSystem";
                     breastfeeding -> coding.code = translate(breastfeeding, 'http://jembi.org/fhir/ConceptMap/LOINCCodesToProprietary', 'code') "SetObservationValueCodingCode";
