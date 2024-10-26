@@ -27,7 +27,7 @@ group QRBreastfeedingStatusToObservation(source src : QuestionnaireResponse, tar
 
     src.encounter as encounter -> tgt.encounter = encounter "SetObservationEncounterReference";
 
-    src.item as item where(linkId = '1.3') then {
+    src.item as item where(linkId = '1.1') then {
         item.answer first as ans then { 
             ans.value as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
                 breastfeeding -> obsValue.coding = create('Coding') as coding then {
