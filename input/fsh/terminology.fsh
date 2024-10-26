@@ -4,7 +4,7 @@ Title: "Marital Status"
 Description: "A list of codes for marital status."
 
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * ^caseSensitive = true
 * #Other "Other"
 
@@ -13,7 +13,7 @@ Id: vs-marital-status
 Title: "Marital Status"
 Description: "A list of codes for marital status."
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * include codes from system CSMaritalStatus
 
 ValueSet: HIVTestType
@@ -21,7 +21,7 @@ Id: hiv-test-type-value-set
 Title: "HIV Test Types"
 Description: "HIV Test Types"
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * $LNC#9836-8 "HIV proviral DNA [Presence] in Blood by Probe with amplification"
 * $LNC#89365-1 "HIV 1 and 2 Ab panel - Serum, Plasma or Blood by Rapid immunoassay"
 
@@ -30,7 +30,7 @@ Id: hiv-test-results-value-set
 Title: "HIV Test Results"
 Description: "HIV Test Results"
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * $LNC#LA24959-1 "HIV Negative"
 * $LNC#LA24955-9 "HIV-1 Positive"
 * $LNC#LA11884-6 "Indeterminate"
@@ -40,7 +40,7 @@ Id: arv-treatment-value-set
 Title: "ARV Drugs"
 Description: "A list of codes describing the ARV Drugs."
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * $LNC#LP21306-3 "Abacavir"
 * $LNC#LP14522-4 "Acyclovir"
 * $LNC#LP28549-1 "Adefovir"
@@ -111,7 +111,7 @@ Id: art-follow-up-status-value-set
 Title: "Follow Up Status"
 Description: "FollowUp Status"
 * ^experimental = true
-* ^status = #active
+* ^status = #draft
 * $SCT#129019007 "Taking medication"
 * $LNC#45257-3 "Date dropped from HIV treatment"
 * $LNC#45256-5 "HIV treatment clinic transferred to"
@@ -119,3 +119,32 @@ Description: "FollowUp Status"
 * $LNC#45237-5 "Date lost to HIV treatment follow-up"
 * $LNC#77978-5 "Patient died from illness of interest"
 * $LNC#63936-9 "Start date of treatment or therapy"
+
+CodeSystem: AbsentUnknownCodeSystem
+Id: absent-unknown-code-system
+Title: "Absent or Unknown"
+Description: "Codes used for indicating when a value is absent or unknown."
+* ^experimental = true
+* ^status = #draft
+* ^caseSensitive = true
+* #Absent-or-unknown "Absent or unknown" "When the value is not available at the time of the event"
+* #Not-Applicable "Not Applicable" "The value is not applicable for one or more reasons that are captured by the clinician"
+
+CodeSystem: YesNoCodeSystem
+Id: yes-no-code-system
+Title: "Yes/No Codes"
+Description: "Yes/No Codes Represented as Boolean."
+* ^experimental = true
+* ^status = #draft
+* ^caseSensitive = true
+* #true "Yes"
+* #false "No"
+
+ValueSet: YesNoValueSet
+Id: yes-no-value-set
+Title: "Yes/No Codes"
+Description: "Yes/No Codes Represented as Boolean."
+* ^experimental = true
+* ^status = #draft
+* $AbsentUnknownCodeSystem#Not-Applicable
+* include codes from system YesNoCodeSystem

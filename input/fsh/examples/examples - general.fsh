@@ -209,3 +209,33 @@ Title: "Parameters - Starter IG: Model Info Settings"
 Description: "Starter IG: model info settings."
 * parameter[modelName][+].valueString = "StarterIG"
 * parameter[modelUrl][+].valueString = "http://jembi.org/fhir"*/
+
+Instance: PregnancyStatusAndFPMQuestionnaireResponseExample
+InstanceOf: QuestionnaireResponse
+Usage: #example
+Title: "Questionnaire Response - Pregnancy Status and Family Planning Method (FPM)"
+Description: "A questionaire response that documents the answers to the pregnancy status and FPM questions."
+* questionnaire = Canonical(PregnancyStatusAndFPMQuestionnaire)
+* status = #completed
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+
+* insert QuestionResponse(1.1, Is breastfeeding, valueCoding, $YesNoCodeSystem#false)
+
+* author = Reference(GeneralPractitionerExample)
+* authored = "2008-10-13"
+
+Instance: BreastfeedingStatusExample
+InstanceOf: BreastfeedingStatus
+Usage: #example
+Title: "Observation Breastfeeding Status"
+Description: "Represents whether the patient is currently breatfeeding."
+* status = #final
+* category = $OBSERVATION_CATEGORY#exam
+* code = $LNC#63895-7
+* code.text = "Breastfeeding status"
+* valueCodeableConcept = $YesNoCodeSystem#false
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* performer = Reference(CurrentServiceProviderExample)
+* effectiveDateTime = "2024-01-25"

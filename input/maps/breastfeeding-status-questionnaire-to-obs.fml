@@ -1,0 +1,40 @@
+map "http://jembi.org/fhir/StructureMap/QRBreastfeedingStatusToObservation" = "QRBreastfeedingStatusToObservation"
+
+/// status = 'draft'
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" as source
+uses "http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation" as target
+
+group QRBreastfeedingStatusToObservation(source src : QuestionnaireResponse, target tgt : Observation) {
+	src -> tgt.id = uuid() "SetObservationId";
+
+    src -> tgt.meta as meta then {
+        src -> meta.profile = 'http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation' "SetObservationMetaProfile";
+    } "SetObservationMeta";
+
+    src -> tgt.status = 'final' "SetObservationStatus";
+
+    src -> tgt.code = cc('http://loinc.org', '63895-7') "SetObservationCode";
+    src -> tgt.code as code, code.text = 'Breastfeeding status' "SetObservationCodeText";
+
+    src.authored as authored -> tgt.effective = authored "SetObservationEffectiveDateTime";
+
+    src -> tgt.category = cc('http://hl7.org/fhir/observation-category', 'exam') "SetObservationCategory";
+
+    src.subject as patient -> tgt.subject = patient "SetObservationSubjectReference";
+
+    src.author as author -> tgt.performer = author "SetObservationPerfomerReference";
+
+    src.encounter as encounter -> tgt.encounter = encounter "SetObservationEncounterReference";
+
+    src.item as item where(linkId = '1.3') then {
+        item.answer first as ans then { 
+            ans.value as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
+                breastfeeding -> obsValue.coding = create('Coding') as coding then {
+                    breastfeeding -> coding.system = translate(breastfeeding, 'http://jembi.org/fhir/ConceptMap/LOINCCodesToProprietary', 'system') "SetObservationValueCodingSystem";
+                    breastfeeding -> coding.code = translate(breastfeeding, 'http://jembi.org/fhir/ConceptMap/LOINCCodesToProprietary', 'code') "SetObservationValueCodingCode";
+                } "SetObservationValueCoding";
+            };
+        };
+	};
+}

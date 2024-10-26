@@ -1,0 +1,42 @@
+map "http://jembi.org/fhir/StructureMap/ProprietaryBreastfeedingStatusToObservation" = "ProprietaryBreastfeedingStatusToObservation"
+
+/// status = 'draft'
+
+uses "http://jembi.org/fhir/StructureDefinition/BreastfeedingStatusProprietaryLogicalModel" as source
+uses "http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation" as target
+
+group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStatusProprietaryLogicalModel, target tgt : Observation) {
+    src -> tgt.id = uuid() "SetObservationId";
+
+    src -> tgt.meta as meta then {
+        src -> meta.profile = 'http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation' "SetObservationMetaProfile";
+    } "SetObservationMeta";
+
+    src.observationStatus as status -> tgt.status = status "SetObservationStatus";
+
+    src.code as code -> tgt.code = cc('http://loinc.org', code) "SetObservationCode";
+    src -> tgt.code as code, code.text = 'Breastfeeding status' "SetObservationCodeText";
+
+    src.date as authored -> tgt.effective = cast(authored, 'dateTime') "SetObservationEffectiveDateTime";
+
+    src -> tgt.category = cc('http://hl7.org/fhir/observation-category', 'exam') "SetObservationCategory";
+
+    src.patient as patient -> tgt.subject as subject then {
+        patient -> subject.reference = append('Patient/', patient) "SetObservationSubjectReference";
+    };
+
+    src.performer as author -> tgt.performer as practitioner then {
+        author -> practitioner.reference = append('Practitioner/', author) "SetObservationPerfomerReference";
+    };
+
+    src.encounter as encounter -> tgt.encounter as enc then {
+        encounter -> enc.reference = append('Encounter/', encounter) "SetObservationEncounterReference";
+    };
+
+    src.breastFeedingStatus as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
+        breastfeeding -> obsValue.coding = create('Coding') as coding then {
+            breastfeeding -> coding.system = 'http://loinc.org' "SetObservationValueCodingSystem";
+            breastfeeding -> coding.code = breastfeeding "SetObservationValueCodingCode";
+        } "SetObservationValueCoding";
+    };
+}
