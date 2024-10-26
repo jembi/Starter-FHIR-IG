@@ -9,3 +9,5 @@ Alias: $MeasureType = http://terminology.hl7.org/CodeSystem/measure-type
 Alias: $MeasureScoring = http://terminology.hl7.org/CodeSystem/measure-scoring
 Alias: $ResourceTypes = http://hl7.org/fhir/resource-types
 Alias: $MeasureImprovementNotation = http://terminology.hl7.org/CodeSystem/measure-improvement-notation
+Alias: $YesNoCodeSystem = http://jembi.org/fhir/CodeSystem/yes-no-code-system
+Alias: $AbsentUnknownCodeSystem = http://jembi.org/fhir/CodeSystem/absent-unknown-code-system
