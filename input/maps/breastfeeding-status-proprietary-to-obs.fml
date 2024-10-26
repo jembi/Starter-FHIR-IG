@@ -17,7 +17,9 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
     src.code as code -> tgt.code = cc('http://loinc.org', code) "SetObservationCode";
     src -> tgt.code as code, code.text = 'Breastfeeding status' "SetObservationCodeText";
 
-    src.date as authored -> tgt.effective = cast(authored, 'dateTime') "SetObservationEffectiveDateTime";
+    src.date as authored -> tgt.effective = create('dateTime') as obsDate then {
+        authored -> obsDate.value = authored "SetObservationEffectiveDateTime";
+    };
 
     src -> tgt.category = cc('http://hl7.org/fhir/observation-category', 'exam') "SetObservationCategory";
 
