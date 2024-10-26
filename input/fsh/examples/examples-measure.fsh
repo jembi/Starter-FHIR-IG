@@ -6,11 +6,11 @@ Usage: #definition
 * meta
   * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
 
-* contained = InitiatedARTDataRequirementsLibrary
+//* contained = InitiatedARTDataRequirementsLibrary
 
-* extension[+]
+/** extension[+]
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
-  * valueReference = Reference(InitiatedARTDataRequirementsLibrary)
+  * valueReference = Reference(InitiatedARTDataRequirementsLibrary)*/
 
 * extension[+]
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
