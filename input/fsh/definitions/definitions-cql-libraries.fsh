@@ -12,7 +12,7 @@ Usage: #definition
 
 * name = "ViralLoadLibrary"
 * content.id = "ig-loader-ViralLoad.cql"
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -21,13 +21,17 @@ InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 Usage: #definition
+//* extension[+]
+//  * url = "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings"
+//  * valueReference = Reference(StarterIGModelInfoSettings)
+
 * title = "CQL - HIV Common"
 * description = "Common CQL for HIV calculations."
 
 * name = "HIVCommonLibrary"
 * content.id = "ig-loader-HIVCommon.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -42,7 +46,7 @@ Usage: #definition
 * name = "LocalCommonLibrary"
 * content.id = "ig-loader-LocalCommon.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -57,7 +61,7 @@ Usage: #definition
 * name = "ViralLoadStatusLibrary"
 * content.id = "ig-loader-ViralLoadStatus.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -72,7 +76,7 @@ Usage: #definition
 * name = "FHIRCommonLibrary"
 * content.id = "ig-loader-FHIRCommon.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -87,7 +91,7 @@ Usage: #definition
 * name = "FHIRHelpersLibrary"
 * content.id = "ig-loader-FHIRHelpers.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -96,6 +100,7 @@ InstanceOf: Library
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
 Usage: #definition
+
 * title = "CQL - HIV+ Patients Initiated on ART"
 * description = "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period.
     
@@ -106,7 +111,7 @@ Usage: #definition
 * name = "InitiatedARTLibrary"
 * content.id = "ig-loader-InitiatedART.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -125,6 +130,6 @@ Usage: #definition
 * name = "OutpatientViralLoadLibrary"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 
-* status = #active
+* status = #draft
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library

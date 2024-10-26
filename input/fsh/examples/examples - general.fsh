@@ -201,3 +201,11 @@ Description: "Indicates that the patient is initiated on ART."
 * valueCodeableConcept = $LNC#63936-9
 * effectiveDateTime = "2024-01-25"
 * performer = Reference(CurrentServiceProviderExample)
+
+/*Instance: StarterIGModelInfoSettings
+InstanceOf: http://hl7.org/fhir/uv/cql/StructureDefinition/cql-modelinfosettings
+Usage: #example
+Title: "Parameters - Starter IG: Model Info Settings"
+Description: "Starter IG: model info settings."
+* parameter[modelName][+].valueString = "StarterIG"
+* parameter[modelUrl][+].valueString = "http://jembi.org/fhir"*/

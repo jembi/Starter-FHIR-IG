@@ -5,3 +5,7 @@ Alias: $UCUM_UNIT = http://unitsofmeasure.org
 Alias: $EncounterClassCodeSystem = http://terminology.hl7.org/CodeSystem/v3-ActCode
 Alias: $LibraryTypeCodeSystem = http://terminology.hl7.org/CodeSystem/library-type
 Alias: $OrderableDrugForm_UNIT = http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm
+Alias: $MeasureType = http://terminology.hl7.org/CodeSystem/measure-type
+Alias: $MeasureScoring = http://terminology.hl7.org/CodeSystem/measure-scoring
+Alias: $ResourceTypes = http://hl7.org/fhir/resource-types
+Alias: $MeasureImprovementNotation = http://terminology.hl7.org/CodeSystem/measure-improvement-notation

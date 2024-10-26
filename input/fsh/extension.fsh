@@ -69,6 +69,9 @@ Extension: ObservedDateExtension
 Id: observed-date
 Title: "Date and Time Associated with the Assertion"
 Description: "Represents the date and time to be documented together with the assertion. This is not necessarily the same date and time the Observation was created! For example, it can be used to record a date and time in the past to indicate when a patient reached a certin clinical status."
+* ^experimental = true
+* ^status = #active
+
 * value[x] only dateTime
 * valueDateTime 1..1
 * ^context[+].type = #element
