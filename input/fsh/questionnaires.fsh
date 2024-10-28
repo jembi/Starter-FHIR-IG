@@ -1,8 +1,8 @@
 Instance: PregnancyStatusAndFPMQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
-Title: "Questionnaire - Pregnancy Status and Family Planning Method (FPM)"
-Description: "A questionaire that provides the questions to for pregnancy status and FPM."
+Title: "Questionnaire - Pregnancy Status"
+Description: "A questionaire that provides the questions for pregnancy status."
 * status = #draft
 * subjectType = #Observation
 * name = "PregnancyStatusAndFPMQuestionnaire"
