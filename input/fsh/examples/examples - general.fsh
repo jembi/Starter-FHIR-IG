@@ -210,12 +210,12 @@ Description: "Starter IG: model info settings."
 * parameter[modelName][+].valueString = "StarterIG"
 * parameter[modelUrl][+].valueString = "http://jembi.org/fhir"*/
 
-Instance: PregnancyStatusAndFPMQuestionnaireResponseExample
+Instance: PregnancyStatusQuestionnaireResponseExample
 InstanceOf: QuestionnaireResponse
 Usage: #example
-Title: "Questionnaire Response - Pregnancy Status and Family Planning Method (FPM)"
-Description: "A questionaire response that documents the answers to the pregnancy status and FPM questions."
-* questionnaire = Canonical(PregnancyStatusAndFPMQuestionnaire)
+Title: "Questionnaire Response - Pregnancy Status"
+Description: "A questionaire response that documents the answers to the pregnancy status questions."
+* questionnaire = Canonical(PregnancyStatusQuestionnaire)
 * status = #completed
 * subject = Reference(PatientExample1)
 * encounter = Reference(GeneralEncounterExample)

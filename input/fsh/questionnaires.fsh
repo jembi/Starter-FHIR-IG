@@ -1,11 +1,11 @@
-Instance: PregnancyStatusAndFPMQuestionnaire
+Instance: PregnancyStatusQuestionnaire
 InstanceOf: Questionnaire
 Usage: #definition
 Title: "Questionnaire - Pregnancy Status"
 Description: "A questionaire that provides the questions for pregnancy status."
 * status = #draft
 * subjectType = #Observation
-* name = "PregnancyStatusAndFPMQuestionnaire"
+* name = "PregnancyStatusQuestionnaire"
 * experimental = true
 
 * insert Question(1.1, Is breastfeeding, choice, false, false)
