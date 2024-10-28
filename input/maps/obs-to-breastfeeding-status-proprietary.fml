@@ -1,0 +1,37 @@
+map "http://jembi.org/fhir/StructureMap/ObservationToProprietaryBreastfeedingStatus" = "ObservationToProprietaryBreastfeedingStatus"
+
+/// status = 'draft'
+
+uses "http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation" as source
+uses "http://jembi.org/fhir/StructureDefinition/BreastfeedingStatusProprietaryLogicalModel" as target
+
+
+group ObservationToProprietaryBreastfeedingStatus(source src : Observation, target tgt : BreastfeedingStatusProprietaryLogicalModel) {
+    src.status as status -> tgt.observationStatus = status "SetObservationStatus";
+
+    src.code as codeableConcept then {
+        codeableConcept.coding as coding then {
+            coding.code as code -> tgt.code = code "SetObservationCode";
+        };
+    };
+
+    src.effective as authored -> tgt.date = authored "SetObservationEffectiveDateTime";
+
+    src.subject as subject then {
+        subject.reference as ref -> tgt.patient = ref "SetObservationSubjectReference";
+     }; 
+
+    src.performer as performer then {
+        performer.reference as ref -> tgt.performer = ref "SetObservationPerfomerReference";
+    };
+
+    src.encounter as encounter then {
+        encounter.reference as ref -> tgt.encounter = ref "SetObservationEncounterReference";
+    };
+
+    src.value : CodeableConcept as codeableConcept then {
+        codeableConcept.coding as coding then {
+            coding.code as code -> tgt.breastFeedingStatus = code "SetObservationValueCodingCode";
+        };
+    };
+}
