@@ -234,7 +234,7 @@ Description: "Represents whether the patient is currently breatfeeding."
 * category = $OBSERVATION_CATEGORY#exam
 * code = $LNC#63895-7
 * code.text = "Breastfeeding status"
-* valueCodeableConcept = $YesNoCodeSystem#false
+* valueCodeableConcept = $LNC#LA29253-4
 * subject = Reference(PatientExample1)
 * encounter = Reference(GeneralEncounterExample)
 * performer = Reference(CurrentServiceProviderExample)

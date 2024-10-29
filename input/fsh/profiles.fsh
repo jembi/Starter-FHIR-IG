@@ -337,4 +337,4 @@ Description: "Represents whether the patient is currently breatfeeding."
 * code = $LNC#63895-7
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
-* valueCodeableConcept from YesNoValueSet (required)
+* valueCodeableConcept from BreastfeedingStatusValueSet (extensible)

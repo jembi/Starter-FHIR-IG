@@ -132,7 +132,7 @@ Description: "Codes used for indicating when a value is absent or unknown."
 
 CodeSystem: YesNoCodeSystem
 Id: yes-no-code-system
-Title: "Yes/No Codes"
+Title: "Yes/No"
 Description: "Yes/No Codes Represented as Boolean."
 * ^experimental = true
 * ^status = #draft
@@ -142,9 +142,18 @@ Description: "Yes/No Codes Represented as Boolean."
 
 ValueSet: YesNoValueSet
 Id: yes-no-value-set
-Title: "Yes/No Codes"
+Title: "Yes/No"
 Description: "Yes/No Codes Represented as Boolean."
 * ^experimental = true
 * ^status = #draft
 * $AbsentUnknownCodeSystem#Not-Applicable
 * include codes from system YesNoCodeSystem
+
+ValueSet: BreastfeedingStatusValueSet
+Id: breastfeeding-status-value-set
+Title: "Breastfeeding Status"
+Description: "Codes used for indicating the breastfeedig status."
+* ^experimental = true
+* ^status = #draft
+* $LNC#LA29252-6 "Currently breastfeeding"
+* $LNC#LA29253-4 "Not currently breastfeeding"
