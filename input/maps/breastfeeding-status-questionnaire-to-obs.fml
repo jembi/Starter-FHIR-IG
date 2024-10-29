@@ -19,7 +19,7 @@ group QRBreastfeedingStatusToObservation(source src : QuestionnaireResponse, tar
 
     src.authored as authored -> tgt.effective = authored "SetObservationEffectiveDateTime";
 
-    src -> tgt.category = cc('http://hl7.org/fhir/observation-category', 'exam') "SetObservationCategory";
+    src -> tgt.category = cc('http://terminology.hl7.org/CodeSystem/observation-category', 'exam') "SetObservationCategory";
 
     src.subject as patient -> tgt.subject = patient "SetObservationSubjectReference";
 
