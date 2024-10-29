@@ -21,7 +21,7 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
         authored -> obsDate.value = authored "SetObservationEffectiveDateTime";
     };
 
-    src -> tgt.category = cc('http://hl7.org/fhir/observation-category', 'exam') "SetObservationCategory";
+    src -> tgt.category = cc('http://terminology.hl7.org/CodeSystem/observation-category', 'exam') "SetObservationCategory";
 
     src.patient as patient -> tgt.subject as subject then {
         patient -> subject.reference = append('Patient/', patient) "SetObservationSubjectReference";
