@@ -25,6 +25,11 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
 
     src.patient as patient -> tgt.subject as subject then {
         patient -> subject.reference = append('Patient/', patient) "SetObservationSubjectReference";
+
+        patient -> subject.extension as ext then {
+            patient -> ext.value = patient "SetOriginalReference";
+            patient -> ext.url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference' "SetSourceSystemReference";
+        } "ProcessPatientReferenceExtension";
     };
 
     src.performer as author -> tgt.performer as practitioner then {
