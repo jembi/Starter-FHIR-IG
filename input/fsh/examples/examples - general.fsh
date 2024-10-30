@@ -3,6 +3,8 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Example 1 (Marital Status Captured)"
 Description: "Patient documented as married."
+* identifier[MRN].value = "MRN-12345-12-1"
+* identifier[MRN].system = $MRN
 * name[+].given[firstName] = "John"
 * name[=].given[middleName] = "Doe"
 

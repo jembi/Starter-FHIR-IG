@@ -24,7 +24,7 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
     src -> tgt.category = cc('http://terminology.hl7.org/CodeSystem/observation-category', 'exam') "SetObservationCategory";
 
     src.patient as patient -> tgt.subject as subject then {
-        patient -> subject.reference = append('Patient/', patient) "SetObservationSubjectReference";
+        patient -> subject.reference = 'Patient?identifier=http://moh.gov.et/fhir/hiv/identifier/MRN|MRN-12345-12-1' "SetObservationSubjectReference";
 
         patient -> subject.extension as ext then {
             patient -> ext.value = patient "SetOriginalReference";
