@@ -17,6 +17,19 @@ Title: "Patient"
 //* extension contains LogicalModelReferenceExtension named LogicalModel 1..1
 //* extension[LogicalModel].valueReference = Reference(PatientLogicalModel)
 
+* identifier 0..* MS
+* identifier
+  * ^definition = "reason(s) why this should be supported."
+* insert Slice(identifier, reasons why this should be supported, value, system, open, Slicing the identifier based on the system value, false)
+
+* identifier contains
+    MRN 1..1
+
+* identifier[MRN].value 0..1 MS
+  * ^definition = "reason(s) why this should be supported."
+
+* identifier[MRN].system = $MRN 
+
 * name 1..*
   * insert Mappings(PatientLogicalModel, name)
 * name.given 1..2
@@ -38,6 +51,7 @@ Title: "Patient"
   * insert Mappings(PatientLogicalModel, name.middleName)
   
 * maritalStatus 0..1 MS
+  * ^definition = "reason(s) why this should be supported."
   * SU // to ensure that the ALL data elements (incl. the below extension) within maritalStatus are included in GET requests.
   * insert Mappings(PatientLogicalModel, maritalStatus)
 
@@ -46,6 +60,7 @@ Title: "Patient"
     * insert Mappings(PatientLogicalModel, maritalStatus.effectiveDate)
 
 * link 0..* MS
+  * ^definition = "reason(s) why this should be supported."
 * link.other only Reference(TestRelatedPerson)
   * insert Mappings(PatientLogicalModel, relatedPerson)
 

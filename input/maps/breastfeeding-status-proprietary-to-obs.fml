@@ -24,16 +24,16 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
     src -> tgt.category = cc('http://terminology.hl7.org/CodeSystem/observation-category', 'exam') "SetObservationCategory";
 
     src.patient as patient -> tgt.subject as subject then {
-        patient -> subject.reference = append('Patient/', patient) "SetObservationSubjectReference";
-    };
+        patient -> subject.reference = append('Patient/', 'Some FHIR ID generated at the time of CREATE') then CreateReferenceExtension(patient, subject) "ProcessPatientReferenceExtension";
+    } "SetObservationPatientReference";
 
     src.performer as author -> tgt.performer as practitioner then {
-        author -> practitioner.reference = append('Practitioner/', author) "SetObservationPerfomerReference";
-    };
+        author -> practitioner.reference = append('Practitioner/', 'Some FHIR ID generated at the time of CREATE') then CreateReferenceExtension(author, practitioner) "ProcessPerformerReferenceExtension";
+    } "SetObservationPerformerReference";
 
     src.encounter as encounter -> tgt.encounter as enc then {
-        encounter -> enc.reference = append('Encounter/', encounter) "SetObservationEncounterReference";
-    };
+        encounter -> enc.reference = append('Encounter/', 'Some FHIR ID generated at the time of CREATE') then CreateReferenceExtension(encounter, enc) "ProcessEncounterReferenceExtension";
+    } "SetObservationEncounterReference";
 
     src.breastFeedingStatus as breastfeeding -> tgt.value = create('CodeableConcept') as obsValue then {
         breastfeeding -> obsValue.coding = create('Coding') as coding then {
@@ -41,4 +41,11 @@ group ProprietaryBreastfeedingStatusToObservation(source src : BreastfeedingStat
             breastfeeding -> coding.code = breastfeeding "SetObservationValueCodingCode";
         } "SetObservationValueCoding";
     };
+}
+
+group CreateReferenceExtension(source src, target tgt) {
+    src -> tgt.extension as ext then {
+        src -> ext.value = src "SetOriginalReferenceValue";
+        src -> ext.url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference' "SetOriginalReferenceUrl";
+    } "ProcessReferenceExtension";
 }

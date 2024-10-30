@@ -11,3 +11,4 @@ Alias: $ResourceTypes = http://hl7.org/fhir/resource-types
 Alias: $MeasureImprovementNotation = http://terminology.hl7.org/CodeSystem/measure-improvement-notation
 Alias: $YesNoCodeSystem = http://jembi.org/fhir/CodeSystem/yes-no-code-system
 Alias: $AbsentUnknownCodeSystem = http://jembi.org/fhir/CodeSystem/absent-unknown-code-system
+Alias: $MRN = http://jembi.org/fhir/hiv/identifier/MRN

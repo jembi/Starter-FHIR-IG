@@ -18,15 +18,27 @@ group ObservationToProprietaryBreastfeedingStatus(source src : Observation, targ
     src.effective as authored -> tgt.date = authored "SetObservationEffectiveDateTime";
 
     src.subject as subject then {
-        subject.reference as ref -> tgt.patient = ref "SetObservationSubjectReference";
+        subject.extension as extension where (url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference') then {
+            extension.value : string as val then { 
+                val -> tgt.patient = val "SetObservationSubjectReference";
+            };
+        };
      }; 
 
     src.performer as performer then {
-        performer.reference as ref -> tgt.performer = ref "SetObservationPerfomerReference";
+        performer.extension as extension where (url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference') then {
+            extension.value : string as val then { 
+                val -> tgt.performer = val "SetObservationPerformerReference";
+            };
+        };
     };
 
     src.encounter as encounter then {
-        encounter.reference as ref -> tgt.encounter = ref "SetObservationEncounterReference";
+        encounter.extension as extension where (url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference') then {
+            extension.value : string as val then { 
+                val -> tgt.encounter = val "SetObservationEncounterReference";
+            };
+        };
     };
 
     src.value : CodeableConcept as codeableConcept then {
