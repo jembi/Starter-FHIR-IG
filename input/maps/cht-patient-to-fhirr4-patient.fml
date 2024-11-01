@@ -21,7 +21,7 @@ group CHTPatientToFHIRR4Patient(source src : CHTPatientLogicalModel, target tgt 
 
     src.sex as sex -> tgt.gender = sex "SetPatientGender";
 
-    src."patient_id" as srcBusinessID -> tgt.identifier = create('identifier') as tgtBusinessID then {
+    src."patient_id" as srcBusinessID -> tgt.identifier as tgtBusinessID then {
         srcBusinessID -> tgtBusinessID.system = 'http://some.identifier.namespace' "SetBusinessIDNamespace"; 
         srcBusinessID -> tgtBusinessID.value = srcBusinessID "SetBusinessIDValue"; 
     };
