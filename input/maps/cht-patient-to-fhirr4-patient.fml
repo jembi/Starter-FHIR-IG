@@ -6,7 +6,7 @@ uses "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel" as sourc
 uses "http://hl7.org/fhir/R4/StructureDefinition/Patient" as target
 
 group CHTPatientToFHIRR4Patient(source src : CHTPatientLogicalModel, target tgt : Patient) {
-    src._id as srcID -> tgt.id = srcID "SetPatientResourceId";
+    src."_id" as srcID -> tgt.id = srcID "SetPatientResourceId";
 
     src.name as srcName -> tgt.name as pName then {
         srcName -> pName.text = srcName "SetPatientFullName";
@@ -17,12 +17,12 @@ group CHTPatientToFHIRR4Patient(source src : CHTPatientLogicalModel, target tgt 
         srcPhoneNumber -> pTelecom.value = srcPhoneNumber "SetPatientTelecomValue";
     };
 
-    src.date_of_birth as dob -> tgt.birthDate = dob "SetPatientBirthDate"; //Assuming yyyy-mm-dd
+    src.date_of_birth as dob -> tgt.birthDate = dob "SetPatientBirthDate"; //yyyy-mm-dd
 
-    src.sex as gender -> tgt.gender = sex "SetPatientGender"; //Assuming male | female | other | unknown
+    src.sex as gender -> tgt.gender = sex "SetPatientGender"; //male | female | other | unknown
 
-    src.patient_id as srcBusinessID -> tgt.identifier = create('Identifier') as tgtBusinessID then {
+    /*src."patient_id" as srcBusinessID -> tgt.identifier = create('identifier') as tgtBusinessID then {
         srcBusinessID -> tgtBusinessID.system = 'http://some.identifier.namespace' "SetBusinessIDNamespace"; 
         srcBusinessID -> tgtBusinessID.value = srcBusinessID "SetBusinessIDValue"; 
-    };
+    };*/
 }
