@@ -1,5 +1,6 @@
 == Suppressed Messages ==
 
-# Not all generic profiles need an example
+# Not all profiles and/or extensions need an example
 WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-observation'): The Implementation Guide contains no examples for this profile
 WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/generic-medication-dispense'): The Implementation Guide contains no examples for this profile
+WARNING: StructureDefinition.where(url = 'http://jembi.org/fhir/StructureDefinition/source-system-resource-reference'): The Implementation Guide contains no examples for this extension

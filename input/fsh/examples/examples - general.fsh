@@ -201,6 +201,7 @@ Description: "Indicates that the patient is initiated on ART."
 * subject = Reference(PatientExample1)
 * encounter = Reference(GeneralEncounterExample)
 * valueCodeableConcept = $LNC#63936-9
+* valueCodeableConcept.extension[ObservedDate].valueDateTime = "2024-01-25"
 * effectiveDateTime = "2024-01-25"
 * performer = Reference(CurrentServiceProviderExample)
 
