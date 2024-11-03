@@ -130,8 +130,12 @@ resources:
     description: Maps an Observation Structure for Breastfeeding status to a Proprietary Structure
     exampleBoolean: false
   StructureMap/CHTPatientToFHIRR4Patient:
-    name: Map CHT Patient to Patient
-    description: Maps CHT Patient to a Patient Resource
+    name: Map CHT Patient to FHIR Patient
+    description: Maps CHT Patient to a FHIR Patient resource
+    exampleBoolean: false
+  StructureMap/FHIRR4PatientToCHTPatient:
+    name: Map FHIR Patient to CHT Patient
+    description: Maps a FHIR Patient Resource to a CHT Patient
     exampleBoolean: false
 #  Binary/AllPatientIdentifiers:
 #    name: "SQL - List all Patients and their Identifiers"

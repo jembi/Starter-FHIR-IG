@@ -1,0 +1,26 @@
+/*map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
+
+/// status = 'draft'
+
+uses "http://hl7.org/fhir/StructureDefinition/Patient" as source
+uses "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel" as target
+
+group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLogicalModel) {
+    src.id as srcID -> tgt._id = srcID "SetPatientResourceId";
+
+    src.name as srcName then {
+        srcName.text as name -> tgt.name = name "SetPatientFullName";
+    };
+
+    src.telecom as srcPhone then {
+        srcPhone.value as phone -> tgt.phone = phone "SetPatientTelecomValue";
+    };
+
+    src.birthDate as dob -> tgt.date_of_birth = dob "SetPatientBirthDate";
+
+    src.gender as gender -> tgt.sex = gender "SetPatientGender";
+
+    src.identifier as srcBusinessID then {
+        srcBusinessID.value as businessID -> tgt.patient_id = businessID "SetBusinessIDValue"; 
+    };
+}*/
