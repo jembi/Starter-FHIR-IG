@@ -29,8 +29,8 @@ Description: "Requirements to register a CHT patient."
 
 * differential.element[+].id = "CHTPatientLogicalModel._id"
 * differential.element[=].path = "CHTPatientLogicalModel._id"
-* differential.element[=].short = "ID"
-* differential.element[=].definition = "Patient ID"
+* differential.element[=].short = "Logical ID"
+* differential.element[=].definition = "Patient Logical ID"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"

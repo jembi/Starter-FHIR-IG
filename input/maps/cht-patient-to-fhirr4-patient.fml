@@ -1,4 +1,4 @@
-map "http://jembi.org/fhir/StructureMap/CHTPatientToFHIRR4Patient" = "CHTPatientToFHIRR4Patient"
+/*map "http://jembi.org/fhir/StructureMap/CHTPatientToFHIRR4Patient" = "CHTPatientToFHIRR4Patient"
 
 /// status = 'draft'
 
@@ -25,4 +25,4 @@ group CHTPatientToFHIRR4Patient(source src : CHTPatientLogicalModel, target tgt 
         srcBusinessID -> tgtBusinessID.system = 'http://some.identifier.namespace' "SetBusinessIDNamespace"; 
         srcBusinessID -> tgtBusinessID.value = srcBusinessID "SetBusinessIDValue"; 
     };
-}
+}*/

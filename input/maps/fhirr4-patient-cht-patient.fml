@@ -1,4 +1,4 @@
-map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
+/*map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
 
 /// status = 'draft'
 
@@ -6,9 +6,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Patient" as source
 uses "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel" as target
 
 group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLogicalModel) {
-    src.id as srcID -> tgt._id as tgtID then { 
-        srcID -> tgtID = srcID "SetPatientResourceId";
-    };
+    src.id as srcID -> tgt._id = srcID "SetPatientResourceId";
 
     src.name as srcName then {
         srcName.text as name -> tgt.name = name "SetPatientFullName";
@@ -25,4 +23,4 @@ group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLog
     src.identifier as srcBusinessID then {
         srcBusinessID.value as businessID -> tgt.patient_id = businessID "SetBusinessIDValue"; 
     };
-}
+}*/

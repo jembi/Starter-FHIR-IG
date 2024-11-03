@@ -157,3 +157,23 @@ Description: "Codes used for indicating the breastfeedig status."
 * ^status = #draft
 * $LNC#LA29252-6 "Currently breastfeeding"
 * $LNC#LA29253-4 "Not currently breastfeeding"
+
+/*CodeSystem: CHTLogicalModelCodeSystem
+Id: cht-logical-model-code-system
+Title: "CHT Logical Model"
+Description: "Codes used for representing the identifier data elements in the logical model."
+* ^experimental = true
+* ^status = #draft
+* ^caseSensitive = true
+* #logicalId "logicalId"
+* #businessId "businessId"
+
+CodeSystem: CHTPatientCodeSystem
+Id: cht-patient-code-system
+Title: "CHT Patient"
+Description: "Codes used for representing the identifier data elements in the CHT patient registration message."
+* ^experimental = true
+* ^status = #draft
+* ^caseSensitive = true
+* #_id "_id"
+* #patient_id "patient_id"*/
