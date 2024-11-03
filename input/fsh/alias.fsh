@@ -12,5 +12,3 @@ Alias: $MeasureImprovementNotation = http://terminology.hl7.org/CodeSystem/measu
 Alias: $YesNoCodeSystem = http://jembi.org/fhir/CodeSystem/yes-no-code-system
 Alias: $AbsentUnknownCodeSystem = http://jembi.org/fhir/CodeSystem/absent-unknown-code-system
 Alias: $MRN = http://jembi.org/fhir/hiv/identifier/MRN
-//Alias: $CHTLogicalModelCodeSystem = http://jembi.org/fhir/CodeSystem/cht-logical-model-code-system
-//Alias: $CHTPatientCodeSystem = http://jembi.org/fhir/CodeSystem/cht-patient-code-system
