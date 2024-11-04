@@ -35,7 +35,7 @@
   "effectiveDateTime": "2023-12-10",
   "performer": [
     {
-      "reference": "Organization/CurrentServiceProviderExample"
+      "reference": "Organization/CurrentServiceProviderExample1"
     }
   ],
   "valueQuantity": {

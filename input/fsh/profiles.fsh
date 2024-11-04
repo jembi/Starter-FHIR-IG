@@ -353,3 +353,30 @@ Description: "Represents whether the patient is currently breatfeeding."
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept from BreastfeedingStatusValueSet (extensible)
+
+Profile: HIVStatusConsent
+Parent: Consent
+Id: hiv-status-consent
+Title: "Consent - HIV Status"
+Description: "Represents the patient's consent to have their HIV status disclosed."
+* ^experimental = true
+* ^status = #draft
+* patient 1..1
+* patient only Reference(TestPatient)
+* dateTime 1..1
+* category 1..1
+* organization 1..1
+* organization only Reference(ServiceProvider)
+* sourceAttachment 1..1
+* policyRule 1..1
+* provision 0..1 MS
+  * ^definition = "reason(s) why this should be supported."
+  * type 0..1 MS
+    * ^definition = "reason(s) why this should be supported."
+  * actor 0..* MS
+    * ^definition = "reason(s) why this should be supported."
+  * action 0..* MS
+    * ^definition = "reason(s) why this should be supported."
+  * data 1..*
+  * period 0..1 MS
+    * ^definition = "reason(s) why this should be supported."
