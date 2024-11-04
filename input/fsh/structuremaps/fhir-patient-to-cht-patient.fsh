@@ -7,7 +7,7 @@ Usage: #definition
 * version = "1.0.1"
 * name = "FHIRR4PatientToCHTPatient"
 * status = #draft
-* date = "2024-11-03T13:39:36+02:00"
+* date = "2024-11-04T11:35:09+02:00"
 * publisher = "Jembi Health Systems"
 * contact[0].name = "Jembi Health Systems"
 * contact[=].telecom[0].system = #url
@@ -87,13 +87,13 @@ Usage: #definition
 * group.rule[+].name = "identifier"
 * group.rule[=].source.context = "src"
 * group.rule[=].source.element = "identifier"
-* group.rule[=].source.variable = "srcBusinessID"
-* group.rule[=].rule.name = "SetBusinessIDValue"
-* group.rule[=].rule.source.context = "srcBusinessID"
+* group.rule[=].source.variable = "srcSmsId"
+* group.rule[=].rule.name = "SetSMSIDValue"
+* group.rule[=].rule.source.context = "srcSmsId"
 * group.rule[=].rule.source.element = "value"
-* group.rule[=].rule.source.variable = "businessID"
+* group.rule[=].rule.source.variable = "smsId"
 * group.rule[=].rule.target.context = "tgt"
 * group.rule[=].rule.target.contextType = #variable
 * group.rule[=].rule.target.element = "patient_id"
 * group.rule[=].rule.target.transform = #copy
-* group.rule[=].rule.target.parameter.valueId = "businessID"
+* group.rule[=].rule.target.parameter.valueId = "smsId"
