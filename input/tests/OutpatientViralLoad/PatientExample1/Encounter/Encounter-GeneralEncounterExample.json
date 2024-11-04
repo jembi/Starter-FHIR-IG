@@ -6,7 +6,7 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Encounter GeneralEncounterExample</b></p><a name=\"GeneralEncounterExample\"> </a><a name=\"hcGeneralEncounterExample\"> </a><a name=\"GeneralEncounterExample-en-US\"> </a><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ActCode.html#v3-ActCode-AMB\">ActCode</a> AMB: ambulatory</p><p><b>subject</b>: <a href=\"Patient-PatientExample1.html\">John Doe  (no stated gender), DoB Unknown</a></p><p><b>period</b>: 2012-12-09 --&gt; 2012-12-09</p><p><b>serviceProvider</b>: <a href=\"Organization-CurrentServiceProviderExample.html\">Organization Meshwalkiya Health Center</a></p></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Encounter GeneralEncounterExample</b></p><a name=\"GeneralEncounterExample\"> </a><a name=\"hcGeneralEncounterExample\"> </a><a name=\"GeneralEncounterExample-en-US\"> </a><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/6.0.2/CodeSystem-v3-ActCode.html#v3-ActCode-AMB\">ActCode</a> AMB: ambulatory</p><p><b>subject</b>: <a href=\"Patient-PatientExample1.html\">John Doe  (no stated gender), DoB Unknown</a></p><p><b>period</b>: 2012-12-09 --&gt; 2012-12-09</p><p><b>serviceProvider</b>: <a href=\"Organization-CurrentServiceProviderExample1.html\">Organization Meshwalkiya Health Center</a></p></div>"
   },
   "status" : "finished",
   "class" : {
@@ -21,6 +21,6 @@
     "end" : "2023-12-09"
   },
   "serviceProvider" : {
-    "reference" : "Organization/CurrentServiceProviderExample"
+    "reference" : "Organization/CurrentServiceProviderExample1"
   }
 }
