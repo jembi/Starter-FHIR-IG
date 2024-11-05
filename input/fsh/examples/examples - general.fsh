@@ -273,7 +273,7 @@ Instance: HIVStatusConsentPermitted2
 InstanceOf: HIVStatusConsent
 Usage: #example
 Title: "Consent - Patient Permitted Sharing HIV Information With Any Facility - On a Timeline"
-Description: "Represents the patient's consent to share and have their PHI further managed by any facility."
+Description: "Represents the patient's consent to share and have their PHI (HIV data) further managed by any facility."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
 * category = $LNC#59284-0
@@ -318,7 +318,7 @@ Instance: HIVStatusConsentDenied2
 InstanceOf: HIVStatusConsent
 Usage: #example
 Title: "Consent - Patient Does Not Consent to Sharing HIV Information Outside of Facility A Except With Facility B - Read Only Access"
-Description: "Represents the patient's consent to NOT share and have their PHI further accessed by any organization other than \"Facility A\" (Custodian) and \"Facility B\" (Secondary Use)."
+Description: "Represents the patient's consent to NOT share and have their PHI (HIV data) further accessed by any organization other than \"Facility A\" (Custodian) and \"Facility B\" (Secondary Use)."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
 * category = $ActCodeV3CodeSystem#INFAO
