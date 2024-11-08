@@ -6,7 +6,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Patient" as source
 uses "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel" as target
 
 group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLogicalModel) {
-    src.id as srcID -> tgt._id = srcID "SetPatientResourceId";
+    src.id as srcID -> tgt.`_id` = srcID "SetPatientResourceId";
 
     src.name as srcName then {
         srcName.text as name -> tgt.name = name "SetPatientFullName";
@@ -22,5 +22,15 @@ group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLog
 
     src.identifier as srcBusinessID then {
         srcBusinessID.value as businessID -> tgt.patient_id = businessID "SetBusinessIDValue"; 
+    };
+
+    src.extension as nationalityExt where (url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality') then {
+        nationalityExt.extension as countryCodeExtension where (url = 'code') then {
+            countryCodeExtension.value : CodeableConcept as codeableConcept then {
+                codeableConcept.coding as coding then {
+                    coding.code as code -> tgt.nationality = code "SetCountryCode";
+                };
+            };
+        };
     };
 }*/
