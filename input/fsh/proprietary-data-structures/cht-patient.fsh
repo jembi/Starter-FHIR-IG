@@ -86,3 +86,13 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.identifier"
+
+* differential.element[+].id = "CHTPatientLogicalModel.nationality"
+* differential.element[=].path = "CHTPatientLogicalModel.nationality"
+* differential.element[=].short = "Nationality"
+* differential.element[=].definition = "Patient nationality"
+* differential.element[=].type.code = #string
+* differential.element[=].min = 0
+* differential.element[=].max = "1"
+* differential.element[=].mapping[+].identity = "FHIR-R4"
+* differential.element[=].mapping[=].map = "Patient.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality')"
