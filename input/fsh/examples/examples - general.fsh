@@ -111,6 +111,7 @@ InstanceOf: ServiceProvider
 Usage: #example
 Title: "Organization - Facility A"
 Description: "An organization providing health related services."
+* identifier[HIN].value = "facilityA"
 * active = true
 * name = "Facility A"
 * address[+].line[+] = "Meshulekia"
@@ -123,9 +124,23 @@ InstanceOf: ServiceProvider
 Usage: #example
 Title: "Organization - Facility B"
 Description: "An organization providing health related services."
+* identifier[HIN].value = "facilityB"
 * active = true
 * name = "Facility B"
 * address[+].line[+] = "Piassa"
+* address[=].city = "Dessie"
+* address[=].state = "Addis Ababa"
+* address[=].district = "Arada"
+
+Instance: CurrentServiceProviderExample3
+InstanceOf: ServiceProvider
+Usage: #example
+Title: "Organization - Facility C"
+Description: "An organization providing health related services."
+* identifier[HIN].value = "facilityC"
+* active = true
+* name = "Facility C"
+* address[+].line[+] = "Kabele"
 * address[=].city = "Dessie"
 * address[=].state = "Addis Ababa"
 * address[=].district = "Arada"
@@ -255,10 +270,50 @@ Description: "Represents whether the patient is currently breatfeeding."
 * performer = Reference(CurrentServiceProviderExample1)
 * effectiveDateTime = "2024-01-25"
 
+Instance: ViralLoadResultExample1
+InstanceOf: ViralLoadResultObservation
+Usage: #example
+Title: "Observation - Viral Load Result"
+Description: "Represents the patient's viral load result."
+* status = #final
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* effectiveDateTime = "2023-12-11"
+* performer = Reference(CurrentServiceProviderExample1)
+* valueQuantity.value = 900
+
+Instance: RoutineViralLoadServiceRequestExample
+InstanceOf: ViralLoadServiceRequest
+Usage: #example
+Title: "Service Request - Routine Viral Load"
+Description: "Represents the service request for a routine viral load."
+* status = #completed
+* intent = #order
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* requester = Reference(CurrentServiceProviderExample1)
+* performer = Reference(CurrentServiceProviderExample2)
+* authoredOn = "2024-01-25"
+* priority = #routine
+
+Instance: RoutineViralLoadDiagnosticReportExample
+InstanceOf: ViralLoadDiagnosticReport
+Usage: #example
+Title: "Diagnostic Report - Routine Viral Load"
+Description: "Represents the results for a routine viral load as unsuppressed."
+* status = #final
+* subject = Reference(PatientExample1)
+* encounter = Reference(GeneralEncounterExample)
+* result = Reference(ViralLoadResultExample1)
+* effectiveDateTime = "2024-01-25"
+* issued = "2024-01-25T11:45:33+11:00"
+* basedOn = Reference(RoutineViralLoadServiceRequestExample)
+* performer = Reference(CurrentServiceProviderExample1)
+
 Instance: HIVStatusConsentPermitted1
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Permitted Sharing PHI With Any Facility"
+Title: "Consent - Patient Permitted Sharing PHI Captured at Facility A With Any Facility"
 Description: "Represents the patient's consent to share and have their PHI further managed by any facility."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
@@ -272,7 +327,7 @@ Description: "Represents the patient's consent to share and have their PHI furth
 Instance: HIVStatusConsentPermitted2
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Permitted Sharing HIV Information With Any Facility - On a Timeline"
+Title: "Consent - Patient Permitted Sharing HIV Information Captured at Facility A With Any Facility - On a Timeline"
 Description: "Represents the patient's consent to share and have their PHI (HIV data) further managed by any facility."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
@@ -287,13 +342,13 @@ Description: "Represents the patient's consent to share and have their PHI (HIV 
     * start = "2024-01-25"
     * end = "2024-05-25"
   * data[+]
-    * meaning = #instance
-    * reference = Reference(ConfirmedHIVPositiveExample)
+    * meaning = #dependents
+    * reference = Reference(ViralLoadServiceRequest)
 
 Instance: HIVStatusConsentDenied1
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Consents to Sharing HIV Information Except With Facility B"
+Title: "Consent - Patient Consents to Sharing HIV Information Captured at Facility A With Any Facility Except With Facility B"
 Description: "Represents the patient's consent to NOT have their HIV status disclosed and further managed by organization \"Facility B\"."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
@@ -311,14 +366,14 @@ Description: "Represents the patient's consent to NOT have their HIV status disc
   * action[+] = $ConsentActionCodeSystem#access
   * action[+] = $ConsentActionCodeSystem#correct
   * data[+]
-    * meaning = #instance
-    * reference = Reference(ConfirmedHIVPositiveExample)
+    * meaning = #dependents
+    * reference = Reference(ViralLoadServiceRequest)
 
 Instance: HIVStatusConsentDenied2
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Does Not Consent to Sharing HIV Information Outside of Facility A Except With Facility B - Read Only Access"
-Description: "Represents the patient's consent to NOT share and have their PHI (HIV data) further accessed by any organization other than \"Facility A\" (Custodian) and \"Facility B\" (Secondary Use)."
+Title: "Consent - Patient Does Not Consent to Sharing HIV Information Outside of Facility A Except With Facility C - Read Only Access"
+Description: "Represents the patient's consent to NOT share and have their PHI (HIV data) further accessed by any organization other than \"Facility A\" (Custodian) and \"Facility C\" (Secondary Use)."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
 * category = $ActCodeV3CodeSystem#INFAO
@@ -334,8 +389,9 @@ Description: "Represents the patient's consent to NOT share and have their PHI (
     * reference = Reference(CurrentServiceProviderExample1)
   * actor[+]
     * role = $ParticipationTypeV3CodeSystem#PRCP
-    * reference = Reference(CurrentServiceProviderExample2)
+    * reference = Reference(CurrentServiceProviderExample3)
   * action[+] = $ConsentActionCodeSystem#access
   * data[+]
-    * meaning = #instance
-    * reference = Reference(ConfirmedHIVPositiveExample)
+    * meaning = #dependents
+    * reference = Reference(ViralLoadServiceRequest)
+    

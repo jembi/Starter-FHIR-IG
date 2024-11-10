@@ -157,22 +157,6 @@ Description: "Base Observation elements that are inherited by other Observation 
 
 * valueCodeableConcept.coding only StrictCoding
 
-Profile: ViralLoadResultObservation
-Parent: GenericObservation
-Id: viral-load-count-observation
-Title: "Observation - Viral Load Result"
-Description: "Represents the patient's Viral Load Result."
-* ^experimental = true
-* ^status = #draft
-* category 1..1
-* category = $OBSERVATION_CATEGORY#laboratory
-* code = $SCT#315124004
-
-* value[x] only StrictQuantity
-* valueQuantity 1..1
-* valueQuantity = $UCUM_UNIT#1/mL
-* valueQuantity.unit = "copies/mL"
-
 Profile: TargetFacilityEncounter
 Parent: Encounter
 Id: target-facility-encounter
@@ -196,6 +180,18 @@ Title: "Organization"
 Description: "Organization providing health related services."
 * ^experimental = true
 * ^status = #draft
+* identifier 1..*
+
+* insert Slice(identifier, reasons why this should be supported, value, system, open, Slicing the identifier based on the system value, false)
+
+* identifier contains
+    HIN 1..1
+
+* identifier[HIN]
+  * value 1..1
+  * system 1..1
+  * system = $HIN
+
 * active 1..1
 * name 1..1
 
@@ -235,9 +231,9 @@ Description: "Represents the date the patient was confirmed HIV positive."
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept from HIVTestResultsValueSet (required)
-//* basedOn 0..1 MS
-//* basedOn ^definition = "reason(s) why this should be supported."
-//* basedOn only Reference(PCRHIVTestServiceRequest)
+* basedOn 0..1 MS
+* basedOn ^definition = "reason(s) why this should be supported."
+* basedOn only Reference(ViralLoadServiceRequest)
 
 Profile: GenericDrugDispensation
 Parent: MedicationDispense
@@ -380,3 +376,108 @@ Description: "Represents the patient's consent to have their HIV status disclose
   * data 1..*
   * period 0..1 MS
     * ^definition = "reason(s) why this should be supported."
+
+
+Profile: ViralLoadResultObservation
+Parent: Observation
+Id: viral-load-count-observation
+Title: "Observation - Viral Load Result"
+Description: "Represents the patient's Viral Load Result."
+* meta 1..1
+* meta.security 1..*
+
+* insert Slice(meta.security, reasons why this should be supported, value, code, open, Slicing meta.security based on the code value, false)
+
+* meta.security contains
+    VeryRestricted 1..1
+
+* meta.security[VeryRestricted] 1..1
+* meta.security[VeryRestricted].code 1..1
+* meta.security[VeryRestricted].code = #V
+* meta.security[VeryRestricted].system 1..1
+* meta.security[VeryRestricted].system = $ConfidentialityV3CodeSystem
+
+* code = $SCT#315124004
+* effectiveDateTime 1..1
+* value[x] only StrictQuantity
+* valueQuantity 1..1
+* valueQuantity = $UCUM_UNIT#1/mL
+* valueQuantity.unit 1..1
+* valueQuantity.unit = "copies/mL"
+* subject 1..1
+* subject only Reference(TestPatient)
+* encounter 1..1
+* encounter only Reference(TargetFacilityEncounter)
+
+Profile: ViralLoadServiceRequest
+Parent: ServiceRequest
+Id: vl-service-request
+Title: "Service Request - PCR HIV Test"
+Description: "Represents the service request for PCR HIV testing."
+* meta 1..1
+* meta.security 1..*
+
+* insert Slice(meta.security, reasons why this should be supported, value, code, open, Slicing meta.security based on the code value, false)
+
+* meta.security contains
+    Normal 1..1
+
+* meta.security[Normal] 1..1
+* meta.security[Normal].code 1..1
+* meta.security[Normal].code = #N
+* meta.security[Normal].system 1..1
+* meta.security[Normal].system = $ConfidentialityV3CodeSystem
+
+* code 1..1
+* code = $LNC#9836-8
+* category 1..1
+* category = $LNC#LP94892-4
+
+* subject 1..1
+* subject only Reference(TestPatient)
+
+* encounter 1..1
+* encounter only Reference(TargetFacilityEncounter)
+
+* requester 1..1
+* requester only Reference(ServiceProvider or GeneralPractitioner)
+
+* performer 1..1
+* performer only Reference(ServiceProvider or GeneralPractitioner)
+
+* authoredOn 1..1
+
+* priority 1..1
+
+Profile: ViralLoadDiagnosticReport
+Parent: DiagnosticReport
+Id: viral-load-diagnostic-report
+Title: "Diagnostic Report - Viral Load"
+Description: "Represents the results for viral load."
+* meta 1..1
+* meta.security 1..*
+
+* insert Slice(meta.security, reasons why this should be supported, value, code, open, Slicing meta.security based on the code value, false)
+
+* meta.security contains
+    VeryRestricted 1..1
+
+* meta.security[VeryRestricted] 1..1
+* meta.security[VeryRestricted].code 1..1
+* meta.security[VeryRestricted].code = #V
+* meta.security[VeryRestricted].system 1..1
+* meta.security[VeryRestricted].system = $ConfidentialityV3CodeSystem
+
+* category 1..1
+* category = $LNC#11502-2
+* code = $LNC#25836-8
+* result 1..1
+* result only Reference(ViralLoadResultObservation)
+* basedOn 1..1
+* basedOn only Reference(ViralLoadServiceRequest)
+* subject 1..1
+* subject only Reference(TestPatient)
+* encounter 1..1
+* encounter only Reference(TargetFacilityEncounter)
+* performer 1..1
+* performer only Reference(ServiceProvider or GeneralPractitioner)
