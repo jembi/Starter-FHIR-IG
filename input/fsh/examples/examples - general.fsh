@@ -313,7 +313,7 @@ Description: "Represents the results for a routine viral load as unsuppressed."
 Instance: HIVStatusConsentPermitted1
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Permitted Sharing PHI With Any Facility"
+Title: "Consent - Patient Permitted Sharing PHI Captured at Facility A With Any Facility"
 Description: "Represents the patient's consent to share and have their PHI further managed by any facility."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
@@ -327,7 +327,7 @@ Description: "Represents the patient's consent to share and have their PHI furth
 Instance: HIVStatusConsentPermitted2
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Permitted Sharing HIV Information With Any Facility - On a Timeline"
+Title: "Consent - Patient Permitted Sharing HIV Information Captured at Facility A With Any Facility - On a Timeline"
 Description: "Represents the patient's consent to share and have their PHI (HIV data) further managed by any facility."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
@@ -348,7 +348,7 @@ Description: "Represents the patient's consent to share and have their PHI (HIV 
 Instance: HIVStatusConsentDenied1
 InstanceOf: HIVStatusConsent
 Usage: #example
-Title: "Consent - Patient Consents to Sharing HIV Information Except With Facility B"
+Title: "Consent - Patient Consents to Sharing HIV Information Captured at Facility A With Any Facility Except With Facility B"
 Description: "Represents the patient's consent to NOT have their HIV status disclosed and further managed by organization \"Facility B\"."
 * status = #active
 * scope = $ConsentScopeCodeSystem#patient-privacy
