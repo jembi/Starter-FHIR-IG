@@ -363,7 +363,8 @@ Description: "Represents the patient's consent to have their HIV status disclose
 * category 1..1
 * organization 1..1
 * organization only Reference(ServiceProvider)
-* sourceAttachment 1..1
+* source[x] MS
+  * ^definition = "reason(s) why this should be supported."
 * policyRule 1..1
 * provision 0..1 MS
   * ^definition = "reason(s) why this should be supported."
