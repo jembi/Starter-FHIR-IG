@@ -380,7 +380,7 @@ Description: "Represents the patient's consent to NOT share and have their PHI (
 * patient = Reference(PatientExample1)
 * dateTime = "2024-01-25"
 * organization = Reference(CurrentServiceProviderExample1)
-* sourceAttachment.title = "The terms of the consent in lawyer speak."
+* sourceAttachment = ExampleConsentForm
 * policyRule = $ActCodeV3CodeSystem#OPTOUT
 * provision
   * type = #permit
@@ -395,3 +395,11 @@ Description: "Represents the patient's consent to NOT share and have their PHI (
     * meaning = #dependents
     * reference = Reference(ViralLoadServiceRequest)
     
+Instance: ExampleConsentForm
+InstanceOf: Attachment
+Usage: #inline
+Title: "Attachment - Example Patient Consent Form"
+Description: "An example patient consent form."
+* contentType = #application/pdf
+* url = "http://jembi.org/fhir/consent-forms/consent_form_example.pdf"
+* title = "Example Patient Consent Form"
