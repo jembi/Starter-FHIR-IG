@@ -29,33 +29,39 @@ Description: "Requirements to register a CHT patient."
 
 * differential.element[+].id = "CHTPatientLogicalModel._id"
 * differential.element[=].path = "CHTPatientLogicalModel._id"
-* differential.element[=].short = "Logical ID"
+* differential.element[=].short = "Logical ID (internal resource identifier)"
 * differential.element[=].definition = "Patient Logical ID"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.id"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.name"
 * differential.element[=].path = "CHTPatientLogicalModel.name"
-* differential.element[=].short = "Name"
-* differential.element[=].definition = "Patient name"
+* differential.element[=].short = "Full Name"
+* differential.element[=].definition = "Patient full name"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.name.text"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.phone"
 * differential.element[=].path = "CHTPatientLogicalModel.phone"
 * differential.element[=].short = "Phone"
 * differential.element[=].definition = "Patient phone number"
 * differential.element[=].type.code = #string
-* differential.element[=].min = 1
+* differential.element[=].min = 0
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.telecom.where(system = 'phone')"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.date_of_birth"
 * differential.element[=].path = "CHTPatientLogicalModel.date_of_birth"
@@ -66,6 +72,8 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.birthDate"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.sex"
 * differential.element[=].path = "CHTPatientLogicalModel.sex"
@@ -76,16 +84,20 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.gender"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.patient_id"
 * differential.element[=].path = "CHTPatientLogicalModel.patient_id"
-* differential.element[=].short = "Business identifier"
-* differential.element[=].definition = "Patient business identifier"
+* differential.element[=].short = "SMS ID"
+* differential.element[=].definition = "Patient business identifier (SMS)"
 * differential.element[=].type.code = #string
 * differential.element[=].min = 1
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.identifier"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.nationality"
 * differential.element[=].path = "CHTPatientLogicalModel.nationality"
@@ -96,3 +108,5 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality')"
+* differential.element[=].mustSupport = true
+* differential.element[=].isSummary = true
