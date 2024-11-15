@@ -7,7 +7,7 @@ Description: "Patient documented as married."
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"
 * maritalStatus
-  * status = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
+  * status = $MaritalStatusV3CodeSystem#M
   * effectiveDate.extension[+].valueDate = "1999-01-01"
   * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
 
@@ -31,7 +31,13 @@ Description: "Patient marital status not documented but includes a Mother relati
 * name[+].firstName = "John"
 * name[=].middleName = "Doe"
 
-* relatedPerson = Reference(http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel)
+* relatedPerson[+].name[+].firstName = "Jane"
+* relatedPerson[=].name[=].middleName = "Smith"
+* relatedPerson[=].relationshipType = $RoleCodeV3CodeSystem#MTH
+* relatedPerson[=].maritalStatus
+  * status = $MaritalStatusV3CodeSystem#M
+  * effectiveDate.extension[+].valueDate = "1999-01-01"
+  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
 
 Instance: RelatedPersonLogicalModelExample1
 InstanceOf: RelatedPersonLogicalModel
@@ -41,10 +47,9 @@ Description: "Marital status documented using a HL7 code."
 
 * name[+].firstName = "Jane"
 * name[=].middleName = "Smith"
-* relationship.patientRelatedTo = Reference(http://jembi.org/fhir/StructureDefinition/PatientLogicalModel)
-* relationship.relationshipType = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
+* relationshipType = $RoleCodeV3CodeSystem#MTH
 * maritalStatus
-  * status = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
+  * status = $MaritalStatusV3CodeSystem#M
   * effectiveDate.extension[+].valueDate = "1999-01-01"
   * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
 
@@ -56,10 +61,9 @@ Description: "Marital status documented using a proprietary code."
 
 * name[+].firstName = "Jane"
 * name[=].middleName = "Smith"
-* relationship.patientRelatedTo = Reference(http://jembi.org/fhir/StructureDefinition/PatientLogicalModel)
-* relationship.relationshipType = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
+* relationshipType = $RoleCodeV3CodeSystem#MTH
 * maritalStatus
-  * status = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
+  * status = $MaritalStatusCodeSystem#Other
   * status.text = "Some other code/reason"
   * effectiveDate.extension[+].valueDate = "1999-01-01"
   * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"

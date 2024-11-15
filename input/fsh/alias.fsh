@@ -17,3 +17,6 @@ Alias: $ParticipationTypeV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3
 Alias: $ConsentActionCodeSystem = http://terminology.hl7.org/CodeSystem/consentaction
 Alias: $ConsentScopeCodeSystem = http://terminology.hl7.org/CodeSystem/consentscope
 Alias: $ConfidentialityV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-Confidentiality
+Alias: $RoleCodeV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-RoleCode
+Alias: $MaritalStatusCodeSystem = http://jembi.org/fhir/CodeSystem/cs-marital-status
+Alias: $MaritalStatusV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
