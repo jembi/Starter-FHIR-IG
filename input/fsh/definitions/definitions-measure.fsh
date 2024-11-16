@@ -3,8 +3,8 @@ InstanceOf: CQFMProportionMeasure
 Title: "HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #definition
-* meta
-  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
+//* meta
+//  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
 
 //* contained = InitiatedARTDataRequirementsLibrary
 
