@@ -104,10 +104,7 @@ Title: "Related Person"
   * insert Mappings(RelatedPersonLogicalModel, name.middleName)
 
 * relationship 1..1
-  * insert Mappings(RelatedPersonLogicalModel, relationship.relationshipType)
-
-* patient
-  * insert Mappings(RelatedPersonLogicalModel, relationship.patientRelatedTo)
+  * insert Mappings(RelatedPersonLogicalModel, relationshipType)
 
 * extension contains MaritalStatusAndEffectiveDateExtension named MaritalStatus 0..1 MS
   * insert EmptyMapping(RelatedPersonLogicalModel)
