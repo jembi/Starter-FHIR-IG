@@ -32,22 +32,9 @@ Title: "Patient"
 
 * name 1..*
   * insert Mappings(PatientLogicalModel, name)
+
 * name.given 1..2
-
-* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
-
-* name.given contains
-  firstName 1..1 MS and
-  middleName 0..1 MS
-
-* name.given[firstName]
-  * id 1..1
-  * id = "firstName"
   * insert Mappings(PatientLogicalModel, name.firstName)
-
-* name.given[middleName]
-  * id 1..1
-  * id = "middleName"
   * insert Mappings(PatientLogicalModel, name.middleName)
   
 * maritalStatus 0..1 MS
@@ -85,22 +72,9 @@ Title: "Related Person"
 
 * name 1..*
   * insert Mappings(RelatedPersonLogicalModel, name)
+  
 * name.given 1..2
-
-* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
-
-* name.given contains
-  firstName 1..1 MS and
-  middleName 0..1 MS
-
-* name.given[firstName]
-  * id 1..1
-  * id = "firstName"
   * insert Mappings(RelatedPersonLogicalModel, name.firstName)
-
-* name.given[middleName]
-  * id 1..1
-  * id = "middleName"
   * insert Mappings(RelatedPersonLogicalModel, name.middleName)
 
 * relationship 1..1

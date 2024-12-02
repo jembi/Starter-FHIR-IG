@@ -5,8 +5,8 @@ Title: "Patient - Example 1 (Marital Status Captured)"
 Description: "Patient documented as married."
 * identifier[MRN].value = "MRN-12345-12-1"
 * identifier[MRN].system = $MRN
-* name[+].given[firstName] = "John"
-* name[=].given[middleName] = "Doe"
+* name[+].given[+] = "John"
+* name[=].given[+] = "Doe"
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
 * maritalStatus.extension[EffectiveDate].valueDate = "1999-01-01"
@@ -16,8 +16,8 @@ InstanceOf: TestPatient
 Usage: #example
 Title: "Patient - Example 2 (Marital Status Not Captured)"
 Description: "Patient marital status not documented."
-* name[+].given[firstName] = "John"
-* name[=].given[middleName] = "Doe"
+* name[+].given[+] = "John"
+* name[=].given[+] = "Doe"
 
 Instance: PatientExample3
 InstanceOf: TestPatient
@@ -27,8 +27,8 @@ Description: "Patient marital status not documented but includes a Mother relati
     
     Note: Includes patient relation."
 
-* name[+].given[firstName] = "John"
-* name[=].given[middleName] = "Doe"
+* name[+].given[+] = "John"
+* name[=].given[+] = "Doe"
 
 * link[+].type = #seealso
 * link[=].other = Reference(MotherRelatedPersonExample1)
@@ -39,8 +39,8 @@ Usage: #example
 Title: "Related Person - Mother Relationship (Example 1)"
 Description: "Marital status documented using a HL7 code."
 
-* name[+].given[firstName] = "Jane"
-* name[=].given[middleName] = "Smith"
+* name[+].given[+] = "Jane"
+* name[=].given[+] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatus][+].extension[Status].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
@@ -52,8 +52,8 @@ Usage: #example
 Title: "Related Person - Mother Relationship (Example 2)"
 Description: "Marital status documented using a proprietary code."
 
-* name[+].given[firstName] = "Jane"
-* name[=].given[middleName] = "Smith"
+* name[+].given[+] = "Jane"
+* name[=].given[+] = "Smith"
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
