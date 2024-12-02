@@ -1,6 +1,6 @@
 map "http://jembi.org/fhir/StructureMap/QRBreastfeedingStatusToObservation" = "QRBreastfeedingStatusToObservation"
 
-/// status = 'draft'
+/// status = 'active'
 
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" as source
 uses "http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation" as target

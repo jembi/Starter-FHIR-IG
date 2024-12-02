@@ -19,7 +19,7 @@ Usage: #definition
 * title = "HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 //* url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
-* status = #draft
+* status = #active
 * experimental = true
 * name = "InitiatedARTMeasure"
 * publisher = "Jembi Health Systems"

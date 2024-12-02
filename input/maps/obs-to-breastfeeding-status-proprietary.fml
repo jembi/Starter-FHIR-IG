@@ -1,6 +1,6 @@
 map "http://jembi.org/fhir/StructureMap/ObservationToProprietaryBreastfeedingStatus" = "ObservationToProprietaryBreastfeedingStatus"
 
-/// status = 'draft'
+/// status = 'active'
 
 uses "http://jembi.org/fhir/StructureDefinition/breastfeeding-status-observation" as source
 uses "http://jembi.org/fhir/StructureDefinition/BreastfeedingStatusProprietaryLogicalModel" as target

@@ -6,7 +6,7 @@ Usage: #definition
 * url = "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient"
 * version = "1.0.1"
 * name = "FHIRR4PatientToCHTPatient"
-* status = #draft
+* status = #active
 * date = "2024-11-08T15:08:21+02:00"
 * publisher = "Jembi Health Systems"
 * contact[0].name = "Jembi Health Systems"

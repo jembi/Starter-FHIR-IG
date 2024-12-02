@@ -5,7 +5,7 @@ Title: "CHT Patient Logical Model"
 Description: "Requirements to register a CHT patient."
 
 * experimental = true
-* status = #draft
+* status = #active
 * name = "CHTPatientLogicalModel"
 * url = "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel"
 * version = "0.1.0"

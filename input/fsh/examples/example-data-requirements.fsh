@@ -27,7 +27,7 @@ Usage: #inline
 * extension[logicDefinition][=].extension[displaySequence].valueInteger = 4
 
 * name = "InitiatedARTDataRequirementsLibrary"
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#module-definition
 

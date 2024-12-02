@@ -1,6 +1,6 @@
 /*map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
 
-/// status = 'draft'
+/// status = 'active'
 
 uses "http://hl7.org/fhir/StructureDefinition/Patient" as source
 uses "http://jembi.org/fhir/StructureDefinition/CHTPatientLogicalModel" as target

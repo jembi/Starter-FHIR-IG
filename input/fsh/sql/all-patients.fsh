@@ -4,7 +4,7 @@ Title: "SQL - List all Patients and their Identifiers"
 Description: "A SQL query to find all patients and list out their identifiers (server-generated and business)."
 Usage:  #definition
 * name = "all_patients"
-* status = #draft
+* status = #active
 * experimental = true
 * resource = #Patient
 

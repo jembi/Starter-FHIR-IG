@@ -12,7 +12,7 @@ Usage: #definition
 
 * name = "ViralLoadLibrary"
 * content.id = "ig-loader-ViralLoad.cql"
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -31,7 +31,7 @@ Usage: #definition
 * name = "HIVCommonLibrary"
 * content.id = "ig-loader-HIVCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -46,7 +46,7 @@ Usage: #definition
 * name = "LocalCommonLibrary"
 * content.id = "ig-loader-LocalCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -61,7 +61,7 @@ Usage: #definition
 * name = "ViralLoadStatusLibrary"
 * content.id = "ig-loader-ViralLoadStatus.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -76,7 +76,7 @@ Usage: #definition
 * name = "FHIRCommonLibrary"
 * content.id = "ig-loader-FHIRCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -91,7 +91,7 @@ Usage: #definition
 * name = "FHIRHelpersLibrary"
 * content.id = "ig-loader-FHIRHelpers.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -111,7 +111,7 @@ Usage: #definition
 * name = "InitiatedARTLibrary"
 * content.id = "ig-loader-InitiatedART.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
@@ -130,6 +130,6 @@ Usage: #definition
 * name = "OutpatientViralLoadLibrary"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library

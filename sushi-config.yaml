@@ -13,7 +13,7 @@ url: http://jembi.org/fhir/ImplementationGuide/jembi.starter.ig
 name: StarterIG
 title: "Starter FHIR Implementation Guide"
 description: A sample FHIR Implementation Guide to create capacity among the community.
-status: draft
+status: active
 license: CC0-1.0
 date: 2020-02-26
 version: 1.0.1
