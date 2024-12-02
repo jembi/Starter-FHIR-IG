@@ -1,0 +1,23 @@
+CQL: /Users/richard/Documents/Starter-FHIR-IG/input/cql
+Terminology: /Users/richard/Documents/Starter-FHIR-IG/input/vocabulary/valueset
+Test cases:
+PatientExample1 - /Users/richard/Documents/Starter-FHIR-IG/input/tests/InitiatedART/PatientExample1
+
+ART Patients Initiated on ART=[Observation(id=InitiatedArtARTFollowupStatusExample)]
+Denominator=true
+HIV+ Patients Observation=[Observation(id=ConfirmedHIVPositiveExample)]
+Initial Population=true
+Numerator=true
+Patient=Patient(id=PatientExample1)
+
+
+Evaluation logs:
+581436 [pool-2-thread-1] INFO  o.o.c.f.u.r.ig.IgConventions Auto-detected repository configuration: IGConventions [typeLayout=DIRECTORY_PER_TYPE, categoryLayout=FLAT, filenameMode=ID_ONLY] 
+581444 [pool-2-thread-1] INFO  o.o.c.f.u.r.ig.IgConventions Auto-detected repository configuration: IGConventions [typeLayout=FLAT, categoryLayout=FLAT, filenameMode=ID_ONLY] 
+581584 [pool-2-thread-1] DEBUG o.o.c.f.c.e.r.BaseRetrieveProvider No profile-specific template id specified. Returning unfiltered resources. 
+581588 [pool-2-thread-1] DEBUG o.o.c.f.c.e.r.BaseRetrieveProvider No profile-specific template id specified. Returning unfiltered resources. 
+581595 [pool-2-thread-1] DEBUG c.u.f.l.terminology_troubleshooting Resource http://hl7.org/fhir/StructureDefinition/ValueSet with URI http://hl7.org/fhir/StructureDefinition/ValueSet fetched by R4 FHIR Standard Profile Validation Support 
+581602 [pool-2-thread-1] WARN  o.o.c.f.c.e.t.RepositoryTerminologyProvider ValueSet http://jembi.org/fhir/ValueSet/hiv-test-type-value-set is not expanded. Falling back to compose definition. This will potentially produce incorrect results.  
+581607 [pool-2-thread-1] DEBUG o.o.c.f.c.e.r.BaseRetrieveProvider No profile-specific template id specified. Returning unfiltered resources. 
+
+elapsed: 0.205 seconds
