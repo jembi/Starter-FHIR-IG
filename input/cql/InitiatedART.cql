@@ -2,9 +2,9 @@ library InitiatedART version '1.0.1'
 
 using FHIR version '4.0.1'
 
-include jembi.starter.ig.FHIRHelpers version '4.0.1'
-include jembi.starter.ig.FHIRCommon version '4.0.1'
-include jembi.starter.ig.HIVCommon called HIVC
+include FHIRHelpers version '4.0.1'
+include FHIRCommon version '4.0.1'
+include HIVCommon called HIVC
 
 parameter "Measurement Period" Interval<DateTime>
 //default Interval[@2023-12-01, @2023-12-31] //For testing only
