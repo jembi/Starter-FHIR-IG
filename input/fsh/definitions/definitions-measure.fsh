@@ -25,7 +25,7 @@ Usage: #definition
 * publisher = "Jembi Health Systems"
 * version = "0.1.0"
 * scoring = $MeasureScoring#proportion
-* library = Canonical(InitiatedARTLibrary)
+* library = Canonical(InitiatedART)
 * subjectCodeableConcept = $ResourceTypes#Patient
 * effectivePeriod
   * start = "2023-12-01"
