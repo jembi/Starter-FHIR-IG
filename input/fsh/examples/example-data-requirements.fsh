@@ -1,4 +1,4 @@
-Instance: InitiatedARTDataRequirementsLibrary
+/*Instance: InitiatedARTDataRequirementsLibrary
 InstanceOf: CQFMModuleDefinitionLibrary
 Usage: #inline
 * extension[logicDefinition][+].extension[libraryName].valueString = "InitiatedARTLibrary"
@@ -33,7 +33,7 @@ Usage: #inline
 
 * relatedArtifact[+].type = #depends-on
 * relatedArtifact[=].display = "Library FHIRHelpers"
-* relatedArtifact[=].resource = "http://jembi.org/fhir/Library/FHIRHelpersLibrary|4.0.1"
+* relatedArtifact[=].resource = "http://jembi.org/fhir/Library/FHIRHelpers|4.0.1"
 
 * relatedArtifact[+].type = #depends-on
 * relatedArtifact[=].display = "Library FHIRCommon"
@@ -46,3 +46,4 @@ Usage: #inline
 * relatedArtifact[+].type = #depends-on
 * relatedArtifact[=].display = "Value set HIV Test Types"
 * relatedArtifact[=].resource = "http://jembi.org/fhir/ValueSet/hiv-test-type-value-set"
+*/
