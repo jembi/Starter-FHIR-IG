@@ -10,7 +10,7 @@ Usage: #definition
 
     Denominator: None."
 
-* name = "ViralLoadLibrary"
+* name = "ViralLoad"
 * content.id = "ig-loader-ViralLoad.cql"
 * status = #active
 * experimental = true
@@ -28,7 +28,7 @@ Usage: #definition
 * title = "CQL - HIV Common"
 * description = "Common CQL for HIV calculations."
 
-* name = "HIVCommonLibrary"
+* name = "HIVCommon"
 * content.id = "ig-loader-HIVCommon.cql"
 
 * status = #active
@@ -43,7 +43,7 @@ Usage: #definition
 * title = "CQL - Local Common"
 * description = "Common functions for all CQL calculations."
 
-* name = "LocalCommonLibrary"
+* name = "LocalCommon"
 * content.id = "ig-loader-LocalCommon.cql"
 
 * status = #active
@@ -58,7 +58,7 @@ Usage: #definition
 * title = "CQL - Most Recent Viral Load Status"
 * description = "Checks for the most recent viral load and determines the suppression status."
 
-* name = "ViralLoadStatusLibrary"
+* name = "ViralLoadStatus"
 * content.id = "ig-loader-ViralLoadStatus.cql"
 
 * status = #active
@@ -73,7 +73,7 @@ Usage: #definition
 * title =  "CQL - FHIRCommon"
 * description = "Base FHIRCommon Include."
 
-* name = "FHIRCommonLibrary"
+* name = "FHIRCommon"
 * content.id = "ig-loader-FHIRCommon.cql"
 
 * status = #active
@@ -88,7 +88,7 @@ Usage: #definition
 * title = "CQL - FHIRHelpers"
 * description = "Base FHIRHelpers Include."
 
-* name = "FHIRHelpersLibrary"
+* name = "FHIRHelpers"
 * content.id = "ig-loader-FHIRHelpers.cql"
 
 * status = #active
@@ -108,7 +108,7 @@ Usage: #definition
 
     Denominator: Count all patients who tested positive for HIV within the reporting period."
 
-* name = "InitiatedARTLibrary"
+* name = "InitiatedART"
 * content.id = "ig-loader-InitiatedART.cql"
 
 * status = #active
@@ -127,7 +127,7 @@ Usage: #definition
 
     Denominator: Count all patients where the encounter class is for outpatient and the encounter date is within the reporting period."
 
-* name = "OutpatientViralLoadLibrary"
+* name = "OutpatientViralLoad"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 
 * status = #active
