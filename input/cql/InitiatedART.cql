@@ -15,8 +15,9 @@ context Patient
 //  HIVC.HIVPostivePatients ( "Measurement Period" )
 
 define "Initial Population":
-  HIVC.HIVPostivePatients ( "Measurement Period" )
+  //HIVC.HIVPostivePatients ( "Measurement Period" )
   //exists ( "HIV+ Patients Observation" )
+  exists ( HIVC.HIVPostivePatients ( "Measurement Period" ) )
 
 define "Denominator":
   //"Initial Population"
