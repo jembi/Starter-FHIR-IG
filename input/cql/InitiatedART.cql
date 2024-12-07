@@ -11,21 +11,11 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-//define "HIV+ Patients Observation":
-//  HIVC.HIVPostivePatients ( "Measurement Period" )
-
 define "Initial Population":
-  //HIVC.HIVPostivePatients ( "Measurement Period" )
-  //exists ( "HIV+ Patients Observation" )
   exists ( HIVC.HIVPostivePatients ( "Measurement Period" ) )
 
 define "Denominator":
-  //"Initial Population"
   true
 
-//define "ART Patients Initiated on ART":
-//  HIVC.InitiatedART ( "Measurement Period" )
-
 define "Numerator":
-  //exists ( "ART Patients Initiated on ART" )
   exists ( HIVC.InitiatedART ( "Measurement Period" ) )
