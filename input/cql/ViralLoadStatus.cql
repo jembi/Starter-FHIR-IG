@@ -2,8 +2,8 @@ library ViralLoadStatus version '1.0.1'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers
-include FHIRCommon
+include FHIRHelpers version '4.1.0'
+include FHIRCommon version '4.1.0'
 include HIVCommon called HIVC
 include LocalCommon called LOCALC
 
