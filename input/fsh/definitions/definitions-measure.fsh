@@ -23,13 +23,13 @@ Usage: #definition
 * experimental = true
 * name = "InitiatedARTMeasure"
 * publisher = "Jembi Health Systems"
-* version = "0.1.0"
+* version = "1.0.1"
 * scoring = $MeasureScoring#proportion
 * library = Canonical(InitiatedART)
 * subjectCodeableConcept = $ResourceTypes#Patient
-* effectivePeriod
+/** effectivePeriod
   * start = "2023-12-01"
-  * end = "2023-12-31"
+  * end = "2023-12-31"*/
 * type = $MeasureType#process
 * improvementNotation = $MeasureImprovementNotation#increase
 
