@@ -21,7 +21,7 @@ code "ART Status Code": '47248-0' from "LOINC Codes"
 
 context Patient
 
-define function ViralLoadResult(period Interval<Date>):
+define function ViralLoadResult(period Interval<DateTime>):
   [Observation: "HIV Viral Load Observation Code"] O
     where exists ( O.category C
         where C = "Laboratory Observation Category"
