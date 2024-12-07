@@ -65,7 +65,7 @@ Usage: #definition
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-/*Instance: FHIRCommon
+Instance: FHIRCommon
 InstanceOf: Library
 Title: "CQL - FHIRCommon"
 Description: "Base FHIRCommon Include."
@@ -93,7 +93,7 @@ Usage: #definition
 
 * status = #active
 * experimental = true
-* type = $LibraryTypeCodeSystem#logic-library*/
+* type = $LibraryTypeCodeSystem#logic-library
 
 Instance: InitiatedART
 InstanceOf: Library
