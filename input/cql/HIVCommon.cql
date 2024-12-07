@@ -2,8 +2,8 @@ library HIVCommon version '1.0.1'
 
 using FHIR version '4.0.1'
 
-include fhir.cqf.common.FHIRHelpers
-include fhir.cqf.common.FHIRCommon
+include FHIRHelpers
+include FHIRCommon
 
 valueset "HIV Test Types": 'http://jembi.org/fhir/ValueSet/hiv-test-type-value-set'
 valueset "ARV Drugs": 'http://jembi.org/fhir/ValueSet/arv-treatment-value-set'

@@ -2,8 +2,8 @@ library OutpatientViralLoad version '1.0.1'
 
 using FHIR version '4.0.1'
 
-include fhir.cqf.common.FHIRHelpers
-include fhir.cqf.common.FHIRCommon
+include FHIRHelpers
+include FHIRCommon
 include HIVCommon called HIVC
 
 codesystem "Encounter Class Codes": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
