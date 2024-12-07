@@ -27,20 +27,20 @@ define function ViralLoadResult(period Interval<DateTime>):
     )
       and O.status = 'final'
       and ( O.value as Quantity ).value is not null
-      and ( ( O.effective as dateTime ) during period
+      and ( ( O.effective as dateTime ).value during period
           or ( O.effective as Period ) starts during period
       )
 
 define function HIVPostivePatients(period Interval<DateTime>):
   [Observation: code in "HIV Test Types"] O
     where ( O.value as CodeableConcept ) = "HIV+ Code"
-      and ( ( O.effective as dateTime ) during period
+      and ( ( O.effective as dateTime ).value during period
           or ( O.effective as Period ) starts during period
       )
 
 define function InitiatedART(period Interval<DateTime>):
   [Observation: "ART Status Code"] O
     where ( O.value as CodeableConcept ) = "Initiated ART Code"
-      and ( ( O.effective as dateTime ) during period
+      and ( ( O.effective as dateTime ).value during period
           or ( O.effective as Period ) starts during period
       )
