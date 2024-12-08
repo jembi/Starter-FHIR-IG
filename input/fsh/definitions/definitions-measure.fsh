@@ -1,5 +1,5 @@
 Instance: InitiatedARTMeasure
-InstanceOf: Measure //CQFMProportionMeasure
+InstanceOf: CQFMProportionMeasure
 Title: "HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #definition
@@ -34,21 +34,21 @@ Usage: #definition
 * improvementNotation = $MeasureImprovementNotation#increase
 
 * group[+]
-  * population[+]
+  * population[initialPopulation]
     * id = "Initiated.ART.IP"
     * criteria
       * expression = "Initial Population"
       * language = #text/cql-identifier
     * description = "Initial Population"
 
-  * population[+]
+  * population[denominator]
     * id = "Initiated.ART.D"
     * criteria
       * expression = "Denominator"
       * language = #text/cql-identifier
     * description = "Count all patients who tested positive for HIV within the reporting period."
 
-  * population[+]
+  * population[numerator]
     * id = "Initiated.ART.N"
     * criteria
       * expression = "Numerator"
