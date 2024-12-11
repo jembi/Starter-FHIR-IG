@@ -1,4 +1,4 @@
-Instance: ViralLoadLibrary
+Instance: ViralLoad
 InstanceOf: Library
 Title: "CQL - Viral Load (All Patients)"
 Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
@@ -10,13 +10,13 @@ Usage: #definition
 
     Denominator: None."
 
-* name = "ViralLoadLibrary"
+* name = "ViralLoad"
 * content.id = "ig-loader-ViralLoad.cql"
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: HIVCommonLibrary
+Instance: HIVCommon
 InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
@@ -28,14 +28,14 @@ Usage: #definition
 * title = "CQL - HIV Common"
 * description = "Common CQL for HIV calculations."
 
-* name = "HIVCommonLibrary"
+* name = "HIVCommon"
 * content.id = "ig-loader-HIVCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: LocalCommonLibrary
+Instance: LocalCommon
 InstanceOf: Library
 Title: "CQL - Local Common"
 Description: "Common functions for all CQL calculations."
@@ -43,14 +43,14 @@ Usage: #definition
 * title = "CQL - Local Common"
 * description = "Common functions for all CQL calculations."
 
-* name = "LocalCommonLibrary"
+* name = "LocalCommon"
 * content.id = "ig-loader-LocalCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: ViralLoadStatusLibrary
+Instance: ViralLoadStatus
 InstanceOf: Library
 Title: "CQL - Most Recent Viral Load Status"
 Description: "Checks for the most recent viral load and determines the suppression status."
@@ -58,14 +58,14 @@ Usage: #definition
 * title = "CQL - Most Recent Viral Load Status"
 * description = "Checks for the most recent viral load and determines the suppression status."
 
-* name = "ViralLoadStatusLibrary"
+* name = "ViralLoadStatus"
 * content.id = "ig-loader-ViralLoadStatus.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: FHIRCommonLibrary
+/*Instance: FHIRCommon
 InstanceOf: Library
 Title: "CQL - FHIRCommon"
 Description: "Base FHIRCommon Include."
@@ -73,14 +73,14 @@ Usage: #definition
 * title =  "CQL - FHIRCommon"
 * description = "Base FHIRCommon Include."
 
-* name = "FHIRCommonLibrary"
+* name = "FHIRCommon"
 * content.id = "ig-loader-FHIRCommon.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: FHIRHelpersLibrary
+Instance: FHIRHelpers
 InstanceOf: Library
 Title: "CQL - FHIRHelpers"
 Description: "Base FHIRHelpers Include."
@@ -88,14 +88,14 @@ Usage: #definition
 * title = "CQL - FHIRHelpers"
 * description = "Base FHIRHelpers Include."
 
-* name = "FHIRHelpersLibrary"
+* name = "FHIRHelpers"
 * content.id = "ig-loader-FHIRHelpers.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
-* type = $LibraryTypeCodeSystem#logic-library
+* type = $LibraryTypeCodeSystem#logic-library*/
 
-Instance: InitiatedARTLibrary
+Instance: InitiatedART
 InstanceOf: Library
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
@@ -108,14 +108,14 @@ Usage: #definition
 
     Denominator: Count all patients who tested positive for HIV within the reporting period."
 
-* name = "InitiatedARTLibrary"
+* name = "InitiatedART"
 * content.id = "ig-loader-InitiatedART.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
-Instance: OutpatientViralLoadLibrary
+Instance: OutpatientViralLoad
 InstanceOf: Library
 Title: "CQL - Viral Load (Outpatients only)"
 Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
@@ -127,9 +127,9 @@ Usage: #definition
 
     Denominator: Count all patients where the encounter class is for outpatient and the encounter date is within the reporting period."
 
-* name = "OutpatientViralLoadLibrary"
+* name = "OutpatientViralLoad"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
 
-* status = #draft
+* status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library

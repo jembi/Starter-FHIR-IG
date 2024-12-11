@@ -8,7 +8,7 @@ Title: "Patient"
    // Note: This is for demonstrable purposes only!
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 
 * ^mapping[+].identity = "PatientLogicalModel"
 * ^mapping[=].name = "Patient Logical Model"
@@ -32,22 +32,9 @@ Title: "Patient"
 
 * name 1..*
   * insert Mappings(PatientLogicalModel, name)
+
 * name.given 1..2
-
-* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
-
-* name.given contains
-  firstName 1..1 MS and
-  middleName 0..1 MS
-
-* name.given[firstName]
-  * id 1..1
-  * id = "firstName"
   * insert Mappings(PatientLogicalModel, name.firstName)
-
-* name.given[middleName]
-  * id 1..1
-  * id = "middleName"
   * insert Mappings(PatientLogicalModel, name.middleName)
   
 * maritalStatus 0..1 MS
@@ -74,7 +61,7 @@ Title: "Related Person"
     //Note: This is for demonstrable purposes only!"
 
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 
 * ^mapping[+].identity = "RelatedPersonLogicalModel"
 * ^mapping[=].name = "Related Person Logical Model"
@@ -85,22 +72,9 @@ Title: "Related Person"
 
 * name 1..*
   * insert Mappings(RelatedPersonLogicalModel, name)
+  
 * name.given 1..2
-
-* insert Slice(name.given, reasons why this should be supported, value, id, open, Slicing name.given based on id, false)
-
-* name.given contains
-  firstName 1..1 MS and
-  middleName 0..1 MS
-
-* name.given[firstName]
-  * id 1..1
-  * id = "firstName"
   * insert Mappings(RelatedPersonLogicalModel, name.firstName)
-
-* name.given[middleName]
-  * id 1..1
-  * id = "middleName"
   * insert Mappings(RelatedPersonLogicalModel, name.middleName)
 
 * relationship 1..1
@@ -116,7 +90,7 @@ Id: strict-coding
 Title: "Strict Coding"
 Description: "Strict requirements for elements using the Coding data types."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * system 1..1
 * code 1..1
 
@@ -126,7 +100,7 @@ Id: strict-quantity
 Title: "Strict Quantity"
 Description: "Strict requirements for quantity-based measurements."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * value 1..1
 * unit 1..1
 * system 1..1
@@ -138,7 +112,7 @@ Id: generic-observation
 Title: "Observation - Generic"
 Description: "Base Observation elements that are inherited by other Observation profiles."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * code.coding only StrictCoding
 * subject 1..1
 * subject only Reference(TestPatient)
@@ -160,7 +134,7 @@ Id: target-facility-encounter
 Title: "Encounter - Initiated By The Facility Providing the Service" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * subject 1..1
 * class 1..
 * subject only Reference(TestPatient)
@@ -176,7 +150,7 @@ Id: organization
 Title: "Organization"
 Description: "Organization providing health related services."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * identifier 1..*
 
 * insert Slice(identifier, reasons why this should be supported, value, system, open, Slicing the identifier based on the system value, false)
@@ -207,7 +181,7 @@ Title: "Practitioner - General Practitioner"
 Description: 
     "Represents the practitioner who participated in the observation."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * name 1..*
 * name.given 1..*
 * name.family 1..1
@@ -222,7 +196,7 @@ Id: confirmed-hiv-positive-observation
 Title: "Observation - Confirmed HIV positive"
 Description: "Represents the date the patient was confirmed HIV positive."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * category 1..1
 * code from HIVTestType (required)
 * value[x] only CodeableConcept
@@ -238,7 +212,7 @@ Id: generic-medication-dispense
 Title: "Medication Dispense - Generic"
 Description: "Base Medication Request elements that are inherited by other Medication Request profiles."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * status 1..1
 * medicationCodeableConcept.text 1..1
 * medicationCodeableConcept.coding only StrictCoding
@@ -271,7 +245,7 @@ Id: arv-medication-administration
 Title: "Medication Administration - For Prescribed ARV Medication"
 Description: "Used to record the medication administration period for prescribed ARV medication."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * status 1..1
 * request 1..1
 * medication[x] only Reference
@@ -298,7 +272,7 @@ Id: arv-medication-request
 Title: "Medication Request - ARV"
 Description: "Used to record requests for ARV medication that are prescribed to a patient."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * medication[x] only Reference
 * medicationReference only Reference(ARVMedication)
 * dispenseRequest.quantity = $OrderableDrugForm_UNIT#TAB
@@ -310,7 +284,7 @@ Id: arv-regimen-medication
 Title: "Medication - Represents an ARV Regimen"
 Description: "Used to record the ARV regimen that will be prescribed to the patient."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * code 1..1
 * code.coding only StrictCoding
 * code from ARVTreatmentValueSet (extensible)
@@ -322,7 +296,7 @@ Id: art-followup-status-observation
 Title: "Observation - ART Follow-up Status"
 Description: "Represents the patient's current ART follow-up status."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * category 1..1
 * category = $OBSERVATION_CATEGORY#therapy
 * code = $LNC#47248-0
@@ -339,7 +313,7 @@ Id: breastfeeding-status-observation
 Title: "Observation - Breastfeeding Status"
 Description: "Represents whether the patient is currently breatfeeding."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * category 1..1
 * category = $OBSERVATION_CATEGORY#exam
 * code = $LNC#63895-7
@@ -353,7 +327,7 @@ Id: hiv-status-consent
 Title: "Consent - HIV Status"
 Description: "Represents the patient's consent to have their HIV status disclosed."
 * ^experimental = true
-* ^status = #draft
+* ^status = #active
 * patient 1..1
 * patient only Reference(TestPatient)
 * dateTime 1..1

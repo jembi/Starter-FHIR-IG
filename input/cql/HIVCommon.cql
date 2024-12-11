@@ -1,9 +1,10 @@
-library HIVCommon version '0.1.0'
+library HIVCommon version '1.0.1'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.0.1'
+//include fhir.cqf.common.FHIRCommon
+
 
 valueset "HIV Test Types": 'http://jembi.org/fhir/ValueSet/hiv-test-type-value-set'
 valueset "ARV Drugs": 'http://jembi.org/fhir/ValueSet/arv-treatment-value-set'
@@ -31,14 +32,14 @@ define function ViralLoadResult(period Interval<DateTime>):
           or ( O.effective as Period ) starts during period
       )
 
-define function HIVPostivePatients(period Interval<DateTime>):
+define function HIVPostivePatients(period Interval<Date>):
   [Observation: code in "HIV Test Types"] O
     where ( O.value as CodeableConcept ) = "HIV+ Code"
       and ( ( O.effective as dateTime ).value during period
           or ( O.effective as Period ) starts during period
       )
 
-define function InitiatedART(period Interval<DateTime>):
+define function InitiatedART(period Interval<Date>):
   [Observation: "ART Status Code"] O
     where ( O.value as CodeableConcept ) = "Initiated ART Code"
       and ( ( O.effective as dateTime ).value during period

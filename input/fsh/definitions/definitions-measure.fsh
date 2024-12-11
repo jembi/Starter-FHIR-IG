@@ -19,17 +19,17 @@ Usage: #definition
 * title = "HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 //* url = "http://jembi.org/fhir/Measure/InitiatedARTMeasure"
-* status = #draft
+* status = #active
 * experimental = true
 * name = "InitiatedARTMeasure"
 * publisher = "Jembi Health Systems"
-* version = "0.1.0"
+* version = "1.0.1"
 * scoring = $MeasureScoring#proportion
-* library = Canonical(InitiatedARTLibrary)
+* library = Canonical(InitiatedART)
 * subjectCodeableConcept = $ResourceTypes#Patient
-* effectivePeriod
+/** effectivePeriod
   * start = "2023-12-01"
-  * end = "2023-12-31"
+  * end = "2023-12-31"*/
 * type = $MeasureType#process
 * improvementNotation = $MeasureImprovementNotation#increase
 

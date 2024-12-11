@@ -1,27 +1,19 @@
-library InitiatedART version '0.1.0'
+library InitiatedART version '1.0.1'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.0.1'
 include HIVCommon called HIVC
 
-parameter "Measurement Period" Interval<DateTime>
-default Interval[@2023-12-01, @2023-12-31] //For testing only
+parameter "Measurement Period" Interval<Date>
+//default Interval[@2023-12-01, @2023-12-31] //For testing only
 
 context Patient
 
-define "HIV+ Patients Observation":
-  HIVC.HIVPostivePatients ( "Measurement Period" )
-
 define "Initial Population":
-  exists ( "HIV+ Patients Observation" )
+  exists ( HIVC.HIVPostivePatients ( "Measurement Period" ) )
 
 define "Denominator":
-  "Initial Population"
-
-define "ART Patients Initiated on ART":
-  HIVC.InitiatedART ( "Measurement Period" )
+  true
 
 define "Numerator":
-  exists ( "ART Patients Initiated on ART" )
+  exists ( HIVC.InitiatedART ( "Measurement Period" ) )

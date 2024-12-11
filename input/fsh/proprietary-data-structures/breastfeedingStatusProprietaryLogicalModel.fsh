@@ -5,7 +5,7 @@ Title: "Breastfeeding Status Proprietary Logical Model"
 Description: "Requirements to capture breastfeding status."
 
 * experimental = true
-* status = #draft
+* status = #active
 * name = "BreastfeedingStatusProprietaryLogicalModel"
 * url = "http://jembi.org/fhir/StructureDefinition/BreastfeedingStatusProprietaryLogicalModel"
 * version = "0.1.0"
