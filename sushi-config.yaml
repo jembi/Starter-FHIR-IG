@@ -65,10 +65,10 @@ dependencies:
     uri: http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures
     version: 4.0.0
 
-  fhir.cqf.common:
-    id: cqf
-    uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
-    version: 4.0.1
+  #fhir.cqf.common:
+  #  id: cqf
+  #  uri: http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common
+  #  version: 4.0.1
 
   #hl7.fhir.uv.cql:
   #  id: CQL
