@@ -6,8 +6,8 @@
   "license": "CC0-1.0",
   "description": "Jembi FHIR Template",
   "author": "https://www.jembi.org/",
-  "base": "fhir.base.template",
+  "base": "cqf.fhir.template",
   "dependencies": {
-      "fhir.base.template": "current"
+      "cqf.fhir.template": "0.7.1"
     }
 }

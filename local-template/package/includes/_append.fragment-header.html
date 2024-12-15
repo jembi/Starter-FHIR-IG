@@ -1,11 +1,24 @@
 <!-- Placeholder for child template header declarations -->
-<div id="project-nav">
+
+
+<script>
+    var familyLogoHyperlink = document.querySelectorAll('#family-logo')[0];
+    familyLogoHyperlink.href = "https://www.jembi.org/";
+
+    var familyLogoImage = document.querySelectorAll('#family-logo img')[0];
+    familyLogoImage.src = "{{site.data.info.assets}}assets/images/organization.png";
+    familyLogoImage.height = "70"
+    familyLogoImage.alt = "Jembi website"
+</script>
+
+
+<!-- <div id="project-nav">
     <a id="project-logo" no-external="true" href="https://www.jembi.org/">
-        <img height="71" alt="Project home" src="assets/images/home.png">
+        <img height="71" alt="Project home" src="{{site.data.info.assets}}assets/images/home.png">
     </a>
-</div>
+</div>  
 
 <div id="family-nav">
     <a id="family-logo" no-external="true" href="https://hl7.org/fhir/"><img height="70" alt="FHIR website"
-            src="assets/images/organization.png"> </a>
-</div>
+            src="{{site.data.info.assets}}assets/images/organization.png"> </a>
+</div> -->
