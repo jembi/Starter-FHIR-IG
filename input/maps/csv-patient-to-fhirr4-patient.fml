@@ -3,21 +3,22 @@ map "http://jembi.org/fhir/StructureMap/CSVPatientToFHIRR4Patient" = "CSVPatient
 /// status = 'active'
 
 uses "http://jembi.org/fhir/StructureDefinition/CSVPatientLogicalModel" as source
-uses "http://hl7.org/fhir/StructureDefinition/Patient" as target
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
 
-group CSVPatientToFHIRR4Patient(source src : CSVPatientLogicalModel, target tgt : Patient) {
-    src.record as record then {
-        record.name as srcName -> tgt.name as pName then {
+group CSVPatientToFHIRR4Patient(source src : CSVPatientLogicalModel, target tgt : Bundle) {
+    src.record as record -> tgt.entry as entry, entry.resource = create('Patient') as patient then {
+        record.name as srcName -> patient.name as pName then {
             srcName -> pName.text = srcName "SetPatientFullName";
         };
 
-        record.phone as srcPhoneNumber -> tgt.telecom as pTelecom then {
+        record.phone as srcPhoneNumber -> patient.telecom as pTelecom then {
             srcPhoneNumber -> pTelecom.system = 'phone' "SetPatientTelecomCodeAsPhone";
             srcPhoneNumber -> pTelecom.value = srcPhoneNumber "SetPatientTelecomValue";
         };
 
-        record.date_of_birth as dob -> tgt.birthDate = dob "SetPatientBirthDate";
+        record.date_of_birth as dob -> patient.birthDate = dob "SetPatientBirthDate";
 
-        record.sex as sex -> tgt.gender = sex "SetPatientGender";
+        record.sex as sex -> patient.gender = sex "SetPatientGender";
     } "Record";
 }
