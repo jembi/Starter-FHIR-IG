@@ -1,0 +1,21 @@
+map "http://jembi.org/fhir/StructureMap/CSVPatientToFHIRR4Patient" = "CSVPatientToFHIRR4Patient"
+
+/// status = 'active'
+
+uses "http://jembi.org/fhir/StructureDefinition/CSVPatientLogicalModel" as source
+uses "http://hl7.org/fhir/StructureDefinition/Patient" as target
+
+group CSVPatientToFHIRR4Patient(source src : CSVPatientLogicalModel, target tgt : Patient) {
+    src.record.name as srcName -> tgt.name as pName then {
+        srcName -> pName.text = srcName "SetPatientFullName";
+    };
+
+    src.record.phone as srcPhoneNumber -> tgt.telecom as pTelecom then {
+        srcPhoneNumber -> pTelecom.system = 'phone' "SetPatientTelecomCodeAsPhone";
+        srcPhoneNumber -> pTelecom.value = srcPhoneNumber "SetPatientTelecomValue";
+    };
+
+    src.record.date_of_birth as dob -> tgt.birthDate = dob "SetPatientBirthDate";
+
+    src.record.sex as sex -> tgt.gender = sex "SetPatientGender";
+}
