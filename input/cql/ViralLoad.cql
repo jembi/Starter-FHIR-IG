@@ -1,4 +1,4 @@
-library ViralLoad version '1.0.1'
+library ViralLoad
 
 using FHIR version '4.0.1'
 

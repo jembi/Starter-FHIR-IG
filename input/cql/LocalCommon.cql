@@ -1,4 +1,4 @@
-library LocalCommon version '1.0.1'
+library LocalCommon
 
 using FHIR version '4.0.1'
 

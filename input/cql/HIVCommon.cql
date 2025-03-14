@@ -1,4 +1,4 @@
-library HIVCommon version '1.0.1'
+library HIVCommon
 
 using FHIR version '4.0.1'
 

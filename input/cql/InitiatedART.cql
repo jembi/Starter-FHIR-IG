@@ -1,4 +1,4 @@
-library InitiatedART version '1.0.1'
+library InitiatedART
 
 using FHIR version '4.0.1'
 

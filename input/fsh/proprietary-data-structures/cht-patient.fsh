@@ -36,7 +36,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.id"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.name"
@@ -48,7 +48,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.name.text"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.phone"
@@ -60,7 +60,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.telecom.where(system = 'phone')"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.date_of_birth"
@@ -72,7 +72,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.birthDate"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.sex"
@@ -84,7 +84,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.gender"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.patient_id"
@@ -96,7 +96,7 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.identifier"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
 * differential.element[+].id = "CHTPatientLogicalModel.nationality"
@@ -108,5 +108,5 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].max = "1"
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "Patient.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality')"
-* differential.element[=].mustSupport = true
+//* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true

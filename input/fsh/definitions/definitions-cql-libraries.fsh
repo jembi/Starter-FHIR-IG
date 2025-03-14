@@ -1,5 +1,5 @@
 Instance: ViralLoad
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - Viral Load (All Patients)"
 Description: "CQL Measure that reports on all patients who have a HIV viral load date within the reporting period."
 Usage: #definition
@@ -12,12 +12,13 @@ Usage: #definition
 
 * name = "ViralLoad"
 * content.id = "ig-loader-ViralLoad.cql"
+* content.contentType = #text/cql
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: HIVCommon
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 Usage: #definition
@@ -30,13 +31,14 @@ Usage: #definition
 
 * name = "HIVCommon"
 * content.id = "ig-loader-HIVCommon.cql"
+* content.contentType = #text/cql
 
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: LocalCommon
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - Local Common"
 Description: "Common functions for all CQL calculations."
 Usage: #definition
@@ -45,13 +47,14 @@ Usage: #definition
 
 * name = "LocalCommon"
 * content.id = "ig-loader-LocalCommon.cql"
+* content.contentType = #text/cql
 
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: ViralLoadStatus
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - Most Recent Viral Load Status"
 Description: "Checks for the most recent viral load and determines the suppression status."
 Usage: #definition
@@ -60,13 +63,14 @@ Usage: #definition
 
 * name = "ViralLoadStatus"
 * content.id = "ig-loader-ViralLoadStatus.cql"
+* content.contentType = #text/cql
 
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 /*Instance: FHIRCommon
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - FHIRCommon"
 Description: "Base FHIRCommon Include."
 Usage: #definition
@@ -81,7 +85,7 @@ Usage: #definition
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: FHIRHelpers
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - FHIRHelpers"
 Description: "Base FHIRHelpers Include."
 Usage: #definition
@@ -96,11 +100,10 @@ Usage: #definition
 * type = $LibraryTypeCodeSystem#logic-library*/
 
 Instance: InitiatedART
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
 Usage: #definition
-
 * title = "CQL - HIV+ Patients Initiated on ART"
 * description = "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period.
     
@@ -110,13 +113,14 @@ Usage: #definition
 
 * name = "InitiatedART"
 * content.id = "ig-loader-InitiatedART.cql"
+* content.contentType = #text/cql
 
 * status = #active
 * experimental = true
 * type = $LibraryTypeCodeSystem#logic-library
 
 Instance: OutpatientViralLoad
-InstanceOf: Library
+InstanceOf: CQLLibrary
 Title: "CQL - Viral Load (Outpatients only)"
 Description: "CQL Measure that reports on all outpatients who have a HIV viral load date within the reporting period."
 Usage: #definition
@@ -129,6 +133,7 @@ Usage: #definition
 
 * name = "OutpatientViralLoad"
 * content.id = "ig-loader-OutpatientViralLoad.cql"
+* content.contentType = #text/cql
 
 * status = #active
 * experimental = true
