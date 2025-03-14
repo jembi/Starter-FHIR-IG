@@ -22,6 +22,11 @@ InstanceOf: Library
 Title: "CQL - HIV Common"
 Description: "Common CQL for HIV calculations."
 Usage: #definition
+* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
+* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
+* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
+* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
+
 //* extension[+]
 //  * url = "http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings"
 //  * valueReference = Reference(StarterIGModelInfoSettings)
@@ -104,6 +109,11 @@ InstanceOf: Library
 Title: "CQL - HIV+ Patients Initiated on ART"
 Description: "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period."
 Usage: #definition
+* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablelibrary"
+* meta.profile[+] = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-publishablelibrary"
+* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-library"
+* meta.profile[+] = "http://hl7.org/fhir/uv/cql/StructureDefinition/cql-module"
+
 * title = "CQL - HIV+ Patients Initiated on ART"
 * description = "CQL Measure that reports on all HIV+ patients who have been initiated on ART within the reporting period.
     
