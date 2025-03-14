@@ -1,4 +1,4 @@
-Instance:   AllPatientIdentifiers
+/*Instance:   AllPatientIdentifiers
 InstanceOf: ViewDefinition
 Title: "SQL - List all Patients and their Identifiers"
 Description: "A SQL query to find all patients and list out their identifiers (server-generated and business)."
@@ -21,4 +21,4 @@ Usage:  #definition
     * description = "The patient's business identifiers"
     * name = "identifier"
     * path = "value"
-    * type = "string"
+    * type = "string"*/

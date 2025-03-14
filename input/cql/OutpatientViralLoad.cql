@@ -1,4 +1,4 @@
-library OutpatientViralLoad version '1.0.1'
+library OutpatientViralLoad
 
 using FHIR version '4.0.1'
 
