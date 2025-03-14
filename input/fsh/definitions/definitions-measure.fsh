@@ -1,5 +1,5 @@
 Instance: InitiatedARTMeasure
-InstanceOf: CQMProportionMeasure
+InstanceOf: CQFMProportionMeasure
 Title: "HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #definition
