@@ -12,9 +12,9 @@ Usage: #definition
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
   * valueReference = Reference(InitiatedARTDataRequirementsLibrary)*/
 
-//* extension[+]
-//  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
-//  * valueCode = #boolean
+* extension[+]
+  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+  * valueCode = #boolean
   
 * title = "HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
