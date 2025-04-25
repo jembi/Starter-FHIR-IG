@@ -398,7 +398,8 @@ Description: "Represents the service request for PCR HIV testing."
 * meta.security[Normal].system = $ConfidentialityV3CodeSystem
 
 * code 1..1
-* code = $LNC#9836-8
+* code.concept 1..1
+* code.concept = $LNC#9836-8
 * category 1..1
 * category = $LNC#LP94892-4
 
