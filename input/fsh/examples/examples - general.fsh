@@ -175,7 +175,7 @@ Description: "Used to record the medication administration period for prescribed
 * note.authorReference = Reference(GeneralPractitionerExample)
 * note.text = "Dose end date for a 90 day dispensation of 1j (TDF + 3TC + DTG)"
 * note.time = "2012-12-09T13:28:17-05:00"
-* medication = Reference(ARVMedicationExample)
+* medication.reference = Reference(ARVMedicationExample)
 
 Instance: ARVMedicationRequestInitiatedARTExample
 InstanceOf: ARVMedicationRequest
@@ -187,7 +187,7 @@ Description: "This is to record requests for medication that are prescribed to a
 * intent = #order
 * subject = Reference(PatientExample1)
 * encounter = Reference(GeneralEncounterExample)
-* medication = Reference(ARVMedicationExample)
+* medication.reference = Reference(ARVMedicationExample)
 * dispenseRequest.quantity = $OrderableDrugForm_UNIT#TAB 
 * dispenseRequest.quantity.unit = "TAB"
 * dispenseRequest.quantity.value = 90
