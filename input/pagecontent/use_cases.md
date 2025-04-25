@@ -11,12 +11,12 @@
 
 ##### Secondary Actors
 - <a href="ActorDefinition-PIMSActorDefinitionExample.html">PIMS</a>
-- <a href="ActorDefinition-IPMSActorDefinitionExample.html">IPMS</a>
-- <a href="ActorDefinition-MFLActorDefinitionExample.html">Master Facility List (MFL)</a>
-- <a href="ActorDefinition-OmangActorDefinitionExample.html">Omang</a>
-- <a href="ActorDefinition-BDRSActorDefinitionExample.html">Birth and Death Registration System (BDRS)</a>
+- IPMS
+- Master Facility List (MFL)
+- Omang
+- Birth and Death Registration System (BDRS)
 - <a href="ActorDefinition-SHRActorDefinitionExample.html">SHR</a>
-- <a href="ActorDefinition-ClientRegistryActorDefinitionExample.html">Open Client Registry (CR)</a>
+- Client Registry (CR)
 
 ##### Dependencies
 - Active connection to IL.

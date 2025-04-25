@@ -42,7 +42,7 @@
         {%- endfor -%}
 
         {% assign scenarioContent = p.content | strip_html | strip_newlines %}
-        {% assign title = scenarioContent | split: " - Botswana FHIR Implementation Guide" | first %}
+        {% assign title = scenarioContent | split: " - Starter FHIR Implementation Guide" | first %}
 
 {{  "### " | append: title }}
 
