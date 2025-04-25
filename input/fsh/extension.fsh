@@ -54,13 +54,9 @@ Description: "An extension to capture the marital status."
 
 * valueCodeableConcept from http://hl7.org/fhir/ValueSet/marital-status (extensible)
 * valueCodeableConcept 1..1
-* valueCodeableConcept ^binding.extension[+].extension[+].url = "purpose"
-* valueCodeableConcept ^binding.extension[=].extension[=].valueCode = #extensible
-* valueCodeableConcept ^binding.extension[=].extension[+].url = "valueSet"
-* valueCodeableConcept ^binding.extension[=].extension[=].valueCanonical = "http://jembi.org/fhir/ValueSet/vs-marital-status"
-* valueCodeableConcept ^binding.extension[=].extension[+].url = "documentation"
-* valueCodeableConcept ^binding.extension[=].extension[=].valueMarkdown = "A demonstrable list of codes for marital status."
-* valueCodeableConcept ^binding.extension[=].url = "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
+* valueCodeableConcept ^binding.additional[+].purpose = #extensible
+* valueCodeableConcept ^binding.additional[=].valueSet = Canonical(VSMaritalStatus)
+* valueCodeableConcept ^binding.additional[=].documentation = "A demonstrable list of codes for marital status."
 
 * ^context[+].type = #element
 * ^context[=].expression = "RelatedPerson.extension"
