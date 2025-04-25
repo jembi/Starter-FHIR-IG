@@ -67,7 +67,7 @@ Usage: #definition
 * group.rule[=].source.element = "birthDate"
 * group.rule[=].source.variable = "dob"
 * group.rule[=].target.context = "tgt"
-* group.rule[=].target.element = "dateOfBirth"
+* group.rule[=].target.element = "date_of_birth"
 * group.rule[=].target.transform = #copy
 * group.rule[=].target.parameter.valueId = "dob"
 * group.rule[+].name = "SetPatientGender"
@@ -87,7 +87,7 @@ Usage: #definition
 * group.rule[=].rule.source.element = "value"
 * group.rule[=].rule.source.variable = "businessID"
 * group.rule[=].rule.target.context = "tgt"
-* group.rule[=].rule.target.element = "patientId"
+* group.rule[=].rule.target.element = "patient_id"
 * group.rule[=].rule.target.transform = #copy
 * group.rule[=].rule.target.parameter.valueId = "businessID"
 * group.rule[+].name = "extension"
