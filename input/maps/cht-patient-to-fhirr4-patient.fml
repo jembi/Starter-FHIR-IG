@@ -1,4 +1,4 @@
-/*map "http://jembi.org/fhir/StructureMap/CHTPatientToFHIRR4Patient" = "CHTPatientToFHIRR4Patient"
+map "http://jembi.org/fhir/StructureMap/CHTPatientToFHIRR4Patient" = "CHTPatientToFHIRR4Patient"
 
 /// status = 'active'
 
@@ -40,4 +40,4 @@ group CHTPatientToFHIRR4Patient(source src : CHTPatientLogicalModel, target tgt 
             } "ProcessCountryCodeCodeableConcept";
         } "ProcessCountryCode";
     };
-}*/
+}

@@ -157,3 +157,53 @@ Description: "Codes used for indicating the breastfeedig status."
 * ^status = #active
 * $LNC#LA29252-6 "Currently breastfeeding"
 * $LNC#LA29253-4 "Not currently breastfeeding"
+
+CodeSystem: CSConnectionTypeCodes
+Id: cs-connection-type-codes
+Title: "Connection Type Codes"
+Description: "A coded value that represents the technical details of the usage of an endpoint."
+* ^experimental = false
+* ^caseSensitive = true
+* #CR-rest "Client Registry" "Interact with the server interface using the client registry's RESTful interface."
+* #IL-rest "Interoperability Layer" "Interact with the targeted mediator using the interoperability layer's RESTful interface."
+
+CodeSystem: CSScenarioOperationTypeCodes
+Id: cs-scenario-op-type-codes
+Title: "Scenario Operation Type Codes"
+Description: "A coded value that represents the HTTP method when sending a request to a specified endpoint."
+* ^experimental = false
+* ^caseSensitive = true
+* #CREATE "CREATE"
+* #GET "GET"
+
+CodeSystem: CSRequirementsTypeCodes
+Id: cs-requirements-type-codes
+Title: "Requirements Type Codes"
+Description: "A coded value that represents the type of requirements contained in the Resource."
+* ^experimental = false
+* ^caseSensitive = true
+* #functional "Functional Requirements" "Functional requirements define the specific behaviors, features, and functions a system or product must perform. They describe what the system should do, including tasks, processes, and interactions."
+* #non-functional "Non-Functional Requirements" "Non-functional requirements specify the quality attributes, performance, and constraints of a system, such as reliability, scalability, security, and usability, rather than specific behaviors or functions."
+
+ValueSet: VSRequirementsTypeCodes
+Id: vs-requirements-type-codes
+Title: "Requirements Type Codes"
+Description: "A coded value that represents the type of requirements contained in the Resource."
+* ^experimental = false
+* include codes from system CSRequirementsTypeCodes
+
+CodeSystem: CSActorClassificationCodes
+Id: cs-actor-classification-codes
+Title: "Actor Classification Codes"
+Description: "A coded value that represents whether the actor is primary or secondary in the context of the requirements definition."
+* ^experimental = false
+* ^caseSensitive = true
+* #primary "Primary Actor" "A primary actor is the one who initiates the interaction with the system to achieve a specific goal. They are typically the main users of the system or those who directly benefit from the outcome of the use case."
+* #secondary "Secondary Actor" "A secondary actor is a system, person, or organization that the system needs help from to accomplish the goal of the use case. They support the process but don’t initiate the use case"
+
+ValueSet: VSActorClassificationCodes
+Id: vs-actor-classification-codes
+Title: "Actor Classification Codes"
+Description: "A coded value that represents whether the actor is primary or secondary in the context of the requirements definition."
+* ^experimental = false
+* include codes from system CSActorClassificationCodes

@@ -28,12 +28,12 @@ RuleSet: DescriptionForProfilesInstantiatingLogicalModels(logicalModelName, reso
 * ^description = "A profile representing the {resourceType} exchange requirements in the Logical Model \"{logicalModelName}\".
 Refer to the Mappings tab to see the data element associations between this profile and the Logical Model."
 
-RuleSet: ElementMap(source, target, equivalence)
+RuleSet: ElementMap(source, target, relationship)
 * element[+]
   * code = #{source}
   * target[+]
     * code = #{target}
-    * equivalence = #{equivalence}
+    * relationship = #{relationship}
 
 RuleSet: QuestionResponse(linkId, text, dataType, dataValue)
 * item[+]

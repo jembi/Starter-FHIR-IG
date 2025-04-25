@@ -27,8 +27,8 @@ Description: "Requirements to register a CHT patient."
 * differential.element[=].mapping[+].identity = "FHIR-R4"
 * differential.element[=].mapping[=].map = "."
 
-* differential.element[+].id = "CHTPatientLogicalModel._id"
-* differential.element[=].path = "CHTPatientLogicalModel._id"
+* differential.element[+].id = "CHTPatientLogicalModel.id"
+* differential.element[=].path = "CHTPatientLogicalModel.id"
 * differential.element[=].short = "Logical ID (internal resource identifier)"
 * differential.element[=].definition = "Patient Logical ID"
 * differential.element[=].type.code = #string
@@ -63,7 +63,7 @@ Description: "Requirements to register a CHT patient."
 //* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
-* differential.element[+].id = "CHTPatientLogicalModel.date_of_birth"
+* differential.element[+].id = "CHTPatientLogicalModel.dateOfBirthbirth"
 * differential.element[=].path = "CHTPatientLogicalModel.date_of_birth"
 * differential.element[=].short = "Date of birth"
 * differential.element[=].definition = "Patient date of birth"
@@ -87,7 +87,7 @@ Description: "Requirements to register a CHT patient."
 //* differential.element[=].mustSupport = true
 * differential.element[=].isSummary = true
 
-* differential.element[+].id = "CHTPatientLogicalModel.patient_id"
+* differential.element[+].id = "CHTPatientLogicalModel.patientId"
 * differential.element[=].path = "CHTPatientLogicalModel.patient_id"
 * differential.element[=].short = "SMS ID"
 * differential.element[=].definition = "Patient business identifier (SMS)"

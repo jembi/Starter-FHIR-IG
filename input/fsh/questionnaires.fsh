@@ -8,7 +8,7 @@ Description: "A questionaire that provides the questions for pregnancy status."
 * name = "PregnancyStatusQuestionnaire"
 * experimental = true
 
-* insert Question(1.1, Is breastfeeding, choice, true, false)
+* insert Question(1.1, Is breastfeeding, coding, true, false)
 * item[=]
   * answerValueSet = Canonical(YesNoValueSet)
   * code = $LNC#63895-7

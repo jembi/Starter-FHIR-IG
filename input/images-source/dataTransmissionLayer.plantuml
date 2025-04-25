@@ -1,0 +1,33 @@
+@startuml DataTransmissionLayer
+left to right direction
+
+rectangle "Data Transmission Layer" as dataTransmissionLayer {
+  rectangle "MFL" as MFL
+  rectangle "Omang" as Omang
+  rectangle "Births and Deaths Register" as BDRS
+  rectangle "PIMS" as PIMS {
+    rectangle "FHIR Translation Layer" as translationLayer
+  }
+
+  rectangle "[[ActorDefinition-InteroperabilityLayerActorDefinitionExample.html Interoperability Layer]]" as OpenHIM {
+    usecase "HL7 v2.4 -- FHIR translation" as OHIM1
+    usecase "[[ActorDefinition-SHRActorDefinitionExample.html Shared Health Record]]" as OHIM2
+    rectangle "Mediator" as Mediator
+    Mediator ..> OHIM1 : "<<use>>"
+    Mediator --> OHIM2 : "Update Records"
+  }
+  
+  rectangle "IPMS" as IPMS
+
+  MFL --> Mediator
+  Omang --> Mediator
+  BDRS --> Mediator
+
+  translationLayer --> Mediator : "PIMS Pushes Orders"
+  Mediator --> translationLayer : "PIMS Pulls Results"
+
+  IPMS --> Mediator : "Pushes Lab Results"
+  Mediator --> IPMS : "Pushes Lab Orders"
+}
+
+@enduml

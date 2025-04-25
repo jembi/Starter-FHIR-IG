@@ -1,4 +1,4 @@
-/*map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
+map "http://jembi.org/fhir/StructureMap/FHIRR4PatientToCHTPatient" = "FHIRR4PatientToCHTPatient"
 
 /// status = 'active'
 
@@ -33,4 +33,4 @@ group FHIRR4PatientToCHTPatient(source src : Patient, target tgt : CHTPatientLog
             };
         };
     };
-}*/
+}

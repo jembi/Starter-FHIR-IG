@@ -1,0 +1,179 @@
+{% assign sitePages = site.pages %}
+{% assign resourceNames = "" | split: "," %}
+
+{% for data_file in site.data %}
+  {% if data_file[0] == "canonicals" %}
+    {% assign content = data_file[1] %}
+    {% for resource in content %}
+      {% if resource.type == "Requirements" %}
+        {% assign resourceNames = resource.name | concat: resourceNames | sort %}
+      {% endif %}
+    {% endfor %}
+
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% for item in resourceNames %}
+  {% for p in sitePages %}
+    {% if p.url contains item and p.url contains ".json" %}
+      {% assign requirements = p.content | strip_html | strip_newlines %}
+
+      {% assign title = requirements | split: " - JSON Representation" | first %}
+
+      {% for requirement in requirements %}
+       {% assign requirementsTypeCoding = requirement | split: '"system" : "http://jembi.org/fhir/CodeSystem/cs-requirements-type-codes",            "code" : "' %}
+       {%- assign requirementsType = requirementsTypeCoding[1] | split: '"' -%}
+        
+       {% if requirementsType[0] == requirementsTypeFilter %}        
+          {% assign requirementsStatementsStart = requirement | split: '"statement" :' %}
+          {% assign requirementsStatementsEnd = '{"statement" :' | append: requirementsStatementsStart[1] %}
+          {% assign requirementsStatements = requirementsStatementsEnd | remove: '{"statement" : [    {' | split: '"key" : "'  %}
+
+          {% if showRequirementsHeading == true %}
+
+{{  "### " | append: title }}
+
+          {% endif %}
+          
+          {% if showRequirementsActors == true %}
+            {% assign classifications = nil %}
+
+            {%- assign actorUrlsStart = requirements | split: '"actor" :' -%}
+            {%- assign actorUrlsEnd = actorUrlsStart[1] | remove: '&#x1F517;' | split: ']' | first  -%}
+
+            {%- assign actorClassificationExtensionStart = requirement | split: '"_actor" :' -%}
+            {%- assign actorClassificationExtensionEnd = '{"_actor" :' |  append: actorClassificationExtensionStart[1] | split: '}  ]' -%}
+            {% assign classifications = actorClassificationExtensionEnd[0] | append: '}  ]}' | remove: '&#x1F517;' |  split: ',' %}
+            
+
+            {% assign actorClassificationStartingPoint = "" | split: "," %}
+            {% assign actorClassificationStartingPoint = classifications | concat: actorClassificationStartingPoint %}
+            
+            {% assign actorUrls = "" | split: "," %}
+
+            {% for url in actorUrlsEnd  %}
+              {%- assign actorUrls = url | split: ',' | concat: actorUrls -%}
+            {% endfor %}
+
+            {%- assign actorUrlExamplesArray = "" | split: ','  -%}
+            {%- assign actorClasificationsArray = "" | split: ','  -%}
+
+            {% assign actorClassificationStartingPointLimit = actorClassificationStartingPoint.size | minus: 1 %}
+
+            {%- for i in (0..actorClassificationStartingPointLimit) -%} 
+              {%- assign actorClassificationExtensionCodeStart = actorClassificationStartingPoint[i] | split: '"code" : "' -%}
+              {%- assign actorClassificationExtensionCodeEnd = actorClassificationExtensionCodeStart[1] | split: '"' | first  -%}
+              {%- assign actorUrlExampleStart = actorUrls[i] | split: 'ActorDefinition/' | last  -%}
+              {%- assign actorUrlExampleEnd = actorUrlExampleStart | split: '"' | first  -%}
+
+              {% for example in actorUrlExampleEnd  %}
+                {% assign actorUrlExamplesArray = example | concat: actorUrlExamplesArray %}
+              {% endfor %}
+
+              {% for actorExampleClassification in actorClassificationExtensionCodeEnd  %}
+                {% assign actorClasificationsArray = actorExampleClassification | concat: actorClasificationsArray %}
+              {% endfor %}
+
+              {% if i == actorClassificationStartingPointLimit %}
+                {% break %}
+              {% endif %}
+            {%- endfor -%}
+
+            {% assign actorCount = 1 %}
+            {% assign primaryActorHeadingCreated = false %}
+            {% assign secondaryActorHeadingCreated = false %}
+
+            {% for item in actorUrls %}
+              {% for data_file in site.data %}
+                {% if data_file[0] == "resources" %}
+                  {% for item_data in data_file[1] %}
+                    {% if item contains item_data[1].url %}
+                      {% assign actorExamplesArrayLimit = actorUrlExamplesArray.size | minus: 1 %}
+
+                      {% for x in (0..actorExamplesArrayLimit) %}
+                        {% if item contains actorUrlExamplesArray[x] %}
+                          {% if actorClasificationsArray[x] == "primary" %}
+
+                            {% if primaryActorHeadingCreated == false %}
+                              {% assign actorCount = 1 %}
+{{  "#### Primary Actors" }}
+                              {% assign primaryActorHeadingCreated = true %}
+                            {% endif %}
+
+<p><strong>Actor {{actorCount}}</strong>: <a href = "{{item_data[1].path}}">{{item_data[1].title}}</a></p>
+ 
+                              {% assign actorCount = actorCount | plus: 1 %} 
+                          {% else %}
+                              {% if secondaryActorHeadingCreated == false %}
+                                {% assign actorCount = 1 %}
+{{  "#### Secondary Actors" }}
+
+                                {% assign secondaryActorHeadingCreated = true %}
+                              {% endif %}
+
+<p><strong>Actor {{actorCount}}</strong>: <a href = "{{item_data[1].path}}">{{item_data[1].title}}</a></p>
+
+                            {% assign actorCount = actorCount | plus: 1 %} 
+  
+                          {% endif %}
+                        {% endif %}
+          
+                        {% if x == actorExamplesArrayLimit %}
+                          {% break %}
+                        {% endif %}
+                      {%- endfor -%}
+
+                                          
+
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          {% endif %}
+          
+<div>
+<table class="table table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th>Key</th>
+    <th>Requirement</th>
+  </tr>
+</thead>
+<tbody>
+
+          {% for statement in requirementsStatements %}
+            {%- assign key = statement | split: '",' | first -%}
+            {%- assign requirementUncleaned = statement | split: '"requirement" : "' | last -%}
+            {%- assign keyRequirement = requirementUncleaned | split: '"' | first -%}
+
+            {%- assign keyCheck = key | strip -%}
+
+            {% if keyCheck != "" and keyCheck != nil %}
+            
+  <tr>
+    <td>{{key}}</td><td>{{keyRequirement}}</td>
+  </tr>
+            {% endif %}
+          {% endfor %}
+        
+        
+</tbody>
+</table>
+
+</div>
+        {% else %}
+          {% break %}
+
+        {% endif %}
+
+<br /> <!-- Adding a break between tables for visual separation -->
+
+      {% endfor %}
+
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}

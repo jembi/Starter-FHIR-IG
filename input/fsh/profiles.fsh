@@ -138,9 +138,9 @@ Description: "Represents the current facility at which the patient is receiving 
 * subject 1..1
 * class 1..
 * subject only Reference(TestPatient)
-* period 1..1
-* period.start 1..1
-* period.end 1..1
+* actualPeriod 1..1
+* actualPeriod.start 1..1
+* actualPeriod.end 1..1
 * serviceProvider 1..1
 * serviceProvider only Reference(ServiceProvider)
 
@@ -166,12 +166,12 @@ Description: "Organization providing health related services."
 * active 1..1
 * name 1..1
 
-* address 1..1
-* address.state 1..1
-* address.city 1..1
-* address.district 0..1
-* address.line 0..* MS
-* address.line ^definition =
+* contact.address 1..1
+* contact.address.state 1..1
+* contact.address.city 1..1
+* contact.address.district 0..1
+* contact.address.line 0..* MS
+* contact.address.line ^definition =
     "reason(s) why this should be supported."
 
 Profile: GeneralPractitioner
@@ -214,14 +214,14 @@ Description: "Base Medication Request elements that are inherited by other Medic
 * ^experimental = true
 * ^status = #active
 * status 1..1
-* medicationCodeableConcept.text 1..1
-* medicationCodeableConcept.coding only StrictCoding
+* medication.concept.text 1..1
+* medication.concept.coding only StrictCoding
 
 * subject 1..1 
 * subject only Reference(TestPatient)
 
-* context 1..1 
-* context only Reference(TargetFacilityEncounter)
+* encounter 1..1 
+* encounter only Reference(TargetFacilityEncounter)
 
 * quantity 1..1
 * quantity.value 1..1
@@ -248,16 +248,15 @@ Description: "Used to record the medication administration period for prescribed
 * ^status = #active
 * status 1..1
 * request 1..1
-* medication[x] only Reference
-* medicationReference only Reference(ARVMedication)
+* medication only CodeableReference(ARVMedication)
 
 * request only Reference(ARVMedicationRequest)
 * subject 1..1
 * subject only Reference(TestPatient)
-* context 1..1
-* context only Reference(TargetFacilityEncounter)
-* effective[x] only Period
-* effectivePeriod 1..1
+* encounter 1..1
+* encounter only Reference(TargetFacilityEncounter)
+* occurence[x] only Period
+* occurencePeriod 1..1
   * start 0..1 MS
   * start ^definition =
     "reason(s) why this should be supported."
@@ -273,8 +272,7 @@ Title: "Medication Request - ARV"
 Description: "Used to record requests for ARV medication that are prescribed to a patient."
 * ^experimental = true
 * ^status = #active
-* medication[x] only Reference
-* medicationReference only Reference(ARVMedication)
+* medication only CodeableReference(ARVMedication)
 * dispenseRequest.quantity = $OrderableDrugForm_UNIT#TAB
 * dispenseRequest.quantity.unit = "TAB"
 
@@ -328,25 +326,24 @@ Title: "Consent - HIV Status"
 Description: "Represents the patient's consent to have their HIV status disclosed."
 * ^experimental = true
 * ^status = #active
-* patient 1..1
-* patient only Reference(TestPatient)
-* dateTime 1..1
+* subject 1..1
+* subject only Reference(TestPatient)
+* date 1..1
 * category 1..1
-* organization 1..1
-* organization only Reference(ServiceProvider)
-* source[x] MS
+* manager 1..1
+* manager only Reference(ServiceProvider)
+* sourceReference MS
   * ^definition = "reason(s) why this should be supported."
-* policyRule 1..1
+* regulatoryBasis 1..1
+* decision 0..1
 * provision 0..1 MS
   * ^definition = "reason(s) why this should be supported."
-  * type 0..1 MS
-    * ^definition = "reason(s) why this should be supported."
   * actor 0..* MS
     * ^definition = "reason(s) why this should be supported."
   * action 0..* MS
     * ^definition = "reason(s) why this should be supported."
   * data 1..*
-  * period 0..1 MS
+  * dataPeriod 0..1 MS
     * ^definition = "reason(s) why this should be supported."
 
 
@@ -453,3 +450,96 @@ Description: "Represents the results for viral load."
 * encounter only Reference(TargetFacilityEncounter)
 * performer 1..1
 * performer only Reference(ServiceProvider or GeneralPractitioner)
+
+Profile: SampleRequirements
+Parent: Requirements
+Id: bw-requirements
+Title: "Requirements"
+Description: "Represents the requirements for the use case described in this Implementation Guide."
+* name 1..1
+
+* actor MS
+
+* insert Slice(actor, Reason why this must be supported, value, extension.value, open, Slicing the actor classification extension based on the code value, false)
+
+* actor contains
+    Primary 1..* MS and
+    Secondary 0..* MS
+
+* actor[Primary].extension contains ActorClassificationExtension named ActorClassification 1..1
+* actor[Primary].extension[ActorClassification].valueCodeableConcept 1..1
+* actor[Primary].extension[ActorClassification].valueCodeableConcept = $ActorClassificationCodeSystem#primary
+
+* actor[Secondary].extension contains ActorClassificationExtension named ActorClassification 1..1
+* actor[Secondary].extension[ActorClassification].valueCodeableConcept 1..1
+* actor[Secondary].extension[ActorClassification].valueCodeableConcept = $ActorClassificationCodeSystem#secondary
+
+* statement 1..*
+* extension contains RequirementsTypeExtension named RequirementsType 1..*
+
+Profile: RestrictedPatient
+Parent: Patient
+Id: patient-identity-cross-reference
+Title: "Patient - Patient Identity Cross Reference"
+Description: 
+    "Is used by the Client Registry to re-identify the patient with his/her corresponding longitudinal clinical record."
+* id
+  * ^short = "Must be the same ID as the patient resource that suppplied the personal data during creation"
+  * ^definition = "Once the patient data has been stored in the FHIR server, a literal ID (FHIR server generated) will have been assigned or some client/system could have provided a preferred ID. This ID SHALL be assigned to this resource after the data supplying patient resource has been deleted from the server."
+* identifier 1..*
+
+* insert Slice(identifier, Reason why this must be supported, value, system, open, Slicing the identifier based on the system value, false)
+
+* identifier contains
+    MasterPatientIndex 1..* and
+    MRN 0..1 MS and
+    Internal 0..1 MS and
+    PIMS 0..1 MS and
+    OpenMRS 0..1 MS
+
+* identifier[MasterPatientIndex].value 1..1
+* identifier[MasterPatientIndex].system = "http://jembi.org/fhir/identifier/mpi"
+
+* identifier[MRN].value 1..1
+* identifier[MRN].system = "http://jembi.org/fhir/identifier/mrn"
+
+* identifier[Internal].value 1..1
+* identifier[Internal].system = "http://jembi.org/fhir/identifier/internalid"
+
+* identifier[PIMS].value 1..1
+* identifier[PIMS].system = "http://jembi.org/fhir/identifier/pims"
+
+* identifier[OpenMRS].value 1..1
+* identifier[OpenMRS].system = "http://jembi.org/fhir/identifier/openmrs"
+
+* name 0..0
+* active 0..0
+* telecom 0..0
+* gender 0..0
+* birthDate 0..0
+* deceased[x] 0..0
+* address 0..0
+* maritalStatus 0..0
+* multipleBirth[x] 0..0
+* photo 0..0
+* contact 0..0
+* communication 0..0
+* generalPractitioner 0..0
+* managingOrganization 0..1 MS
+* managingOrganization only Reference(ServiceProvider)
+
+* contained 0..1 MS
+  * ^short = "Contained patient data"
+  * ^definition = "Patient data supplied by the Client Registry."
+* contained only Patient
+
+* link 0..* MS
+* insert Slice(link, Reason why this must be supported, value, other.display, open, Slicing link based on \"other\" display value, false)
+
+* link contains
+    PatientData 0..1 MS
+
+* link[PatientData].other.display 1..1
+* link[PatientData].other.display = "Patient data provided by Client Registry"
+* link[PatientData].other.reference 1..1
+* link[PatientData].type = #seealso

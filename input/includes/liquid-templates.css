@@ -1,0 +1,19 @@
+div .markdown-toc::before {
+    content: "Contents:";
+    margin: 5px;
+    color: var(--toc-box-heading-text-color);
+    line-height: 1.4em;
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 5px;
+}
+
+svg g a {
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+svg g a text {
+    text-decoration: none !important;
+}

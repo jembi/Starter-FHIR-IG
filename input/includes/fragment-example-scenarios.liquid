@@ -1,0 +1,206 @@
+{% assign sitePages = site.pages %}
+{% assign resourceNames = "" | split: "," %}
+
+{%- for data_file in site.data -%}
+  {%- if data_file[0] == "canonicals" -%}
+    {%- for resource in data_file[1] -%}
+      {%- if resource.type == "ExampleScenario" -%}
+        {% assign resourceNames = resource.name | concat: resourceNames | sort %}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- for item in resourceNames -%}
+    {%- for p in sitePages -%}
+      {% assign scenarioPage = "ExampleScenario-" | append: item %}
+      {% assign baseUrlFilter = "/" |  append: scenarioPage %}
+
+      {% assign htmlUrlFilter = baseUrlFilter | append: ".html" %}
+      {% assign jsonUrlFilter = baseUrlFilter | append: ".json.html" %}
+
+      {%- if p.url == htmlUrlFilter -%}
+
+        {% assign actors = nil %}
+        
+        {%- for p2 in sitePages -%}
+          {%- if p2.url contains jsonUrlFilter -%}
+            {% assign scenarioActorContent = p2.content | strip_html | strip_newlines  %}
+
+            {%- for scenarioActor in scenarioActorContent -%}
+              {% assign actorsContentStart = scenarioActor | split: '"actor" :' %}
+              {% assign actorsContentEnd = actorsContentStart[1] | split: '}  ]' %}
+
+              {% assign actors = actorsContentEnd[0] |  append: "}  ]" | remove: '&#x1F517;' |  split: ',' %}
+            {%- endfor -%}
+
+          {%- break -%}
+
+          {%- endif -%}
+        {%- endfor -%}
+
+        {% assign scenarioContent = p.content | strip_html | strip_newlines %}
+        {% assign title = scenarioContent | split: " - Botswana FHIR Implementation Guide" | first %}
+
+{{  "### " | append: title }}
+
+
+{{  "#### Actors" }}
+
+<table class="table table-bordered">
+<thead class="thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Actor References<sup>*</sup></th>
+  </tr>
+</thead>
+<tbody>
+
+        {% assign actorsArrayTitles = "" | split: "," %}
+        {% assign actorsArrayDescriptions = "" | split: "," %}
+        {% assign actorsArrayExtensions = "" | split: "," %}
+        {% assign actorsArrayCleanedWithExtensions = "" | split: "," %}
+
+        {% assign actorsArrayStartingPoint = "" | split: "," %}
+        {% assign actorsArrayStartingPoint = actors | concat: actorsArrayStartingPoint %}
+        
+        {%- for actor in actors -%}
+          {%- assign titleStart = actor | split: '"title" : "' -%}
+          {%- assign titles = titleStart[1] | split: '"' | first -%}
+
+          {%- assign descriptionStart = actor | split: '"description" : "' -%}
+          {%- assign descriptions = descriptionStart[1] | split: '"' | first -%}
+
+          {%- for title in titles -%}
+            {% assign actorsArrayTitles = title | concat: actorsArrayTitles %}
+          {%- endfor -%}
+
+          {%- for description in descriptions -%}
+            {% assign actorsArrayDescriptions = description | concat: actorsArrayDescriptions %}
+          {%- endfor -%}
+      {%- endfor -%}
+
+      {% assign actorsArrayStartingPointLimit = actorsArrayStartingPoint.size | minus: 1 %}
+
+      {%- for i in (0..actorsArrayStartingPointLimit) -%} 
+        {%- if actorsArrayStartingPoint[i] contains "http://jembi.org/fhir/StructureDefinition/actor-reference" -%}
+          {% assign titleIndex = i | plus: 4 %}
+          {%- assign titleStart = actorsArrayStartingPoint[titleIndex] | split: '"title" : "' -%}
+          {%- assign title = titleStart[1] | split: '"' | first -%}
+
+          {% assign extensionIndex = i | plus: 1 %}
+          {%- assign extensionStart = actorsArrayStartingPoint[extensionIndex] | split: '"reference" : "' -%}
+          {%- assign extension = extensionStart[1] | split: '"' | first -%}
+
+          {% assign titleAndExtension = title | append: ',' |  append: extension %}
+          {% assign actorsArrayExtensions = titleAndExtension | concat: actorsArrayExtensions %}
+        {%- endif -%}
+
+        {%- if i == actorsArrayStartingPointLimit -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% assign actorsArrayExtensionsLimit = actorsArrayExtensions.size | minus: 1 %}
+      {%- for i in (0..actorsArrayExtensionsLimit) -%}
+        {% assign actorDetails = actorsArrayExtensions[i] | split: "," %}
+
+        {%- if actorDetails[0] == "" or  actorDetails[0] == nil -%}
+          {% assign actorTitleForExtensionIndex = i | minus: 1 %}
+          {% assign previousActorDetails = actorsArrayExtensions[actorTitleForExtensionIndex] | split: "," %}
+
+          {% assign actorsArrayCleanedWithExtensions = previousActorDetails[0] | append: ',' | append: actorDetails[1] | concat: actorsArrayCleanedWithExtensions %}
+        {% else %}
+          {% assign actorsArrayCleanedWithExtensions = actorDetails[0] | append: ',' | append: actorDetails[1] | concat: actorsArrayCleanedWithExtensions %}
+        {%- endif -%}
+ 
+        {%- if i == actorsArrayExtensionsLimit -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+            
+      {% assign actorsArrayTitlesLimit = actorsArrayTitles.size | minus: 1 %}
+      
+      {%- for i in (0..actorsArrayTitlesLimit) -%}
+<tr>
+<td>{{actorsArrayTitles[i]}}</td>
+<td>{{actorsArrayDescriptions[i]}}</td>
+
+        {% assign actorDefinitionForOutput = "" | split: "," %}
+        {% assign actorsArrayCleanedWithExtensionsLimit = actorsArrayCleanedWithExtensions.size | minus: 1 %}
+
+        {%- for x in (0..actorsArrayCleanedWithExtensionsLimit) -%}
+          {%- assign extensionData = actorsArrayCleanedWithExtensions[x] | split: "," -%}
+          {% assign actorDefinitionTitle = nil %}
+
+          {%- if extensionData[0] == actorsArrayTitles[i] -%}
+
+            {% assign actorDefinition = extensionData[1] | replace: '/', '-'  %}
+            {% assign actorDefinitionUrlFilter = "/" |  append: actorDefinition | append: ".json.html"  %}
+
+            {%- for p in sitePages -%}
+              {%- if p.url == actorDefinitionUrlFilter -%}
+                {% assign actorDefinitionContent = p.content | strip_html | strip_newlines  %}
+
+                {% assign actorDefinitionTitle = actorDefinitionContent | split: " - JSON Representation" | first %}
+
+                {% assign actorDefinitionForOutput = actorDefinitionTitle |  append: ',' | append: actorDefinition | concat: actorDefinitionForOutput %}
+
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if x == actorsArrayCleanedWithExtensionsLimit -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+<td>
+        {% assign actorDefinitionForOutputLimit = actorDefinitionForOutput.size | minus: 1 %}
+
+        {%- for z in (0..actorDefinitionForOutputLimit) -%}
+          {%- assign details = actorDefinitionForOutput[z] | split: "," -%}
+
+          {%- if actorDefinitionForOutput.size > 1 and z < actorDefinitionForOutputLimit -%}
+<a href="{{details[1] |  append: ".html"}}">{{details[0]}}</a>, <br /> 
+          {% else %}
+<a href="{{details[1] |  append: ".html"}}">{{details[0]}}</a>
+          {%- endif -%}
+
+          {%- if z == actorDefinitionForOutputLimit -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+</td>
+</tr>
+        {%- if i == actorsArrayTitlesLimit -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+</tbody>
+</table>
+<p>
+  <sup>*</sup> An actor reference will only be available if a reference was provided using the <a href="StructureDefinition-actor-reference.html">"Actor Reference"</a> extension.
+</p>
+
+<br />
+<p>See process details: <a href = "{{scenarioPage | append: '.html'}}">Interactions and steps</a></p>
+
+{% capture svg %}
+  {% include {{scenarioPage}}-process-diagram.xhtml %}
+{% endcapture %}
+
+{{ svg | replace: '<?xml version="1.0" encoding="us-ascii" standalone="no"?>', '' }}
+
+
+<br />
+<br />
+<br />
+    
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
