@@ -21,18 +21,7 @@
 
 <a name="navigation"> </a>
 <p>The top menu allows quick navigation to the different sections, and a <a href="toc.html">Table of Contents</a> is provided with the entire content of this Implementation Guide. (Be aware that some pages have multiple tabs).</p>
-<p></p>
-	Download  
-<h3>Download</h3> <a name="download"></a>
-  <p>You can also download:</p>
-  <ul>
-    <li><a href="full-ig.zip">this entire guide</a>,</li>
-    <li>the definition resources in <a href="definitions.json.zip">json</a>, <a href="definitions.xml.zip">xml</a>, <a href="definitions.ttl.zip">ttl</a>, or <a href="csvs.zip">csv</a> format, or</li>
-    <li>the example resources in <a href="examples.json.zip">json</a>, <a href="examples.xml.zip">xml</a> or <a href="examples.ttl.zip">ttl</a> format.</li>
-    <li><a href="package.r4.tgz">R4 NPM Package</a></li>
-  </ul>
 
-  <p>The source code for this Implementation Guide can be found on <a href="https://github.com/jembi/Starter-FHIR-IG">GitHub</a>.</p>
 Cross Version Analysis
   <h3>Cross Version Analysis</h3> <a name="cross-version-analysis"></a>
   <div>
