@@ -13,9 +13,7 @@ Usage: #definition
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements"
   * valueReference = Reference(InitiatedARTDataRequirementsLibrary)*/
 
-* extension[+]
-  * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
-  * valueCode = #boolean
+
 
 * extension[+]
   * url = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements"
@@ -29,16 +27,28 @@ Usage: #definition
 * name = "InitiatedARTMeasure"
 * publisher = "Jembi Health Systems"
 * version = "1.0.1"
-* scoring = $MeasureScoring#proportion
+//* scoring = $MeasureScoring#proportion
 * library = Canonical(InitiatedART)
 * subjectCodeableConcept = $ResourceTypes#Patient
 /** effectivePeriod
   * start = "2023-12-01"
   * end = "2023-12-31"*/
-* type = $MeasureType#process
+//* type = $MeasureType#process
 * improvementNotation = $MeasureImprovementNotation#increase
 
 * group[+]
+  * extension[+]
+    * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
+    * valueCode = #boolean
+
+  * extension[+]
+    * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-scoring"
+    * valueCodeableConcept = $MeasureScoring#proportion
+
+  * extension[+]
+    * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-type"
+    * valueCodeableConcept = $MeasureType#outcome
+
   * population[+]
     * id = "Initiated.ART.IP"
     * code = #initial-population
