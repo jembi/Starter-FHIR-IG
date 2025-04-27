@@ -1,8 +1,9 @@
 Instance: InitiatedARTMeasure
-InstanceOf: CQFMProportionMeasure
+InstanceOf: CQFMComputableMeasure
 Title: "HIV+ Patients Initiated on ART"
 Description: "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
 Usage: #definition
+* contained = InitiatedARTMeasureDataRequirements
 //* meta
 //  * profile[+] = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
 
@@ -15,6 +16,10 @@ Usage: #definition
 * extension[+]
   * url = "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis"
   * valueCode = #boolean
+
+* extension[+]
+  * url = "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements"
+  * valueCanonical = Canonical(InitiatedARTMeasureDataRequirements)
   
 * title = "HIV+ Patients Initiated on ART"
 * description = "Reports on all HIV+ patients who have been initiated on ART within the reporting period"
@@ -34,22 +39,25 @@ Usage: #definition
 * improvementNotation = $MeasureImprovementNotation#increase
 
 * group[+]
-  * population[initialPopulation]
+  * population[+]
     * id = "Initiated.ART.IP"
+    * code = #initial-population
     * criteria
       * expression = "Initial Population"
       * language = #text/cql-identifier
     * description = "Initial Population"
 
-  * population[denominator]
+  * population[+]
     * id = "Initiated.ART.D"
+    * code = #denominator
     * criteria
       * expression = "Denominator"
       * language = #text/cql-identifier
     * description = "Count all patients who tested positive for HIV within the reporting period."
 
-  * population[numerator]
+  * population[+]
     * id = "Initiated.ART.N"
+    * code = #numerator
     * criteria
       * expression = "Numerator"
       * language = #text/cql-identifier
