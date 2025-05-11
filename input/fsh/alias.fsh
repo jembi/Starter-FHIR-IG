@@ -20,3 +20,5 @@ Alias: $ConfidentialityV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-C
 Alias: $RoleCodeV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: $MaritalStatusCodeSystem = http://jembi.org/fhir/CodeSystem/cs-marital-status
 Alias: $MaritalStatusV3CodeSystem = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
+Alias: $HIVConcepts = http://jembi.org/fhir/CodeSystem/cs-hiv-concepts
+Alias: $AdministrativeGender = http://hl7.org/fhir/administrative-gender

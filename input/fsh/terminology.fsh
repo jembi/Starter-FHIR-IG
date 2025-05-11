@@ -157,3 +157,16 @@ Description: "Codes used for indicating the breastfeedig status."
 * ^status = #active
 * $LNC#LA29252-6 "Currently breastfeeding"
 * $LNC#LA29253-4 "Not currently breastfeeding"
+
+CodeSystem: HIVConcepts
+Id: cs-hiv-concepts
+Title: "HIV Concepts"
+Description: "A list of codes used in HIV."
+* ^experimental = true
+* ^status = #active
+* ^caseSensitive = true
+* #HIV.A.DE19 "Female"
+* #HIV.A.DE20 "Male"
+* #HIV.A.DE21 "Transgender male"
+* #HIV.A.DE22 "Transgender female"
+* #HIV.A.DE23 "Other"

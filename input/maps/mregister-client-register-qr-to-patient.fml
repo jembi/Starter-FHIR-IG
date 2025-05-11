@@ -1,8 +1,6 @@
-// StructureMap: HIVClientRegQRToPatient
-// Title: Map the HIV Client Registration QuestionnaireResponse Resource to the Patient Resource
-// Group: HIVClientRegQRToPatient
-
 map "http://jembi.org/fhir/StructureMap/HIVClientRegQRToPatient" = "HIVClientRegQRToPatient"
+
+/// status = 'active'
 
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" as source
 uses "http://hl7.org/fhir/StructureDefinition/Patient" as target
@@ -10,16 +8,16 @@ uses "http://hl7.org/fhir/StructureDefinition/Patient" as target
 group HIVClientRegQRToPatient(source qr : QuestionnaireResponse, target patient : Patient) {
   qr.item as item then {
     item.answer first as answer where item.linkId = 'HIV.A.DE18' then {
-      answer.valueCoding as coding then {
+      answer.value : Coding as coding then {
         coding.code as content -> patient.gender = translate(content, 
-            'tobeUpdated', 
-            'code') "setGenderCode";
+            'http://jembi.org/fhir/ConceptMap/HIVConceptsConceptMap', 
+            'code') "setGender";
       } "processCoding";
-    } "genderAnswer";
-
+    } "firstAnswerForGender";
 
     item.answer first as answer where item.linkId = 'HIV.A.DE14' then {
-      answer.valueDate as content -> patient.birthDate = content "set birthDate";
-    } "birthDateAnswer";
-  }
+      answer.value as content -> patient.birthDate = content "setBirthDate";
+    } "firstAnswerForBirthDate";
+    
+  } "processItems";
 }

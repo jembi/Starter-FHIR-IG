@@ -117,6 +117,10 @@ resources:
     name: Map FHIR Patient to CHT Patient
     description: Maps a FHIR Patient Resource to a CHT Patient
     exampleBoolean: false
+  StructureMap/HIVClientRegQRToPatient:
+    name: Map HIV Client Registration QR to Patient
+    description: Maps the HIV Client Registration QuestionnaireResponse Resource to the Patient Resource
+    exampleBoolean: false
 #  Binary/AllPatientIdentifiers:
 #    name: "SQL - List all Patients and their Identifiers"
 #    description: "A SQL query to find all patients and list out their identifiers (server-generated and business)."
