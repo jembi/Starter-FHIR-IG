@@ -9,7 +9,7 @@ Description: "Patient documented as married."
 * name[=].given[+] = "Doe"
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
-* maritalStatus.extension[EffectiveDate].valueDate = "1999-01-01"
+* maritalStatus.extension[EffectiveDate].valueDateTime = "1999-01-01"
 
 Instance: PatientExample2
 InstanceOf: TestPatient
@@ -44,7 +44,7 @@ Description: "Marital status documented using a HL7 code."
 * patient = Reference(PatientExample3)
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatus][+].extension[Status].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
-* extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"
+* extension[MaritalStatus][=].extension[EffectiveDate].valueDateTime = "1999-01-01"
 
 Instance: MotherRelatedPerson2
 InstanceOf: TestRelatedPerson
@@ -58,7 +58,7 @@ Description: "Marital status documented using a proprietary code."
 * relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
 * extension[MaritalStatus][+].extension[Status][+].valueCodeableConcept = http://jembi.org/fhir/CodeSystem/cs-marital-status#Other
 * extension[MaritalStatus][=].extension[Status][=].valueCodeableConcept.text = "Some other code/reason"
-* extension[MaritalStatus][=].extension[EffectiveDate].valueDate = "1999-01-01"
+* extension[MaritalStatus][=].extension[EffectiveDate].valueDateTime = "1999-01-01"
 
 Instance: SuppressedViralLoadResultExample
 InstanceOf: ViralLoadResultObservation
