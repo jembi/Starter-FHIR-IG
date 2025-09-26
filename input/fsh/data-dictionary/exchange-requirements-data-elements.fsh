@@ -18,14 +18,16 @@ Description: "Exchange requirements example for the Patient Resource."
   //* ^mustSupport = true
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
+  * effectiveDate 1..1 dateTime "Effective date" "Date when status came into effect"
 * relatedPerson 0..1 http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel "Related person" "Someone related to the patient"
   * ^isSummary = true
   //* ^mustSupport = true
 
 Mapping: PatientLogicalModel-to-Patient
 Source: PatientLogicalModel
+Id: patientLm-fhir-patient
 Target: "Patient"
+Title: "PatientLogicalModel to Patient Mapping"
 * -> "Patient"
 * name -> "Patient.name"
 * name.firstName -> "Patient.name.given"
@@ -58,11 +60,13 @@ Description: "Exchange requirements example for the RelatedPerson Resource."
   //* ^mustSupport = true
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
+  * effectiveDate 1..1 dateTime "Effective date" "Date when status came into effect"
 
 Mapping: RelatedPersonLogicalModel-to-RelatedPerson
 Source: RelatedPersonLogicalModel
+Id: relatedPersonLm-fhir-relatedPerson
 Target: "RelatedPerson"
+Title: "RelatedPersonLogicalModel to RelatedPerson Mapping"
 * -> "RelatedPerson"
 * name -> "RelatedPerson.name"
 * name.firstName -> "RelatedPerson.name.given"
