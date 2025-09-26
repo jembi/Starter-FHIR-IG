@@ -6,7 +6,7 @@ Description: "An extension to capture the date for when the marital status came 
 * ^experimental = true
 * ^status = #active
 * value[x] only dateTime
-* valueDate 1..1
+* valueDateTime 1..1
 * ^context[+].type = #element
 * ^context[=].expression = "PatientLogicalModel.maritalStatus.effectiveDate"
 * ^context[+].type = #element
