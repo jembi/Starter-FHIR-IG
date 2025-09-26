@@ -18,7 +18,7 @@ Description: "Exchange requirements example for the Patient Resource."
   //* ^mustSupport = true
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-  * effectiveDate 1..1 dateTime "Effective date" "Date when status came into effect"
+  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
 * relatedPerson 0..1 http://jembi.org/fhir/StructureDefinition/RelatedPersonLogicalModel "Related person" "Someone related to the patient"
   * ^isSummary = true
   //* ^mustSupport = true
@@ -60,7 +60,7 @@ Description: "Exchange requirements example for the RelatedPerson Resource."
   //* ^mustSupport = true
   * status 1..1 CodeableConcept "Status" "A marital status"
   * status from http://hl7.org/fhir/ValueSet/marital-status (extensible)
-  * effectiveDate 1..1 dateTime "Effective date" "Date when status came into effect"
+  * effectiveDate 1..1 date "Effective date" "Date when status came into effect"
 
 Mapping: RelatedPersonLogicalModel-to-RelatedPerson
 Source: RelatedPersonLogicalModel

@@ -8,8 +8,7 @@ Description: "Patient documented as married."
 * name[=].middleName = "Doe"
 * maritalStatus
   * status = $MaritalStatusV3CodeSystem#M
-  * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate = "1999-01-01"
 
 Instance: LogicalModelPatientExample2
 InstanceOf: PatientLogicalModel
@@ -36,8 +35,7 @@ Description: "Patient marital status not documented but includes a Mother relati
 * relatedPerson[=].relationshipType = $RoleCodeV3CodeSystem#MTH
 * relatedPerson[=].maritalStatus
   * status = $MaritalStatusV3CodeSystem#M
-  * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate = "1999-01-01"
 
 Instance: RelatedPersonLogicalModelExample1
 InstanceOf: RelatedPersonLogicalModel
@@ -50,8 +48,7 @@ Description: "Marital status documented using a HL7 code."
 * relationshipType = $RoleCodeV3CodeSystem#MTH
 * maritalStatus
   * status = $MaritalStatusV3CodeSystem#M
-  * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate = "1999-01-01"
 
 Instance: RelatedPersonLogicalModelExample2
 InstanceOf: RelatedPersonLogicalModel
@@ -65,5 +62,4 @@ Description: "Marital status documented using a proprietary code."
 * maritalStatus
   * status = $MaritalStatusCodeSystem#Other
   * status.text = "Some other code/reason"
-  * effectiveDate.extension[+].valueDate = "1999-01-01"
-  * effectiveDate.extension[=].url = "http://jembi.org/fhir/StructureDefinition/marital-status-date"
+  * effectiveDate = "1999-01-01"
